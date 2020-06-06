@@ -1,0 +1,135 @@
+.allmember {			
+			background: #FFFFFF;
+			border-radius: 3px;
+			box-shadow:0 2px 7px rgba(0,0,0,0.3);
+			margin-right: 2%;
+			width: auto;
+			height: auto;
+			position: absolute;
+			padding:0.60%;
+		}
+		
+		.member {
+			background: linear-gradient(to bottom, #CCFF99, #F5FFFA);			
+			border-radius: 8px;
+			width: 172px;
+			height: 172px;
+			float: left;
+			margin: 0.63%;
+			position: relative;
+		}
+		
+		.name {
+			margin: 0px;
+			width: 70px;
+			float: left;
+			font-weight: bold;
+			position: absolute;
+			top: 5px;
+			left: 10px;
+		}
+		
+		.my_a { -
+			margin: 0px;
+		}
+		
+		.mebimg {
+			margin: 0px;
+			border-radius: 10px;
+			width: 140px;
+			height: 95px;
+			position: absolute;
+			left: 9px;
+			bottom: 31px;
+		}
+		
+		.pic {
+			margin: 0px;
+			clear: both;
+			width: 120px;
+			height: 90px;
+		}
+		
+		.hart {
+			float: left;
+		}
+		
+		.hart input {
+			width: 30px;
+			border-radius: 5px;
+		}
+		
+		.bdpresseure {
+			float: right;
+			width: 60px;
+			height: 20px;
+			margin-left: 8px;
+		}
+		
+		.bdpresseure img {
+			width: 20px;
+			height: 20px;
+			margin: 0px;
+			position: absolute;
+			bottom: 6px;
+			right: 73px;
+		}
+		
+		.bdpresseure p {
+			width: 0px;
+			margin: 0px;
+			position: absolute;
+			bottom: 4px;
+			right: 70px;
+		}
+		
+		.glucose {
+			float: right;
+			height: 10px;
+			width: 60px;
+		}
+		
+		.glucose img {
+			width: 20px;
+			height: 20px;
+			margin: 3px 5px;
+			position: absolute;
+			right: 38px;
+			top: 6px
+		}
+		
+		.glucose p {
+			margin: 0px;
+			position: absolute;
+			right: 15px;
+			top: 4px
+		}
+		
+		.hart img {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			bottom: 8px;
+			left: 10px;
+		}
+		
+		.hart p {
+			margin: 0px;
+			position: absolute;
+			bottom: 4px;
+			left: 32px;
+		}
+		
+		p.alltext {
+			font-size: 2ex;
+			color: #4169E1;
+		}
+		
+		.prcss {
+			color: red;
+		}
+		
+		.myform {
+			mrgin: 0px;
+			padding: 0pz;
+		}

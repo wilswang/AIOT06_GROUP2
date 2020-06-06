@@ -1,0 +1,19 @@
+
+.vertical-nav-menu li a {
+    display: block;
+    line-height: 2.4rem;
+    height: 2.4rem;
+    padding: 0 1.5rem 0 45px;
+    position: relative;
+    border-radius: .25rem;
+    color: #343a40;
+    white-space: nowrap;
+    transition: all .2s;
+    margin: .1rem 0;
+}
+.vertical-nav-menu li a.mm-active{color:#343a40;background:#e0f3ff;font-weight:bold}
+
+.vertical-nav-menu li a:hover {
+    background: #e0f3ff;
+    text-decoration: none;
+}

@@ -1,0 +1,63 @@
+/* Upload files & Edit Members */
+		 form {
+		    border: 3px solid #f1f1f1;
+		    border-radius: 8px;
+		    margin: 0 auto;
+		    /* width: 600px; */
+		    width: 100%;
+		    margin-top: 10%;
+		    padding-top: 20px;
+		  }
+		 
+		  /* Full-width inputs */
+		  input[type=text],
+		  input[type=password] {
+		    width: 100%;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    display: inline-block;
+		    border: 1px solid #ccc;
+		    box-sizing: border-box;
+		  }
+		
+		  /* Set a style for all buttons */
+		  button {
+		    background-color: #ADADAD;
+		    color: white;
+		    padding: 5px 18px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    /* width: 100%; */
+		  }
+		
+		  /* Add a hover effect for buttons */
+		  button:hover {
+		    opacity: 0.8;
+		  }
+		
+		  /* Extra style for the cancel button (red) */
+		  .cancelbtn {
+		    width: auto;
+		    padding: 5px 18px;
+		    /* background-color: #f44336; */
+		  }
+		
+		  /* 
+		
+		  /* Add padding to containers */
+		  .add_container {
+		    
+		    padding: 16px;
+		    border-radius: 0px 0px 5px 5px;
+		    
+		  }
+		  .add_container1 {
+		    /* position: relative; */
+		    padding: 0px 16px 16px 16px;
+		    /* border-radius: 0px 0px 25px 25px; */    
+		  }
+		  .gender{
+		      width:100%;
+		      height:3em;
+		  }

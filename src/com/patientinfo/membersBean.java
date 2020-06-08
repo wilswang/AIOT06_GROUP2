@@ -11,6 +11,9 @@ public class membersBean implements java.io.Serializable {
 	private String glucose;
 	private String Pulse_Rate;
 	private String SpO2;
+	private String Risk;
+	private String Type;
+	
 	public String getPatno() {
 		return Patno;
 	}
@@ -66,6 +69,18 @@ public class membersBean implements java.io.Serializable {
 	}
 	public void setSpO2(String spO2) {
 		SpO2 = spO2;
+	}
+	public String getRisk() {
+		return Risk;
+	}
+	public void setRisk(String risk) {
+		Risk = risk;
+	}
+	public String getType() {
+		return Type;
+	}
+	public void setType(String type) {
+		Type = type;
 	}
 	
 	

@@ -1,0 +1,29 @@
+      .app-theme-white.fixed-header .app-header__logo {
+            background: rgba(250,251,252,0.1);
+        }
+        .fixed-header .app-header .app-header__logo {
+            visibility: visible;
+        }
+        .app-header__logo {
+            padding: 0 1.5rem;
+            height: 60px;
+            width: 280px;
+            display: flex;
+            align-items: center;
+            transition: width .2s;
+        }
+		.hamburger {
+			padding: 0px 0px;
+			display: inline-block;
+			cursor: pointer;
+			transition-property: opacity, filter;
+			transition-duration: 0.15s;
+			transition-timing-function: linear;
+			font: inherit;
+			color: inherit;
+			text-transform: none;
+			background-color: transparent;
+			border: 0;
+			margin: 0;
+			overflow: visible;
+		}

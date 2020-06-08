@@ -36,7 +36,7 @@
 		</span>
 	</div>
 	<div class="app-header__content">
-		<div class="app-header-left"></div>
+		
 		<div class="app-header-right">
 			<div class="header-btn-lg pr-0">
 				<div class="widget-content p-0">
@@ -45,7 +45,7 @@
 							<div class="btn-group">
 								<a data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false" class="p-0 btn"> 
-									<i	class="fa fa-angle-down ml-2 opacity-8"></i>
+									<i class="fa fa-angle-down ml-2 opacity-8"></i>
 								</a>
 								<div tabindex="-1" role="menu" aria-hidden="true"
 									class="dropdown-menu dropdown-menu-right">
@@ -85,8 +85,8 @@
 <script>
 $(function(){             
     $("div.btn-group").click(function(){
-    	$(this).toggleClass("show");
-    	$("div.dropdown-menu").toggleClass("show");
+    	$("div.btn-group, div.dropdown-menu").toggleClass("show");
+    	
     });            
 });
 </script>

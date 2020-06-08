@@ -14,7 +14,8 @@ public class DatabaseConnection implements AutoCloseable {
     private static DataSource ds = null;
 
     
-    private static void initConn() {
+    @SuppressWarnings("unused")
+	private static void initConn() {
 
         try {
 

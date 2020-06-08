@@ -10,6 +10,7 @@
 	<meta name="msapplication-tap-highlight" content="no">
 	<title>${param.subTitle}</title>
 	<link rel="Shortcut Icon" type="image/x-icon" href="./favicon.ico" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link href="./main.css" rel="stylesheet">
 	<link href="./sidebar.css" rel="stylesheet">
 	<link href="./index_homepage.css" rel="stylesheet">	

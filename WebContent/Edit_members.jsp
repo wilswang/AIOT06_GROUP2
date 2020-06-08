@@ -30,19 +30,21 @@
                         <jsp:useBean id="pat" scope="request" class="com.patientinfo.Patbean" />
 						<% String add="", search="", a_show="", e_show="", patno=pat.getPatno(); 
 						if(pat.getFlag()!=null){
-							if(pat.getFlag().equals("add")){
+							if(pat.getFlag().equals("add")){ //由flag判斷目前狀態，如果為add，表示add分頁為顯示狀態(show)
 								add="active";
 								a_show="show";
+								//如果為edit或Search，表示Search分頁為顯示狀態(show)
 							}else if(pat.getFlag().equals("edit") || pat.getFlag().equals("Search") || pat.getFlag().equals("Search_fail")){
 								search="active";
 								e_show="show";
+								//如果為Search_Fail，表示Search分頁為顯示狀態(show)
 								if(pat.getFlag().equals("Search_fail") && patno!= null){%>
 							  	<script type="text/javascript">alert("Patient no. <%=patno%> is not existed");</script>
 							<%}}
 							else{
 								add=""; search=""; a_show=""; e_show="";
 							}
-						}else{
+						}else{  //如果flag為null，表示add分頁為顯示狀態(show)
 							add="active";
 							a_show="show";
 						}
@@ -62,10 +64,11 @@
                         </ul>
                         <div class="tab-content">
                            <div class="tab-pane tabs-animation fade <%=a_show%> <%=add%>" id="tab-content-0" role="tabpanel">
+                               <!-- 如果flag為add，代表新增成功，載入add_suc的頁面 -->
                                <% if(pat.getFlag()!=null){
                             	  	if(pat.getFlag().equals("add")){%>
                             	  		<jsp:include page="Add_Pat_Suc.jsp"></jsp:include>
-                                    <%} %>
+                                   <% } %>
                                <% }else{ %>
                                	<jsp:include page="add_members.jsp"></jsp:include>
                                <%} %>

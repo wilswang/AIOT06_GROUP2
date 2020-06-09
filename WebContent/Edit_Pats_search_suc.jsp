@@ -55,7 +55,7 @@
                         </ul>
                         <div class="tab-content">
                  	        <div class="tab-pane tabs-animation fade " id="tab-content-0" role="tabpanel">
-                                <%@ include file="add_members.jsp"%> 
+                                <%@ include file="Add_Pats.jsp"%> 
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 
@@ -67,7 +67,7 @@
 	        <!-- 查詢成員程式碼 -->
 	        <form class="form_pattern" action="/FinalProject/EditPatient" method="post" style="margin-top:15px;">  
 	                                                     
-	        <jsp:useBean id="pat" scope="request" class="com.patientinfo.Patbean" />
+	        <jsp:useBean id="pat" scope="request" class="com.patientinfo.HealthcareBean" />
 			<% String patno=pat.getPatno(), pname=pat.getpName(), bd=pat.getBirthday(), ge=pat.getGender(), mp=pat.getM_phone(), 
 			ep=pat.getE_contact_person(), en=pat.getE_contact_no(),er=pat.getE_contact_relation() ,flag=pat.getFlag(), mvalue="", fvalue="";
 			if(ge.equals("Male")){
@@ -107,7 +107,7 @@
 	              <input type="text" placeholder="Enter relation" name="E_relationship" required="required" autocomplete="off" value=<%=er%>><br>
 	
 	              <button class="form_button" type="submit">Edit</button>
-	              <button type="reset" class="cancelbtn" onclick="location.href='./Edit_members.jsp'">Cancel</button>                                                  
+	              <button type="reset" class="cancelbtn" onclick="location.href='./Edit_Pats.jsp'">Cancel</button>                                                  
 	        
 	            </div>                                            
 	            <div class="add_container" style="background-color:#f1f1f1"></div>

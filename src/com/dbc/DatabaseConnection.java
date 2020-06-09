@@ -20,10 +20,6 @@ public class DatabaseConnection implements AutoCloseable {
         try {
 
             Context ctx = new InitialContext();
-
-            if (ctx == null) {
-                throw new RuntimeException("JNDI Context not found");
-            }
             ds = (DataSource) ctx.lookup(DATASOURCENAME);
 
             if (ds == null) {

@@ -2,7 +2,6 @@ package com.patientinfo;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,7 +56,7 @@ private static final long serialVersionUID = 1L;
 			stmt = conn.prepareStatement(SQL1);
 			stmt.setString(1, Patno);	
 			ResultSet rs = stmt.executeQuery();
-			Patbean pat = new Patbean();
+			HealthcareBean pat = new HealthcareBean();
 //			System.out.println("SQL done");
 			
 			if(rs.next()) {		
@@ -71,13 +70,13 @@ private static final long serialVersionUID = 1L;
 				pat.setE_contact_relation(rs.getString("E_contact_relation"));
 				pat.setFlag("Edit");
 				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_members_search_suc.jsp").forward(request, response); //�۹���|					
+				request.getRequestDispatcher("./Edit_Pats_search_suc.jsp").forward(request, response); //�۹���|					
 			}else {
 				System.out.println("Select failed");
 //				System.out.println(rs.getString("Patno"));
 				pat.setPatno(Patno);
 				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_members_search.jsp").forward(request, response); //�۹���|
+				request.getRequestDispatcher("./Edit_Pats_search.jsp").forward(request, response); //�۹���|
 			}
 			stmt.close();
 			}catch (NullPointerException e) {

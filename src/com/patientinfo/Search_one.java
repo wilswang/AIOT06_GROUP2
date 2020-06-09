@@ -24,7 +24,7 @@ public class Search_one extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8") ;
 		String Patno = request.getParameter("patno");
-		Patbean pat = new Patbean();
+		HealthcareBean pat = new HealthcareBean();
 		 try (Connection conn = DatabaseConnection.getConnection()) {
 		        System.out.println(conn.isClosed());
 		        
@@ -48,14 +48,14 @@ public class Search_one extends HttpServlet {
 //				System.out.println(rs.getString("Gender").equals("Male"));
 //				System.out.println(rs.getString("Gender").equals("Female"));
 				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_members_search_suc.jsp").forward(request, response); //�۹���|					
+				request.getRequestDispatcher("./Edit_Pats_search_suc.jsp").forward(request, response); //�۹���|					
 			}
 			else {
 //				System.out.println("Select failed");
 				pat.setFlag("Search_fail");
 				pat.setPatno(Patno);
 				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_members_search.jsp").forward(request, response); //�۹���|
+				request.getRequestDispatcher("./Edit_Pats_search.jsp").forward(request, response); //�۹���|
 			}
 			stmt.close();
 			}catch (NullPointerException e) {
@@ -64,7 +64,7 @@ public class Search_one extends HttpServlet {
 				pat.setFlag("Search_fail");
 				pat.setPatno(Patno);
 				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_members_search.jsp").forward(request, response); //�۹���|
+				request.getRequestDispatcher("./Edit_Pats_search.jsp").forward(request, response); //�۹���|
 			}catch (Exception e) {
 				e.printStackTrace();
 				

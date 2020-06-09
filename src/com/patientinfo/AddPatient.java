@@ -49,10 +49,11 @@ public class AddPatient extends HttpServlet {
 			stmt.setString(5, E_contact_person);
 			stmt.setString(6, E_contact_no);
 			stmt.setString(7, E_contact_relation);			
+			@SuppressWarnings("unused")
 			int rows = stmt.executeUpdate();
 //		    System.out.println("Update success, Rows impacted : " + rows );
 //			HttpSession session =  request.getSession() ;
-			Patbean pat = new Patbean();
+			HealthcareBean pat = new HealthcareBean();
 
 			stmt = conn.prepareStatement(SQL1);
 			stmt.setString(1, M_phone);		
@@ -73,15 +74,15 @@ public class AddPatient extends HttpServlet {
 					pat.setE_contact_no(rs.getString("E_contact_no"));
 					pat.setE_contact_relation(rs.getString("E_contact_relation"));
 					request.setAttribute("pat", pat);
-					request.getRequestDispatcher("./Edit_members.jsp").forward(request, response); //�۹���|
+					request.getRequestDispatcher("./Edit_Pats.jsp").forward(request, response); //�۹���|
 				}else {
 //					System.out.println("Fail");
-					response.sendRedirect("./Edit_members.jsp") ;
+					response.sendRedirect("./Edit_Pats.jsp") ;
 				}
 					
 			}else {
 //				System.out.println("Select failed");
-				response.sendRedirect("./Edit_members_search.jsp") ;
+				response.sendRedirect("./Edit_Pats_search.jsp") ;
 			}}catch (NullPointerException e) {
 				e.printStackTrace();
 			}catch (Exception e) {

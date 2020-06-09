@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -15,9 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 import com.dbc.DatabaseConnection;
-import com.patientinfo.Patbean;
+import com.patientinfo.HealthcareBean;
 
 @WebServlet("/UploadFile")
 @MultipartConfig
@@ -32,7 +30,7 @@ public class UploadFile extends HttpServlet {
 	public static final String CONTENT_TYPE = "Content-type";
 	public static final String MULTIPART_FORM_DATA = "multipart/form-data";
 	public static final String MULTIPART_MIXED = "multipart/mixed";
-
+	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		try (Connection conn = DatabaseConnection.getConnection()) {
@@ -40,13 +38,14 @@ public class UploadFile extends HttpServlet {
 		PreparedStatement pstmt = conn.prepareStatement(SQLUF);
 
 		Part filePart = request.getPart("healthcheck"); // Retrieves <input type="file" name="file">
+		
 		String header = filePart.getHeader("Content-Disposition");
 //		System.out.println(header);
 		InputStream fileContent = filePart.getInputStream();
 		InputStreamReader inputCSV = new InputStreamReader(fileContent);
 		BufferedReader br = new BufferedReader(inputCSV);
 //		System.out.println(inputCSV);
-		Patbean pat = new Patbean();
+		HealthcareBean pat = new HealthcareBean();
 		String row;
 		String[] cols;
 		int count=0;

@@ -1,107 +1,41 @@
-package com.patientinfo;
+package com.upload;
 
 public class UploadFileBean {
 
 	private String  patno ;
-	public String getPatno() {
-		return patno;
-	}
-	public void setPatno(String patno) {
-		this.patno = patno;
-	}
-	public String getWeight() {
-		return Weight;
-	}
-	public void setWeight(String weight) {
-		Weight = weight;
-	}
-	public String getHeight() {
-		return height;
-	}
-	public void setHeight(String height) {
-		this.height = height;
-	}
-	public String getBMI() {
-		return BMI;
-	}
-	public void setBMI(String bMI) {
-		BMI = bMI;
-	}
-	public String getWasistline() {
-		return wasistline;
-	}
-	public void setWasistline(String wasistline) {
-		this.wasistline = wasistline;
-	}
-	public String getNaked_eye_R() {
-		return Naked_eye_R;
-	}
-	public void setNaked_eye_R(String naked_eye_R) {
-		Naked_eye_R = naked_eye_R;
-	}
-	public String getNaked_eye_L() {
-		return Naked_eye_L;
-	}
-	public void setNaked_eye_L(String naked_eye_L) {
-		Naked_eye_L = naked_eye_L;
-	}
-	public String getCorrected_R() {
-		return Corrected_R;
-	}
-	public void setCorrected_R(String corrected_R) {
-		Corrected_R = corrected_R;
-	}
-	public String getCorrected_L() {
-		return Corrected_L;
-	}
-	public void setCorrected_L(String corrected_L) {
-		Corrected_L = corrected_L;
-	}
-	public String getColor_Blindness() {
-		return Color_Blindness;
-	}
-	public void setColor_Blindness(String color_Blindness) {
-		Color_Blindness = color_Blindness;
-	}
-	public String getHearing_Test_R() {
-		return Hearing_Test_R;
-	}
-	public void setHearing_Test_R(String hearing_Test_R) {
-		Hearing_Test_R = hearing_Test_R;
-	}
-	public String getHearing_Test_L() {
-		return Hearing_Test_L;
-	}
-	public void setHearing_Test_L(String hearing_Test_L) {
-		Hearing_Test_L = hearing_Test_L;
-	}
-	public String getSBP() {
-		return SBP;
-	}
-	public void setSBP(String sBP) {
-		SBP = sBP;
-	}
-	public String getDBP() {
-		return DBP;
-	}
-	public void setDBP(String dBP) {
-		DBP = dBP;
-	}
-	public String getPulse_Rate() {
-		return Pulse_Rate;
-	}
-	public void setPulse_Rate(String pulse_Rate) {
-		Pulse_Rate = pulse_Rate;
-	}
-	public String getLEUKO() {
-		return LEUKO;
-	}
-	public void setLEUKO(String lEUKO) {
-		LEUKO = lEUKO;
-	}
-	public String getNIT() {
-		return NIT;
-	}
+	public String getPatno() {return patno;}
+	public void setPatno(String patno) {this.patno = patno;}
+	public String getWeight() {return Weight;}
+	public void setWeight(String weight) {Weight = weight;}
+	public String getHeight() {return height;}
+	public void setHeight(String height) {this.height = height;}
+	public String getBMI() {return BMI;}
+	public void setBMI(String bMI) {BMI = bMI;}
+	public String getWasistline() {return wasistline;}
+	public void setWasistline(String wasistline) {this.wasistline = wasistline;}
+	public String getNaked_eye_R() {return Naked_eye_R;}
+	public void setNaked_eye_R(String naked_eye_R) {Naked_eye_R = naked_eye_R;}
+	public String getNaked_eye_L() {return Naked_eye_L;}
+	public void setNaked_eye_L(String naked_eye_L) {Naked_eye_L = naked_eye_L;}
+	public String getCorrected_R() {return Corrected_R;}
+	public void setCorrected_R(String corrected_R) {Corrected_R = corrected_R;}
+	public String getCorrected_L() {return Corrected_L;}
+	public void setCorrected_L(String corrected_L) {Corrected_L = corrected_L;}
+	public String getColor_Blindness() {return Color_Blindness;}
+	public void setColor_Blindness(String color_Blindness) {Color_Blindness = color_Blindness;}
+	public String getHearing_Test_R() {return Hearing_Test_R;}
+	public void setHearing_Test_R(String hearing_Test_R) {Hearing_Test_R = hearing_Test_R;}
+	public String getHearing_Test_L() {return Hearing_Test_L;}
+	public void setHearing_Test_L(String hearing_Test_L) {Hearing_Test_L = hearing_Test_L;}
+	public String getSBP() {return SBP;}
+	public void setSBP(String sBP) {SBP = sBP;}
+	public String getDBP() {return DBP;}
+	public void setDBP(String dBP) {DBP = dBP;}
+	public String getPulse_Rate() {return Pulse_Rate;}
+	public void setPulse_Rate(String pulse_Rate) {Pulse_Rate = pulse_Rate;}
+	public String getLEUKO() {return LEUKO;}
+	public void setLEUKO(String lEUKO) {LEUKO = lEUKO;}
+	public String getNIT() {return NIT;}
 	public void setNIT(String nIT) {
 		NIT = nIT;
 	}
@@ -240,45 +174,19 @@ public class UploadFileBean {
 	public String getTG() {
 		return TG;
 	}
-	public void setTG(String tG) {
-		TG = tG;
-	}
-	public String getHDL() {
-		return HDL;
-	}
-	public void setHDL(String hDL) {
-		HDL = hDL;
-	}
-	public String getLDL() {
-		return LDL;
-	}
-	public void setLDL(String lDL) {
-		LDL = lDL;
-	}
-	public String getAC() {
-		return AC;
-	}
-	public void setAC(String aC) {
-		AC = aC;
-	}
-	public String getPC() {
-		return PC;
-	}
-	public void setPC(String pC) {
-		PC = pC;
-	}
-	public String getHb1Ac() {
-		return Hb1Ac;
-	}
-	public void setHb1Ac(String hb1Ac) {
-		Hb1Ac = hb1Ac;
-	}
-	public String getTSH() {
-		return TSH;
-	}
-	public void setTSH(String tSH) {
-		TSH = tSH;
-	}
+	public void setTG(String tG) {TG = tG;}
+	public String getHDL() {return HDL;}
+	public void setHDL(String hDL) {HDL = hDL;}
+	public String getLDL() {return LDL;}
+	public void setLDL(String lDL) {LDL = lDL;}
+	public String getAC() {	return AC;}
+	public void setAC(String aC) {AC = aC;}
+	public String getPC() {return PC;}
+	public void setPC(String pC) {PC = pC;}
+	public String getHb1Ac() {return Hb1Ac;}
+	public void setHb1Ac(String hb1Ac) {Hb1Ac = hb1Ac;}
+	public String getTSH() {return TSH;}
+	public void setTSH(String tSH) {TSH = tSH;}
 	private String  Weight ;
 	private String  height ;
 	private String  BMI  ;

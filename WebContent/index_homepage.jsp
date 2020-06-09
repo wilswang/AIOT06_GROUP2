@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="java.util.*,com.patientinfo.membersBean"%>
+	import="java.util.*,com.patientinfo.HealthcareBean"%>
 <%!@SuppressWarnings("unchecked")%>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
 
 					<!-- 首頁三個重要指標 -->
 					<jsp:useBean id="acB" scope="request"
-						class="com.patientinfo.abnormal_counterBean" />
+						class="com.patientinfo.HealthcareBean" />
 					<div class="row">
 						<div class="col-md-6 col-xl-4">
 							<div class="card mb-3 widget-content bg-midnight-bloom">
@@ -101,14 +101,14 @@
 					<!-- 小方塊置放區 -->
 					<div class="allmember">
 						<%
-							List<membersBean> adBs = (ArrayList<membersBean>) request.getAttribute("adBs");
-							for (membersBean adBs_ : adBs) {
+							List<HealthcareBean> adBs = (ArrayList<HealthcareBean>) request.getAttribute("adBs");
+							for (HealthcareBean adBs_ : adBs) {
 								if (Integer.parseInt(adBs_.getGlucose()) < 100 && Integer.parseInt(adBs_.getPulse_Rate()) < 100 && Integer.parseInt(adBs_.getPulse_Rate()) > 60 && Integer.parseInt(adBs_.getSBP()) <= 140 && Integer.parseInt(adBs_.getDBP()) <= 90) {
 									continue;
 								}else{
 						%>
 
-						<form class="member" id="member01" method="post"	action="./MembersDetails">
+						<form class="member" id="member01" method="post"	action="./PatientsDetails">
 							<p class="alltext name"><%=adBs_.getpName()%></p>
 							<div class="glucose">
 								<img src="./assets/images/glucose.png" alt="glucose">

@@ -35,7 +35,7 @@
                                         <!-- 上傳健檢資料程式碼 -->
                                         <form enctype="multipart/form-data" method="post" action="./UploadFile" style="margin-top:15px;"> 
                                             <div class="container">
-                                            <jsp:useBean id="pat" scope="request" class="com.patientinfo.Patbean" />
+                                            <jsp:useBean id="pat" scope="request" class="com.patientinfo.HealthcareBean" />
                                             <% String flag=pat.getFlag(); 
                                             	if(flag!=null){%>
                                                <h2 style="text-align:center"><%=flag%> successfully</h2>

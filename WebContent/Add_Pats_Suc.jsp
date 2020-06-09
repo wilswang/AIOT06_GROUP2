@@ -8,7 +8,7 @@
             
             <form class="form_pattern" action="" method="get" style="margin-top:15px;">  
             <h2 style="text-align:center">Add Successfully!</h2>                                             
-            <jsp:useBean id="pat" scope="request" class="com.patientinfo.Patbean" />
+            <jsp:useBean id="pat" scope="request" class="com.patientinfo.HealthcareBean" />
 			<% String patno=pat.getPatno(), pname=pat.getpName(), bd=pat.getBirthday(), ge=pat.getGender(), mp=pat.getM_phone(), 
 			ep=pat.getE_contact_person(), en=pat.getE_contact_no(),er=pat.getE_contact_relation();%>	
                 <div class="container">

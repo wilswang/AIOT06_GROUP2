@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.dbc.DatabaseConnection;
 
 
-@WebServlet("/MembersDetails")
-public class MembersDetails extends HttpServlet {
+@WebServlet("/PatientsDetails")
+public class PatientsDetails extends HttpServlet {
 private static final long serialVersionUID = 1L;
 	
 	private static final String SQLDM =
@@ -58,6 +58,7 @@ private static final long serialVersionUID = 1L;
 			HealthcareBean DM = null;
 			while (rs.next()) {
 				DM = new HealthcareBean();
+				DM.setPatno(rs.getString("patno"));
 				DM.setDate(rs.getString("date"));
 				DM.setSBP(rs.getString("sBP"));
 				DM.setDBP(rs.getString("dBP"));
@@ -113,7 +114,7 @@ private static final long serialVersionUID = 1L;
 			request.setAttribute("DMLatest", DMLatest);
 			request.setAttribute("pat", pat);
 			stmt.close();
-			request.getRequestDispatcher("./MembersDetails.jsp")
+			request.getRequestDispatcher("./PatientsDetails.jsp")
 				.forward(request, response);
 //			System.out.println("123");
 		} catch (Exception e) {

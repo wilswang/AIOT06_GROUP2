@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*,com.patientinfo.membersBean"%>
+    pageEncoding="UTF-8" import="java.util.*,com.patientinfo.HealthcareBean"%>
     
 <%! @SuppressWarnings("unchecked") %>
 <!doctype html>
@@ -33,10 +33,10 @@
                     
                      <div class="allmember">                
                         
-                        <% List<membersBean> pms = (ArrayList<membersBean>)request.getAttribute("pms"); 
-   		                      for(membersBean pms_ : pms) { %>
+                        <% List<HealthcareBean> pms = (ArrayList<HealthcareBean>)request.getAttribute("pms"); 
+   		                      for(HealthcareBean pms_ : pms) { %>
    		                               		                            
-                     	<form  class="member" id="member01" method="post" action="./MembersDetails">
+                     	<form  class="member" id="member01" method="post" action="./PatientsDetails">
                             <p class="alltext name"><%=pms_.getpName()%></p>
                             <div class="glucose">
                                 <img src="./assets/images/glucose.png" alt="glucose">

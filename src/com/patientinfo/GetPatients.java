@@ -1,19 +1,14 @@
 package com.patientinfo;
 import java.io.*;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
 import com.dbc.DatabaseConnection;
-
 import java.sql.*;
 import java.util.*;
-/**
- * Servlet implementation class Getabnormal_detect
- */
-@WebServlet("/Getmembers")
-public class Getmembers extends HttpServlet {
+
+@WebServlet("/GetPatients")
+public class GetPatients extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String SQL =
@@ -23,14 +18,13 @@ public class Getmembers extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {		
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-		        System.out.println(conn.isClosed());
-		        
+		        System.out.println(conn.isClosed());		        
 			PreparedStatement stmt = conn.prepareStatement(SQL);
 			ResultSet rs = stmt.executeQuery();
-			List<membersBean> pms =new ArrayList<>();
-			membersBean pm = null;
+			List<HealthcareBean> pms =new ArrayList<>();
+			HealthcareBean pm = null;
 			while (rs.next()) {
-				pm = new membersBean();
+				pm = new HealthcareBean();
 				pm.setPatno(rs.getString("Patno"));       
 				pm.setpName(rs.getString("pName"));
 				pm.setGender(rs.getString("Gender"));
@@ -45,7 +39,7 @@ public class Getmembers extends HttpServlet {
 			request.setAttribute("pms", pms);
 			stmt.close();
 //			System.out.println("out");
-			request.getRequestDispatcher("./members.jsp")
+			request.getRequestDispatcher("./Patients.jsp")
 				.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

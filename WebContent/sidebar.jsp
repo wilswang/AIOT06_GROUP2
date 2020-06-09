@@ -42,14 +42,14 @@
 							<li><a href="./Getabnormal_detect" > 
 								<i class="metismenu-icon pe-7s-culture"></i> HomePage</a></li>
 							<li class="app-sidebar__heading">Information</li>
-							<li><a href="./Getmembers"> 
+							<li><a href="./GetPatients"> 
 								<i class="metismenu-icon pe-7s-users"></i> Members</a></li>
 							<li><a href="./Statistics.jsp"> 
 								<i	class="metismenu-icon pe-7s-graph2"> </i>Statistics</a></li>
 							<li class="app-sidebar__heading">Management</li>
 							<li><a href="./File_management.jsp"> 
 								<i	class="metismenu-icon pe-7s-paperclip"></i> Upload files</a></li>
-							<li><a href="./Edit_members.jsp"> 
+							<li><a href="./Edit_Pats.jsp"> 
 								<i	class="metismenu-icon pe-7s-magic-wand"> </i>Edit members</a></li>
 						</ul>
 					</div>

@@ -16,6 +16,7 @@
       margin-top: 10%;
     }
 
+
     /* Full-width inputs */
     input[type=text],
     input[type=password] {

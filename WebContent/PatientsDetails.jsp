@@ -8,7 +8,7 @@
 </jsp:include>
 <body onbeforeunload="window.location='./logout.jsp'">
 	<div id="pagetop" style="visibility: hidden"></div>
-	
+	<% HealthcareBean ml = (HealthcareBean)request.getAttribute("ml");%>
 	<%
 			HealthcareBean DM = (HealthcareBean)request.getAttribute("DM");
 		%>
@@ -219,24 +219,20 @@
 									<hr style="margin: 17px 0px;">
 									<div class="widget-content-wrapper">
 										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">Risk for Heart Disease (TBD)</div>
-											<span class="widget-numbers mt-0 fsize-3 text-secondary"
-												style="display: inline">0</span> <span
-												class="widget-subheading"
-												style="line-height: 20px; display: inline">%</span>
+											<div  class="widget-heading">Cardiovascular Disease Status</div>
+											<span id="cardio" class="widget-numbers mt-0 fsize-3 "
+												style="display: inline">${ml.result}</span> 
 										</div>
 
 									</div>
 									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs progress"
-											style="margin-top: -10px;">
-											<div class="progress-bar bg-secondary" role="progressbar"
-												aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
-												style="width: 0%;"></div>
+										<div class="progress-bar-xs "
+											style="margin-top: -10px;height:16px;opacity: .5;">
+											Please make an appointment immediately if the status shows "Danger"
 										</div>
-										<div class="progress-sub-label">
-											<div class="sub-label-left">0%</div>
-											<div class="sub-label-right">100%</div>
+										<div class="progress-sub-label" style="height:20px">
+											<div class="sub-label-left"></div>
+											<div class="sub-label-right"></div>
 										</div>
 									</div>
 								</div>
@@ -693,7 +689,14 @@
 		}else if(SpO2>=95){
 		$("#SpO2").addClass('bg-success')
 		$("#SpO2_num").addClass('text-success')
-		}	
+		}
+		
+		var cardio="<%=ml.getResult()%>";
+		if (cardio == "Safe"){
+		$("#cardio").addClass('text-success')
+		}else if(cardio == "Danger"){
+		$("#cardio").addClass('text-danger')
+		}
     };
 
     document.getElementById('randomizeData').addEventListener('click', function() {

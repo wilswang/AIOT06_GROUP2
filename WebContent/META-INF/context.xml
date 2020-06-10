@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/FinalProject">
-  <Resource auth="Container" driverClassName="org.mariadb.jdbc.Driver" initialSize="10" maxIdle="20" maxTotal="50" maxWaitMillis="180000" minEvictableIdleTimeMillis="120000" name="jdbc/healthcare" password="iiiAIOT06" removeAbandonedOnMaintenance="true" removeAbandonedTimeout="600" testOnBorrow="true" testOnReturn="false" testWhileIdle="true" timeBetweenEvictionRunsMillis="60000" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/healthcare" username="hcuser" validationQuery="select 1"/>
+  <Resource auth="Container" driverClassName="org.mariadb.jdbc.Driver" initialSize="10" maxIdle="20" maxTotal="50" maxWaitMillis="180000" minEvictableIdleTimeMillis="120000" name="jdbc/healthcare" password="iiiAIOT06" removeAbandonedOnMaintenance="true" removeAbandonedTimeout="600" testOnBorrow="true" testOnReturn="false" testWhileIdle="true" timeBetweenEvictionRunsMillis="60000" type="javax.sql.DataSource" url="jdbc:mysql://database-1.cr4dw42pglz1.ap-northeast-1.rds.amazonaws.com:3306/healthcare" username="admin" validationQuery="select 1"/>
 </Context>

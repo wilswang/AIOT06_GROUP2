@@ -16,12 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dbc.DatabaseConnection;
+import com.patientinfo.HealthcareBean;
 
 
 @WebServlet("/PatientsDetails")
 public class PatientsDetails extends HttpServlet {
 private static final long serialVersionUID = 1L;
-	
+
+	private static final String SQLml =
+			"SELECT result FROM ml WHERE Patno = ?";
+
 	private static final String SQLDM =
 			"SELECT * FROM dailymeasure WHERE Patno = ?";
 	
@@ -108,6 +112,31 @@ private static final long serialVersionUID = 1L;
 				pat.setHeight(rs.getString("height"));
 				pat.setWeight(rs.getString("weight"));
 			}
+			
+			/*Select result from ml*/
+			String[] cmd = {
+					"python",
+					"C:/Users/user/FinalProject/Predict.py",
+					Patno,
+					};
+			try {
+				 Process pr = Runtime.getRuntime().exec(cmd);
+				 pr.waitFor();
+				 /*System.out.println("123");*/
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			stmt = conn.prepareStatement(SQLml);
+			stmt.setString(1, Patno);
+			rs = stmt.executeQuery();
+			HealthcareBean ml = null;
+			while (rs.next()) {
+				ml = new HealthcareBean();
+				ml.setResult(rs.getString("result"));
+			}
+			
+			request.setAttribute("ml", ml);
 			request.setAttribute("DM", DM);
 			request.setAttribute("DMs", DMs);
 			request.setAttribute("DMCrts", DMCrts);

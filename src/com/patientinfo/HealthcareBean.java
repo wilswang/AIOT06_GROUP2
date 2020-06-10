@@ -82,7 +82,11 @@ public class HealthcareBean {
 	public void setE_contact_relation(String e_contact_relation) { this.e_contact_relation = e_contact_relation; }	
 	public void setFlag(String flag) { this.flag = flag; }	
 
-	
+	/* ml */
+	public String result;
 
+	public String getResult() {return result;}
+	
+	public void setResult(String result) {this.result = result;}
 	
 }

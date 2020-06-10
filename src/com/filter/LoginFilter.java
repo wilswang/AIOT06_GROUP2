@@ -24,7 +24,7 @@ public class LoginFilter implements Filter {
 
         
         // Ignore the login page
-        if(path.contains("sidebar") ||path.contains("css") || path.contains("assets") ||path.endsWith("Login") || path.endsWith("Login_page.jsp") || path.contains("crawler")) {
+        if(path.contains("sidebar") ||path.contains("css") || path.contains("assets") ||path.endsWith("Login") || path.endsWith("Login_page.jsp") || path.contains("crawler")|| path.contains("bpminsert")) {
             chain.doFilter(servletRequest, servletResponse);
             return;
         }

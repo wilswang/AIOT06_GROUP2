@@ -45,7 +45,7 @@ private static final long serialVersionUID = 1L;
 			throws ServletException, IOException {		
 
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-		        System.out.println(conn.isClosed());
+		       // System.out.println(conn.isClosed());
 			/*Select Patient all Dailymeasure*/
 			
 			
@@ -113,29 +113,41 @@ private static final long serialVersionUID = 1L;
 				pat.setWeight(rs.getString("weight"));
 			}
 			
-			/*Select result from ml*/
-			String[] cmd = {
-					"python",
-					"C:/Users/user/FinalProject/Predict.py",
-					Patno,
-					};
-			try {
-				 Process pr = Runtime.getRuntime().exec(cmd);
-				 pr.waitFor();
-				 /*System.out.println("123");*/
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
+			/*Run Python simulation if Result is null*/
 			stmt = conn.prepareStatement(SQLml);
 			stmt.setString(1, Patno);
 			rs = stmt.executeQuery();
-			HealthcareBean ml = null;
 			while (rs.next()) {
+				if (rs.getString("result")==null) {
+					System.out.println("Result is null. Run python!");
+					String[] cmd = {
+							"python",
+							"C:/Users/user/FinalProject/PredictAws.py",
+							Patno,
+							};
+					try {
+						 Process pr = Runtime.getRuntime().exec(cmd);
+						 pr.waitFor();
+						 
+					} catch (IOException e) {
+						e.printStackTrace();
+					}finally{
+						System.out.println("Python done");
+					};
+				}
+			}
+				
+			/*Select result from ml*/
+			stmt = conn.prepareStatement(SQLml);
+			stmt.setString(1, Patno);
+			rs = stmt.executeQuery();
+			HealthcareBean ml = null;	
+			while (rs.next()) {
+				System.out.println(rs.getString("result"));
 				ml = new HealthcareBean();
 				ml.setResult(rs.getString("result"));
 			}
-			
+						
 			request.setAttribute("ml", ml);
 			request.setAttribute("DM", DM);
 			request.setAttribute("DMs", DMs);
@@ -145,7 +157,6 @@ private static final long serialVersionUID = 1L;
 			stmt.close();
 			request.getRequestDispatcher("./PatientsDetails.jsp")
 				.forward(request, response);
-//			System.out.println("123");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

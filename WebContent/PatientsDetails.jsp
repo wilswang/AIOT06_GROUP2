@@ -624,9 +624,9 @@
         //連接Servlet之DB內容
 		$("#sex").attr("src","./assets/images/"+"<%=pat.getGender()%>"+".png");
 		//設定身高體重
-		var WT=<%=pat.getWeight()%>;
-		var HT=<%=pat.getHeight()%>;
-		var BMI=(parseInt(WT)/(parseInt(HT)*parseInt(HT)/10000));
+		var WT='<%=pat.getWeight()%>';
+		var HT='<%=pat.getHeight()%>';
+		var BMI=parseInt(WT)/(parseInt(HT)*parseInt(HT)/10000);
 		$("#BMI").text(BMI.toFixed(1));
 		
 		var PR=<%=DMLatest.getPulse_Rate()%>;

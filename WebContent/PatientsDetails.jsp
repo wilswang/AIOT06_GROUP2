@@ -4,85 +4,88 @@
 <!doctype html>
 <html lang="en">
 <jsp:include page="web_head.jsp">
-	<jsp:param name="subTitle" value="Members Details"/>
+	<jsp:param name="subTitle" value="Members Details" />
 </jsp:include>
 <body onbeforeunload="window.location='./logout.jsp'">
 	<div id="pagetop" style="visibility: hidden"></div>
-	<% HealthcareBean ml = (HealthcareBean)request.getAttribute("ml");%>
 	<%
-			HealthcareBean DM = (HealthcareBean)request.getAttribute("DM");
-		%>
-	<%
-		List<HealthcareBean> DMs = (ArrayList<HealthcareBean>)request.getAttribute("DMs");
+		HealthcareBean ml = (HealthcareBean) request.getAttribute("ml");
 	%>
 	<%
-		HealthcareBean DMLatest = (HealthcareBean)request.getAttribute("DMLatest");
+		HealthcareBean DM = (HealthcareBean) request.getAttribute("DM");
 	%>
 	<%
-		HealthcareBean pat = (HealthcareBean)request.getAttribute("pat");
+		List<HealthcareBean> DMs = (ArrayList<HealthcareBean>) request.getAttribute("DMs");
 	%>
 	<%
-		List<HealthcareBean> DMCrts = (ArrayList<HealthcareBean>)request.getAttribute("DMCrts");
-	%>	
-	
-	<%@ include file="backtotop.jsp"%> 
-	<%@ include file="header.jsp"%> 
-		<div class="app-main">
-			<jsp:include page="sidebar.jsp"></jsp:include>
-			<div class="app-main__outer">
-				<div class="app-main__inner">
-					<div class="app-page-title">
-						<div class="page-title-wrapper">
-							<div class="page-title-heading">
-								<div class="page-title-icon">
-									<i class="pe-7s-users icon-gradient bg-happy-itmeo"> </i>
-								</div>
-								<div>
-									Members Detail
-									<div class="page-title-subheading">All members info can
-										be checked here.</div>
-								</div>
+		HealthcareBean DMLatest = (HealthcareBean) request.getAttribute("DMLatest");
+	%>
+	<%
+		HealthcareBean pat = (HealthcareBean) request.getAttribute("pat");
+	%>
+	<%
+		List<HealthcareBean> DMCrts = (ArrayList<HealthcareBean>) request.getAttribute("DMCrts");
+	%>
+
+	<%@ include file="backtotop.jsp"%>
+	<%@ include file="header.jsp"%>
+	<div class="app-main">
+		<jsp:include page="sidebar.jsp"></jsp:include>
+		<div class="app-main__outer">
+			<div class="app-main__inner">
+				<div class="app-page-title">
+					<div class="page-title-wrapper">
+						<div class="page-title-heading">
+							<div class="page-title-icon">
+								<i class="pe-7s-users icon-gradient bg-happy-itmeo"> </i>
+							</div>
+							<div>
+								Members Detail
+								<div class="page-title-subheading">All members info can be
+									checked here.</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-xl-4"
-						style="display: inline-block; width: 33.1%; padding-left: 0px;">
-						<div class=" mb-3 widget-chart widget-chart2 text-left card">
-							<div class="widget-content" style="padding-bottom:11px;">
+				</div>
+				<div class="row">
+					<div class="col-xl-4">
+						<div class=" main-card mb-3 card">
+							<div class="widget-content pb-0">
 								<div class="widget-content-outer">
 									<div class="widget-content-wrapper">
 										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">Patient No. <%=DM.getPatno()%></div>											
+											<div class="widget-heading">
+												Patient No.
+												<%=DM.getPatno()%></div>
 											<span class="widget-numbers mt-0 fsize-3 text-secondary"
 												style="display: inline"> ${pat.pName}</span>
 										</div>
 									</div>
-									<div style="display: flex; flex-direction: row;">
-										<div class="widget-progress-wrapper">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-right ml-0 mr-5">
 											<img id="sex" class="PatientPic"
-												style="width: 120px; height: 335px; margin-top: -10px; margin-left: 55px;">
+												style="width: 120px; height: 315px; margin-top: 10px; margin-left: 55px;">
 										</div>
-										<div class="widget-progress-wrapper"
-											style="margin-left: 50px; position: relative;">
-											<div class="widget-heading">Height</div>
-											<span class="widget-numbers text-success"
-												style="display: inline;"><%=pat.getHeight()%></span> <span
-												class="widget-subheading text-success"
-												style="display: inline;">cm</span>
-										</div>
-										<div class="widget-progress-wrapper"
-											style="margin-left: 225px; margin-top: 145px; position: absolute;">
-											<div class="widget-heading">Weight</div>
-											<span class="widget-numbers text-success"
-												style="display: inline;"><%=pat.getWeight()%></span> <span
-												class="widget-subheading text-success"
-												style="display: inline;">kg</span>
-										</div>
-										<div class="widget-progress-wrapper"
-											style="margin-left: 225px; margin-top: 270px; position: absolute;">
-											<div class="widget-heading">BMI</div>													
-											<span id="BMI" class="widget-numbers text-success"
-												style="display: inline;"></span>
+										<div class="widget-content-left">
+											<div class="widget-progress-wrapper ml-3 mb-4">
+												<div class="widget-heading">Height</div>
+												<span class="widget-numbers text-success"
+													style="display: inline;"><%=pat.getHeight()%></span> <span
+													class="widget-subheading text-success"
+													style="display: inline;">cm</span>
+											</div>
+											<div class="widget-progress-wrapper ml-3 mb-4">
+												<div class="widget-heading">Weight</div>
+												<span class="widget-numbers text-success"
+													style="display: inline;"><%=pat.getWeight()%></span> <span
+													class="widget-subheading text-success"
+													style="display: inline;">kg</span>
+											</div>
+											<div class="widget-progress-wrapper ml-3">
+												<div class="widget-heading">BMI</div>
+												<span id="BMI" class="widget-numbers text-success"
+													style="display: inline;"></span>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -90,262 +93,299 @@
 						</div>
 					</div>
 					<!-- 詳細健康數據2 -->
-					<div class="col-md-6 col-xl-4"
-						style="display: inline-block; width: 33.1%">
-						<div class=" mb-3 widget-chart widget-chart2 text-left card">
-							<div class="widget-content">
-								<div class="widget-content-outer">
-									<div class="widget-content-wrapper">
-										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">Pulse Rate</div>
-											<span id="Pulse_Rate_num" class="widget-numbers mt-0 fsize-3"
-												style="display: inline">${DMLatest.pulse_Rate}</span> <span
-												class="widget-subheading"
-												style="line-height: 20px; display: inline">bpm</span>
+					<div class="col-xl-4">
+						<div class=" main-card mb-3 card">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<div class="widget-content p-0">
+										<div class="widget-content-outer">
+											<div class="widget-content-wrapper">
+												<div class="widget-content-left pr-2 fsize-1">
+													<div class="widget-heading">Pulse Rate</div>
+													<span id="Pulse_Rate_num"
+														class="widget-numbers mt-0 fsize-3"
+														style="display: inline">${DMLatest.pulse_Rate}</span> <span
+														class="widget-subheading"
+														style="line-height: 20px; display: inline">bpm</span>
+												</div>
+											</div>
+											<div class="widget-progress-wrapper">
+												<div class="progress-bar-xs progress"
+													style="margin-top: -10px;">
+													<div id="Pulse_Rate" class="progress-bar"
+														role="progressbar" aria-valuenow="65" aria-valuemin="0"
+														aria-valuemax="200"></div>
+												</div>
+												<div class="progress-sub-label">
+													<div class="sub-label-left">0</div>
+													<div class="sub-label-right">200</div>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs progress"
-											style="margin-top: -10px;">
-											<div id="Pulse_Rate" class="progress-bar" role="progressbar"
-												aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"
-												></div>
-										</div>
-										<div class="progress-sub-label">
-											<div class="sub-label-left">0</div>
-											<div class="sub-label-right">200</div>
-										</div>
-									</div>
-									<hr style="margin: 17px 0px;">
-									<div class="widget-content-wrapper">
-										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">SBP</div>
-											<span id="SBP_num" class="widget-numbers mt-0 fsize-3"
-												style="display: inline">${DMLatest.SBP}</span> <span
-												class="widget-subheading"
-												style="line-height: 20px; display: inline">mmHg</span>
-										</div>
+								</li>
+								<li class="list-group-item">
+									<div class="widget-content p-0">
+										<div class="widget-content-outer">
+											<div class="widget-content-wrapper">
+												<div class="widget-content-left pr-2 fsize-1">
+													<div class="widget-heading">SBP</div>
+													<span id="SBP_num" class="widget-numbers mt-0 fsize-3"
+														style="display: inline">${DMLatest.SBP}</span> <span
+														class="widget-subheading"
+														style="line-height: 20px; display: inline">mmHg</span>
+												</div>
 
+											</div>
+											<div class="widget-progress-wrapper">
+												<div class="progress-bar-xs progress"
+													style="margin-top: -10px;">
+													<div id="SBP" class="progress-bar" role="progressbar"
+														aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+												</div>
+												<div class="progress-sub-label">
+													<div class="sub-label-left">0</div>
+													<div class="sub-label-right">200</div>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs progress"
-											style="margin-top: -10px;">
-											<div id="SBP" class="progress-bar" role="progressbar"
-												aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"
-												></div>
-										</div>
-										<div class="progress-sub-label">
-											<div class="sub-label-left">0</div>
-											<div class="sub-label-right">200</div>
-										</div>
-									</div>
-									<hr style="margin: 17px 0px;">
-									<div class="widget-content-wrapper">
-										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">DBP</div>
-											<span id="DBP_num" class="widget-numbers mt-0 fsize-3"
-												style="display: inline">${DMLatest.DBP}</span> <span
-												class="widget-subheading"
-												style="line-height: 20px; display: inline">mmHg</span>
-										</div>
+								</li>
+								<li class="list-group-item">
+									<div class="widget-content p-0">
+										<div class="widget-content-outer">
+											<div class="widget-content-wrapper">
+												<div class="widget-content-left pr-2 fsize-1">
+													<div class="widget-heading">DBP</div>
+													<span id="DBP_num" class="widget-numbers mt-0 fsize-3"
+														style="display: inline">${DMLatest.DBP}</span> <span
+														class="widget-subheading"
+														style="line-height: 20px; display: inline">mmHg</span>
+												</div>
 
-									</div>
-									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs progress"
-											style="margin-top: -10px;">
-											<div id="DBP" class="progress-bar" role="progressbar"
-												aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"
-												></div>
+											</div>
+											<div class="widget-progress-wrapper">
+												<div class="progress-bar-xs progress"
+													style="margin-top: -10px;">
+													<div id="DBP" class="progress-bar" role="progressbar"
+														aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+												</div>
+												<div class="progress-sub-label">
+													<div class="sub-label-left">0</div>
+													<div class="sub-label-right">200</div>
+												</div>
+											</div>
 										</div>
-										<div class="progress-sub-label">
-											<div class="sub-label-left">0</div>
-											<div class="sub-label-right">200</div>
-										</div>
 									</div>
-								</div>
-							</div>
+								</li>
+							</ul>
 						</div>
 					</div>
 					<!-- 詳細健康數據3 -->
-					<div class="col-md-6 col-xl-4"
-						style="display: inline-block; width: 33.1%; padding-right: 0px;">
-						<div class=" mb-3 widget-chart widget-chart2 text-left card">
-							<div class="widget-content">
-								<div class="widget-content-outer">
-									<div class="widget-content-wrapper">
-										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">Blood Glucose</div>
-											<span id="glucose_num" class="widget-numbers mt-0 fsize-3 "
-												style="display: inline">${DMLatest.glucose}</span> <span
-												class="widget-subheading"
-												style="line-height: 20px; display: inline">mg/dL</span>
-										</div>										
-									</div>									
-									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs progress"
-											style="margin-top: -10px;">
-											<div id="glucose"class="progress-bar " role="progressbar"
-												aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"
-												></div>
-										</div>
-										<div class="progress-sub-label">
-											<div class="sub-label-left">0</div>
-											<div class="sub-label-right">200</div>
-										</div>
-									</div>
-									<hr style="margin: 17px 0px;">
-									<div class="widget-content-wrapper">
-										<div class="widget-content-left pr-2 fsize-1">
-											<div class="widget-heading">SpO2</div>
-											<span id="SpO2_num"class="widget-numbers mt-0 fsize-3"
-												style="display: inline">${DMLatest.spO2}</span> <span
-												class="widget-subheading"
-												style="line-height: 20px; display: inline">%</span>
-										</div>
+					<div class="col-xl-4">
+						<div class=" main-card mb-3 card ">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<div class="widget-content p-0">
+										<div class="widget-content-outer">
 
+											<div class="widget-content-wrapper">
+												<div class="widget-content-left pr-2 fsize-1">
+													<div class="widget-heading">Blood Glucose</div>
+													<span id="glucose_num" class="widget-numbers mt-0 fsize-3 "
+														style="display: inline">${DMLatest.glucose}</span> <span
+														class="widget-subheading"
+														style="line-height: 20px; display: inline">mg/dL</span>
+												</div>
+											</div>
+											<div class="widget-progress-wrapper">
+												<div class="progress-bar-xs progress"
+													style="margin-top: -10px;">
+													<div id="glucose" class="progress-bar " role="progressbar"
+														aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+												</div>
+												<div class="progress-sub-label">
+													<div class="sub-label-left">0</div>
+													<div class="sub-label-right">200</div>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs progress"
-											style="margin-top: -10px;">
-											<div id="SpO2"class="progress-bar" role="progressbar"
-												aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
-												></div>
-										</div>
-										<div class="progress-sub-label">
-											<div class="sub-label-left">0%</div>
-											<div class="sub-label-right">100%</div>
+								</li>
+								<li class="list-group-item">
+									<div class="widget-content p-0">
+										<div class="widget-content-outer">
+											<div class="widget-content-wrapper">
+												<div class="widget-content-left pr-2 fsize-1">
+													<div class="widget-heading">SpO2</div>
+													<span id="SpO2_num" class="widget-numbers mt-0 fsize-3"
+														style="display: inline">${DMLatest.spO2}</span> <span
+														class="widget-subheading"
+														style="line-height: 20px; display: inline">%</span>
+												</div>
+											</div>
+											<div class="widget-progress-wrapper">
+												<div class="progress-bar-xs progress"
+													style="margin-top: -10px;">
+													<div id="SpO2" class="progress-bar" role="progressbar"
+														aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+												</div>
+												<div class="progress-sub-label">
+													<div class="sub-label-left">0%</div>
+													<div class="sub-label-right">100%</div>
+												</div>
+											</div>
 										</div>
 									</div>
-									<hr style="margin: 17px 0px;">
-									<div class="widget-content-wrapper">
-										<div class="widget-content-left pr-2 fsize-1">
-											<div  class="widget-heading">Cardiovascular Disease Status</div>
-											<span id="cardio" class="widget-numbers mt-0 fsize-3 "
-												style="display: inline">${ml.result}</span> 
-										</div>
+								</li>
+								<li class="list-group-item">
+									<div class="widget-content p-0">
+										<div class="widget-content-outer">
+											<div class="widget-content-wrapper">
 
-									</div>
-									<div class="widget-progress-wrapper">
-										<div class="progress-bar-xs "
-											style="margin-top: -10px;height:16px;opacity: .5;">
-											Please make an appointment immediately if the status shows "Danger"
+												<div class="widget-content-left pr-2 fsize-1">
+													<div class="widget-heading">Cardiovascular Disease
+														Status</div>
+													<span id="cardio" class="widget-numbers mt-0 fsize-3 "
+														style="display: inline">${ml.result}</span>
+												</div>
+
+											</div>
+											<div class="widget-progress-wrapper">
+												<div class="progress-bar-xs "
+													style="margin-top: -10px; height: 16px; opacity: .5;">
+													Please make an appointment immediately if the status shows
+													"Danger"</div>
+												<div class="progress-sub-label" style="height: 20px">
+													<div class="sub-label-left"></div>
+													<div class="sub-label-right"></div>
+												</div>
+											</div>
 										</div>
-										<div class="progress-sub-label" style="height:20px">
-											<div class="sub-label-left"></div>
-											<div class="sub-label-right"></div>
-										</div>
 									</div>
-								</div>
-							</div>
+								</li>
+							</ul>
 						</div>
 					</div>
-					<ul
-						class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-						<li class="nav-item"><a role="tab" class="nav-link active"
-							id="tab-0" data-toggle="tab" href="#tab-content-0"> <span>History
-									Data</span>
-						</a></li>
-						<li class="nav-item"><a role="tab" class="nav-link"
-							id="tab-1" data-toggle="tab" href="#tab-content-1"> <span>History
-									Charts</span>
-						</a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane tabs-animation fade show active"
-							id="tab-content-0" role="tabpanel">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="main-card mb-3 card">
-										<div class="card-body">
-											<h5 class="card-title">History Data</h5>
-											<table class="mb-0 table table-hover" style="text-align:center;">
-												<thead>
-													<tr>
-														<th>Date</th>
-														<th>Pulse Rate</th>
-														<th>SBP</th>
-														<th>DBP</th>
-														<th>Blood Glucose</th>
-														<th>SpO2</th>
-													</tr>
-												</thead>
-												<tbody>
-													<%for(int i = 0; i <DMs.size(); i++) { %>
-													<tr>
-														<th><%=(DMs.get(i)).getDate()%></th>
-														<td><%=(DMs.get(i)).getPulse_Rate()%></td>
-														<td><%=(DMs.get(i)).getSBP()%></td>
-														<td><%=(DMs.get(i)).getDBP()%></td>
-														<td><%=(DMs.get(i)).getGlucose()%></td>
-														<td><%=(DMs.get(i)).getSpO2()%></td>
-													</tr>
-														<%}%>
-												</tbody>
-											</table>
-										</div>
-									</div>
+				</div>
 
+				<ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+					<li class="nav-item">
+						<a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0" aria-selected="true">
+							<span>History Data</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1" aria-selected="false">
+							<span>History Charts</span>
+						</a>
+					</li>
+				</ul>
+				
+				<div class="tab-content">
+					<div class="tab-pane tabs-animation fade show active"
+						id="tab-content-0" role="tabpanel">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="main-card mb-3 card">
+									<div class="card-body">
+										<h5 class="card-title">History Data</h5>
+										<table class="mb-0 table table-hover"
+											style="text-align: center;">
+											<thead>
+												<tr>
+													<th>Date</th>
+													<th>Pulse Rate</th>
+													<th>SBP</th>
+													<th>DBP</th>
+													<th>Blood Glucose</th>
+													<th>SpO2</th>
+												</tr>
+											</thead>
+											<tbody>
+												<%
+													for (int i = 0; i < DMs.size(); i++) {
+												%>
+												<tr>
+													<th><%=(DMs.get(i)).getDate()%></th>
+													<td><%=(DMs.get(i)).getPulse_Rate()%></td>
+													<td><%=(DMs.get(i)).getSBP()%></td>
+													<td><%=(DMs.get(i)).getDBP()%></td>
+													<td><%=(DMs.get(i)).getGlucose()%></td>
+													<td><%=(DMs.get(i)).getSpO2()%></td>
+												</tr>
+												<%}%>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="tab-pane tabs-animation fade" id="tab-content-1"
+						role="tabpanel">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="main-card mb-3 card">
+									<div class="card-body" style="width: 100%;">
+
+										<h5 class="card-title" style="text-align: center">Pulse
+											Rate</h5>
+										<canvas id="PR" width="733" height="270"></canvas>
+									</div>
+								</div>
+								<div class="main-card mb-3 card">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center">SBP</h5>
+										<canvas id="Glu" width="733" height="270"></canvas>
+									</div>
 								</div>
 							</div>
-	
-						</div>
-						<div class="tab-pane tabs-animation fade" id="tab-content-1"
-							role="tabpanel">
-							<div class="row">
-								<div class="col-md-6">
-                                     <div class="main-card mb-3 card">
-                                        <div class="card-body"style="width:100%;">
-                                            
-                                            <h5 class="card-title" style="text-align:center">Pulse Rate</h5>
-                                            <canvas id="PR" width="733" height="270"></canvas>
-                                        </div>
-                                    </div> 
-                                    <div class="main-card mb-3 card">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="text-align:center">SBP</h5>
-                                            <canvas id="Glu" width="733" height="270"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-								<div class="col-md-6">
-                                    <div class="main-card mb-3 card">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="text-align:center">SBP/DBP</h5>
-                                            <canvas id="BP" width="733" height="270"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="main-card mb-3 card">
-                                        <div class="card-body">
-                                            <h5 class="card-title" style="text-align:center">SpO2</h5>
-                                            <canvas id="Sp" width="733" height="270"></canvas>
-                                        </div>
-                                    </div>
-                                </div>								
+							<div class="col-md-6">
+								<div class="main-card mb-3 card">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
+										<canvas id="BP" width="733" height="270"></canvas>
+									</div>
+								</div>
+								<div class="main-card mb-3 card">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center">SpO2</h5>
+										<canvas id="Sp" width="733" height="270"></canvas>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>		
-	
-	
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script >
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript" src="./assets/scripts/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+		crossorigin="anonymous"></script>
+	<script>
 		$(function(){             
         	$("ul.vertical-nav-menu li:nth-child(4)> a").addClass("mm-active");            
  		});
     </script>
-<script>
+	<script>
 	
 
     var config1 = {
         type: 'line',
         data: {
             labels: [
-            	<% String x="";
-			for (int i=DMCrts.size(); i>0;i--){
-				x+="'"+i+"',";%>
+            	<%String x = "";
+for (int i = DMCrts.size(); i > 0; i--) {
+	x += "'" + i + "',";%>
 			<%}%>
 			<%=x%>
             	],
@@ -353,9 +393,9 @@
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: window.chartColors.red,
                 data: [
-                	<% String p="";
-					for (int i=(DMCrts.size()-1); i>=0;i--){
-						p+=DMCrts.get(i).getPulse_Rate()+",";%>
+                	<%String p = "";
+for (int i = (DMCrts.size() - 1); i >= 0; i--) {
+	p += DMCrts.get(i).getPulse_Rate() + ",";%>
 					<%}%>
 					<%=p%>
                 ],
@@ -418,9 +458,9 @@
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: window.chartColors.red,
                     data: [
-                    	<% String y="";
-    					for (int i=(DMCrts.size()-1); i>=0;i--){
-    						y+=DMCrts.get(i).getGlucose()+",";%>
+                    	<%String y = "";
+for (int i = (DMCrts.size() - 1); i >= 0; i--) {
+	y += DMCrts.get(i).getGlucose() + ",";%>
     					<%}%>
     					<%=y%>
                     ],
@@ -483,9 +523,9 @@
                 	backgroundColor: window.chartColors.red,
                     borderColor: window.chartColors.red,
                     data: [
-                    	<% String j="";
-    					for (int i=(DMCrts.size()-1); i>=0;i--){
-    						j+=DMCrts.get(i).getSBP()+",";%>
+                    	<%String j = "";
+for (int i = (DMCrts.size() - 1); i >= 0; i--) {
+	j += DMCrts.get(i).getSBP() + ",";%>
     					<%}%>
     					<%=j%>
                     ],
@@ -496,9 +536,9 @@
                     backgroundColor: window.chartColors.blue,
                     borderColor: window.chartColors.blue,
                     data: [
-                    	<% String k="";
-    					for (int i=(DMCrts.size()-1); i>=0;i--){
-    						k+=DMCrts.get(i).getDBP()+",";%>
+                    	<%String k = "";
+for (int i = (DMCrts.size() - 1); i >= 0; i--) {
+	k += DMCrts.get(i).getDBP() + ",";%>
     					<%}%>
     					<%=k%>
                     ],
@@ -554,9 +594,9 @@
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: window.chartColors.red,
                     data: [
-                    	<% String q="";
-    					for (int i=(DMCrts.size()-1); i>=0;i--){
-    						q+=DMCrts.get(i).getSpO2()+",";%>
+                    	<%String q = "";
+for (int i = (DMCrts.size() - 1); i >= 0; i--) {
+	q += DMCrts.get(i).getSpO2() + ",";%>
     					<%}%>
     					<%=q%>
                     ],
@@ -758,7 +798,8 @@
         window.myLine.update();
     });
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </body>
 </html>

@@ -26,6 +26,10 @@
 	<%
 		List<HealthcareBean> DMCrts = (ArrayList<HealthcareBean>) request.getAttribute("DMCrts");
 	%>
+	<%
+		HealthcareBean SQLLite2 = (HealthcareBean) request.getAttribute("SQLLite2");
+	%>
+	
 
 	<%@ include file="backtotop.jsp"%>
 	<%@ include file="header.jsp"%>
@@ -280,6 +284,11 @@
 							<span>History Charts</span>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a role="tab" class="nav-link" id="tab-2" data-toggle="tab" href="#tab-content-2" aria-selected="false">
+							<span>Lite Charts</span>
+						</a>
+					</li>
 				</ul>
 				
 				<div class="tab-content">
@@ -359,6 +368,75 @@
 							</div>
 						</div>
 					</div>
+					<div class="tab-pane tabs-animation fade"
+						id="tab-content-2" role="tabpanel">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="main-card mb-3 card">
+									<div class="card-body">
+										<h5 class="card-title">Lite Data</h5>
+										<table class="mb-0 table table-hover"
+											style="text-align: center;">
+											<thead>
+												<tr>
+													<th>Patno</th>
+													<th>Weight</th>
+													<th>Height</th>
+													<th>Wasistline</th>
+													<th>Naked_eye_R</th>
+													<th>Naked_eye_L</th>
+													<th>Corrected_R</th>
+													<th>Corrected_L</th>
+													<th>Color_Blindness</th>
+													<th>Hearing_Test</th>
+													<th>SBP</th>
+													<th>DBP</th>
+													<th>PRO</th>
+													<th>OB</th>
+													<th>WBC</th>
+													<th>Hb</th>
+													<th>GPT</th>
+													<th>Crea</th>
+													<th>T_CHO</th>
+													<th>TG</th>
+													<th>HDL</th>
+													<th>LDL</th>
+													<th>AC</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th><%= SQLLite2.getPatno()%></th>
+													<th><%= SQLLite2.getWeight()%></th>
+													<th><%= SQLLite2.getHeight()%></th>
+													<th><%= SQLLite2.getWasistline()%></th>
+													<th><%= SQLLite2.getNaked_eye_R()%></th>
+													<th><%= SQLLite2.getNaked_eye_L()%></th>
+													<th><%= SQLLite2.getCorrected_R()%></th>
+													<th><%= SQLLite2.getCorrected_L()%></th>
+													<th><%= SQLLite2.getColor_Blindness()%></th>
+													<th><%= SQLLite2.getHearing_Test()%></th>
+													<th><%= SQLLite2.getSBP()%></th>
+													<th><%= SQLLite2.getDBP()%></th>
+													<th><%= SQLLite2.getPRO()%></th>
+													<th><%= SQLLite2.getOB()%></th>
+													<th><%= SQLLite2.getWBC()%></th>
+													<th><%= SQLLite2.getHb()%></th>
+													<th><%= SQLLite2.getGPT()%></th>
+													<th><%= SQLLite2.getCrea()%></th>
+													<th><%= SQLLite2.getT_CHO()%></th>
+													<th><%= SQLLite2.getTG()%></th>
+													<th><%= SQLLite2.getHDL()%></th>
+													<th><%= SQLLite2.getLDL()%></th>
+													<th><%= SQLLite2.getAC()%></th>
+													</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>

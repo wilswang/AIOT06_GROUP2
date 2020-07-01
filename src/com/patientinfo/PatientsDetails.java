@@ -38,6 +38,8 @@ private static final long serialVersionUID = 1L;
 	private static final String SQLPatient =
 			"SELECT * FROM patient WHERE Patno = ?";
 	
+	private static final String SQLLite =
+			"SELECT * FROM health_examination_record2 WHERE Patno = ? LIMIT 1";
 
 	
 	Connection conn;
@@ -147,6 +149,35 @@ private static final long serialVersionUID = 1L;
 				ml = new HealthcareBean();
 				ml.setResult(rs.getString("result"));
 			}
+			/*Select LiteCharts ~  */
+			stmt = conn.prepareStatement(SQLLite);
+			stmt.setString(1, Patno);
+			rs = stmt.executeQuery();
+			HealthcareBean SQLLite2 = null;
+			while (rs.next()) {
+				SQLLite2 = new HealthcareBean();
+				SQLLite2.setPatno(rs.getString("Patno"));
+				SQLLite2.setWeight(rs.getString("Weight"));
+				SQLLite2.setHeight(rs.getString("height"));
+				SQLLite2.setWasistline(rs.getString("wasistline"));
+				SQLLite2.setNaked_eye_R(rs.getString("Naked_eye_R"));
+				SQLLite2.setNaked_eye_L(rs.getString("Naked_eye_L"));
+				SQLLite2.setCorrected_R(rs.getString("Corrected_R"));
+				SQLLite2.setCorrected_L(rs.getString("Corrected_L"));
+				SQLLite2.setColor_Blindness(rs.getString("Color_Blindness"));
+				SQLLite2.setHearing_Test(rs.getString("Hearing_Test_"));
+				SQLLite2.setSBP(rs.getString("SBP"));
+				SQLLite2.setDBP(rs.getString("DBP"));
+				SQLLite2.setPRO(rs.getString("PRO"));
+				SQLLite2.setOB(rs.getString("OB"));
+				SQLLite2.setWBC(rs.getString("WBC"));
+				SQLLite2.setCrea(rs.getString("Crea"));
+				SQLLite2.setT_CHO(rs.getString("T_CHO"));
+				SQLLite2.setTG(rs.getString("TG"));
+				SQLLite2.setHDL(rs.getString("HDL"));
+				SQLLite2.setLDL(rs.getString("LDL"));
+				SQLLite2.setAC(rs.getString("AC"));	
+			}
 						
 			request.setAttribute("ml", ml);
 			request.setAttribute("DM", DM);
@@ -154,6 +185,7 @@ private static final long serialVersionUID = 1L;
 			request.setAttribute("DMCrts", DMCrts);
 			request.setAttribute("DMLatest", DMLatest);
 			request.setAttribute("pat", pat);
+			request.setAttribute("SQLLite2", SQLLite2);
 			stmt.close();
 			request.getRequestDispatcher("./PatientsDetails.jsp")
 				.forward(request, response);

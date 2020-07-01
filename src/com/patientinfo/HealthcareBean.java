@@ -89,4 +89,134 @@ public class HealthcareBean {
 	
 	public void setResult(String result) {this.result = result;}
 	
+	/* Lite */
+	private String wasistline;
+	private String Naked_eye_R;
+	private String Naked_eye_L;
+	private String Corrected_R;
+	private String Corrected_L;
+	private String Color_Blindness;
+	private String Hearing_Test;
+	private String 	PRO;
+	private String 	OB;
+	private String 	WBC;
+	private String 	Hb;
+	private String 	GPT;
+	private String 	Crea;
+	private String 	T_CHO;
+	private String 	TG;
+	private String 	HDL;
+	private String 	LDL;
+	private String  AC;	
+	public String getWasistline() {
+		return wasistline;
+	}
+	public void setWasistline(String wasistline) {
+		this.wasistline = wasistline;
+	}
+	public String getNaked_eye_R() {
+		return Naked_eye_R;
+	}
+	public void setNaked_eye_R(String naked_eye_R) {
+		Naked_eye_R = naked_eye_R;
+	}
+	public String getNaked_eye_L() {
+		return Naked_eye_L;
+	}
+	public void setNaked_eye_L(String naked_eye_L) {
+		Naked_eye_L = naked_eye_L;
+	}
+	public String getCorrected_R() {
+		return Corrected_R;
+	}
+	public void setCorrected_R(String corrected_R) {
+		Corrected_R = corrected_R;
+	}
+	public String getCorrected_L() {
+		return Corrected_L;
+	}
+	public void setCorrected_L(String corrected_L) {
+		Corrected_L = corrected_L;
+	}
+	public String getColor_Blindness() {
+		return Color_Blindness;
+	}
+	public void setColor_Blindness(String color_Blindness) {
+		Color_Blindness = color_Blindness;
+	}
+	public String getHearing_Test() {
+		return Hearing_Test;
+	}
+	public void setHearing_Test(String hearing_Test) {
+		Hearing_Test = hearing_Test;
+	}
+	public String getPRO() {
+		return PRO;
+	}
+	public void setPRO(String pRO) {
+		PRO = pRO;
+	}
+	public String getOB() {
+		return OB;
+	}
+	public void setOB(String oB) {
+		OB = oB;
+	}
+	public String getWBC() {
+		return WBC;
+	}
+	public void setWBC(String wBC) {
+		WBC = wBC;
+	}
+	public String getHb() {
+		return Hb;
+	}
+	public void setHb(String hb) {
+		Hb = hb;
+	}
+	public String getGPT() {
+		return GPT;
+	}
+	public void setGPT(String gPT) {
+		GPT = gPT;
+	}
+	public String getCrea() {
+		return Crea;
+	}
+	public void setCrea(String crea) {
+		Crea = crea;
+	}
+	public String getT_CHO() {
+		return T_CHO;
+	}
+	public void setT_CHO(String t_CHO) {
+		T_CHO = t_CHO;
+	}
+	public String getTG() {
+		return TG;
+	}
+	public void setTG(String tG) {
+		TG = tG;
+	}
+	public String getHDL() {
+		return HDL;
+	}
+	public void setHDL(String hDL) {
+		HDL = hDL;
+	}
+	public String getLDL() {
+		return LDL;
+	}
+	public void setLDL(String lDL) {
+		LDL = lDL;
+	}
+	public String getAC() {
+		return AC;
+	}
+	public void setAC(String aC) {
+		AC = aC;
+	}
 }
+	
+
+

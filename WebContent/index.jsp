@@ -37,7 +37,7 @@
 		};
 		
 		function navigateToPage2(patno,timerid) {
-			$(".app-main__inner").load('PatientsDetails.jsp',{'patno':patno});
+			$("#wrap_content").load('PatientsDetails.jsp',{'patno':patno});
 			clearInterval(timerid);
 		};
     </script>

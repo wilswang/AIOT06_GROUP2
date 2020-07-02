@@ -9,7 +9,7 @@
 		</div>
 	</div>
 </a>
-<script>
+<script type="text/javascript">
 $(function(){
 	if($('.backtotop').length) {
 	    var scrollTrigger = 150, // px

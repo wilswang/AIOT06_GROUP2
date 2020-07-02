@@ -23,7 +23,7 @@ public class bpminsert extends HttpServlet {
 			"select date from dailymeasure WHERE date=(SELECT date FROM dailymeasure ORDER BY date DESC LIMIT 1)";
 
 	private static final String SQL1 =
-			"UPDATE dailymeasure SET Pulse_Rate=? WHERE Patno=? AND date=?";
+			"UPDATE dailymeasure SET Pulse_Rate=?, SpO2=? WHERE Patno=? AND date=?";
 	
 	Connection conn;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,17 +33,21 @@ public class bpminsert extends HttpServlet {
 		 
 		String Patno = request.getParameter("Patno") ;
 		System.out.println("Patno: "+Patno);
-//		String Patno = "20" ;
+		
+		String Pulse_Rate = request.getParameter("Pulse_Rate") ;
+		System.out.println("Pulse_Rate: "+Pulse_Rate);
+		
+		String SpO2 = request.getParameter("SpO2") ;
+		System.out.println("SpO2:"+SpO2);
+
 //		String pName = request.getParameter("pName") ;		
 //		String Gender = request.getParameter("Gender") ;
 //		String date = request.getParameter("date") ;
 //		String SBP = request.getParameter("SBP") ;
 //		String DBP = request.getParameter("DBP") ;
 //		String glucose = request.getParameter("glucose") ;
-		String Pulse_Rate = request.getParameter("Pulse_Rate") ;
-		System.out.println("Pulse_Rate: "+Pulse_Rate);
-//		String Pulse_Rate = "100" ;
-//		String SpO2 = request.getParameter("SpO2") ;
+		
+		
 		
 		try (Connection conn = DatabaseConnection.getConnection()) {
 	    System.out.println(conn.isClosed());
@@ -57,8 +61,10 @@ public class bpminsert extends HttpServlet {
 		
 		stmt = conn.prepareStatement(SQL1);
 		stmt.setString(1, Pulse_Rate);
-		stmt.setString(2, Patno);
-		stmt.setString(3, date);
+		stmt.setString(2, SpO2);
+		stmt.setString(3, Patno);
+		stmt.setString(4, date);
+		
 //		stmt.setString(2, pName);
 //		stmt.setString(3, Gender);
 //		stmt.setString(4, date);
@@ -66,7 +72,7 @@ public class bpminsert extends HttpServlet {
 //		stmt.setString(6, DBP);
 //		stmt.setString(7, glucose);
 		
-//		stmt.setString(9, SpO2);	
+			
 	   
 		int rows = stmt.executeUpdate();
 		System.out.println(rows);

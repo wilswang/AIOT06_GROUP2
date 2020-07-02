@@ -2,7 +2,8 @@
 <!-- 最上面的header bar -->
 <div class="app-header header-shadow">
 	<div class="app-header__logo">
-		<div class="logo-src"></div>
+<!-- 		<div class="logo-src"></div> -->
+			<img src="./assets/images/HCLogo.png" style="width:auto; height:56px;">
 		<div class="header__pane ml-auto">
 			<div>
 				<button type="button" 

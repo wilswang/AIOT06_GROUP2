@@ -39,14 +39,12 @@
 								</div>
 								<div>
 									Members Detail
-									<div class="page-title-subheading">All members info can
-										be checked here.</div>
+									<div class="page-title-subheading">All members info can be checked here.</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-xl-4"
-						style="display: inline-block; width: 33.1%; padding-left: 0px;">
+					<div class="col-md-6 col-xl-4" style="display: inline-block; width: 33.1%; padding-left: 0px;">
 						<div class=" mb-3 widget-chart widget-chart2 text-left card">
 							<div class="widget-content" style="padding-bottom:11px;">
 								<div class="widget-content-outer">
@@ -624,9 +622,9 @@
         //連接Servlet之DB內容
 		$("#sex").attr("src","./assets/images/"+"<%=pat.getGender()%>"+".png");
 		//設定身高體重
-		var WT=<%=pat.getWeight()%>;
-		var HT=<%=pat.getHeight()%>;
-		var BMI=(parseInt(WT)/((parseInt(HT)*parseInt(HT))/10000));
+		var WT='<%=pat.getWeight()%>';
+		var HT='<%=pat.getHeight()%>';
+		var BMI=parseInt(WT)/((parseInt(HT)**2)/10000);
 		$("#BMI").text(BMI.toFixed(1));
 		
 		var PR=<%=DMLatest.getPulse_Rate()%>;

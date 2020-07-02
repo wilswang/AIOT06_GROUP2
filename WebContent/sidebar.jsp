@@ -1,9 +1,14 @@
-
-
-
+<script>
+$(function(){
+	$(".close-sidebar-btn").click(function(){
+        $('.app-container').toggleClass("closed-sidebar");   
+        $(this).toggleClass("is-active");   
+    })
+})
+</script>
 <div class="app-sidebar sidebar-shadow">
 				<div class="app-header__logo">
-					<div class="logo-src"></div>
+					<img alt="Brand" src="./assets/images/HCLogo.png" style="width:auto; height:56px; max-width: 600px;">
 					<div class="header__pane ml-auto">
 						<div>
 							<button type="button"
@@ -51,6 +56,8 @@
 								<i	class="metismenu-icon pe-7s-paperclip"></i> Upload files</a></li>
 							<li><a href="./Edit_Pats.jsp"> 
 								<i	class="metismenu-icon pe-7s-magic-wand"> </i>Edit members</a></li>
+						
+							
 						</ul>
 					</div>
 				</div>

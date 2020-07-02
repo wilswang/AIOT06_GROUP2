@@ -33,14 +33,15 @@ public class Login extends HttpServlet {
 		 
 		 
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-	        System.out.println(conn.isClosed());
+			System.out.print("Is connection closed? ");
+			System.out.println(conn.isClosed());
 	            
 			PreparedStatement stmt = conn.prepareStatement(SQL);
 			stmt.setString(1, empno);
 			ResultSet rs = stmt.executeQuery();
 			HttpSession session =  request.getSession() ;
 
-			session.setMaxInactiveInterval(15*60); // 嚙踝蕭嚙踝蕭嚙�: 60*15嚙踝蕭
+			session.setMaxInactiveInterval(15*60); // 
 //			String sesid=session.getId();
 			Empbean emp = new Empbean();
 			int count=0;
@@ -62,28 +63,31 @@ public class Login extends HttpServlet {
 						}
 						session.setAttribute("emp", emp);
 						session.setAttribute("LogOk","yes");
-						request.getRequestDispatcher("/Getabnormal_detect").forward(request, response); //嚙諛對蕭嚙踝蕭|
+						request.setAttribute("LogOk","yes");
+//						request.getRequestDispatcher("/Getabnormal_detect").include(request, response);
+//						request.getRequestDispatcher("./index.jsp").forward(request, response);
+						response.sendRedirect("./index.jsp");
 												
 					}
 					else {
 						count+=1;						
 						session.setAttribute("count", count);
 						session.setAttribute("lastuser", empno);
-						response.sendRedirect("./Login_page.jsp") ;						
+						response.sendRedirect("./Login.jsp") ;						
 					}						
 				}
 				else {
 					count+=1;						
 					session.setAttribute("count", count);
 					session.setAttribute("lastuser", empno);
-					response.sendRedirect("./Login_page.jsp") ;
+					response.sendRedirect("./Login.jsp") ;
 				}
 			}
 			else {
 				count+=1;						
 				session.setAttribute("count", count);	
 				session.setAttribute("lastuser", empno);				
-				response.sendRedirect("./login/Fail.jsp") ;
+				response.sendRedirect("./Fail.jsp") ;
 			}
 			stmt.close();
 		}catch (NullPointerException e) {

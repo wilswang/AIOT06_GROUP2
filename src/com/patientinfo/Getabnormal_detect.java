@@ -21,11 +21,13 @@ public class Getabnormal_detect extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {		
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-		    System.out.println(conn.isClosed());
+			System.out.print("Is connection closed? ");
+			System.out.println(conn.isClosed());
+			HttpSession session =  request.getSession() ;	
 			PreparedStatement stmt = conn.prepareStatement(SQL);
 			ResultSet rs = stmt.executeQuery();
 			List<HealthcareBean> adBs = new ArrayList<>();						
-			HealthcareBean acB, adB= null;    //�p��T���ƾڭȤ����`Bean
+			HealthcareBean acB, adB= null;
 			acB = new HealthcareBean();
 			int glc =0;
 			int SBP_DBP_C =0;
@@ -39,16 +41,13 @@ public class Getabnormal_detect extends HttpServlet {
 				adB.setDBP(rs.getString("DBP"));
 				
 				if(Integer.parseInt(rs.getString("SBP"))>=140 || Integer.parseInt(rs.getString("DBP"))>=90) {     					
-					SBP_DBP_C++;}      //�p�⤣���`����   (SBP�j��140,DBP�j��90),�i�H�A�Ӥ����C���϶�
+					SBP_DBP_C++;}
 				
 				adB.setGlucose(rs.getString("glucose"));
-				if(Integer.parseInt(rs.getString("glucose"))>100) {    
-					glc++;}  //�p���}�����`(�Ÿ�����j��100)
-				
+				if(Integer.parseInt(rs.getString("glucose"))>100) {glc++;}				
 				
 				adB.setPulse_Rate(rs.getString("Pulse_Rate"));
-				if(Integer.parseInt(rs.getString("Pulse_Rate"))>100 || Integer.parseInt(rs.getString("Pulse_Rate"))<60){     //�p��s�������`(�Ÿ�����j��100)
-					PRc++;}  //�p��߫ߤ����`(����j��100�ΧC��60)
+				if(Integer.parseInt(rs.getString("Pulse_Rate"))>100 || Integer.parseInt(rs.getString("Pulse_Rate"))<60){PRc++;}
 				
 				adB.setSpO2(rs.getString("SpO2"));	
 				adBs.add(adB);
@@ -57,11 +56,17 @@ public class Getabnormal_detect extends HttpServlet {
 			acB.setGlc(glc);
 			acB.setSBP_DBP_C(SBP_DBP_C);
 			acB.setPRc(PRc);
-			
+			System.out.println("Foward to Getabnormal");
+			System.out.println(request.getAttribute("LogOk"));
 			request.setAttribute("adBs", adBs);
 			request.setAttribute("acB", acB);
-			stmt.close();			
-			request.getRequestDispatcher("./index_homepage.jsp").forward(request, response);
+//			request.getRequestDispatcher("./HomePage.jsp").include(request, response);
+			if(session.getAttribute("LogOk").equals("yes")) {
+				request.getRequestDispatcher("./HomePage.jsp").include(request, response);
+			}else {
+				request.getRequestDispatcher("./HomePage.jsp").forward(request, response);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

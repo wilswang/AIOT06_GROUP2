@@ -1,5 +1,6 @@
 package com.patientinfo;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,40 +23,46 @@ public class Search_one extends HttpServlet {
 			"SELECT * FROM patient WHERE Patno=?";	
 	Connection conn;   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8") ;
+		doPost(request, response);
+		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
 		String Patno = request.getParameter("patno");
 		HealthcareBean pat = new HealthcareBean();
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-		        System.out.println(conn.isClosed());
+//		        System.out.println(conn.isClosed());
 		        
 			PreparedStatement stmt = conn.prepareStatement(SQL);
 			stmt.setString(1, Patno);
 			ResultSet rs = stmt.executeQuery();
-			
-//			System.out.println("SQL done");
+			com.google.gson.Gson gson = new com.google.gson.Gson();
 			rs.beforeFirst();
-			if(rs.next()) {		
+			if(rs.next()) {	
 				pat.setPatno(rs.getString("Patno"));
 				pat.setpName(rs.getString("pName"));					
 				pat.setBirthday(rs.getString("birthday"));
 				pat.setGender(rs.getString("Gender"));
+				pat.setHeight(rs.getString("Height"));
+				pat.setWeight(rs.getString("Weight"));
 				pat.setM_phone(rs.getString("M_phone"));
 				pat.setE_contact_person(rs.getString("E_contact_person"));
 				pat.setE_contact_no(rs.getString("E_contact_no"));
 				pat.setE_contact_relation(rs.getString("E_contact_relation"));
 				pat.setFlag("Search");
-//				System.out.println(rs.getString("Gender"));
-//				System.out.println(rs.getString("Gender").equals("Male"));
-//				System.out.println(rs.getString("Gender").equals("Female"));
-				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_Pats_search_suc.jsp").forward(request, response); //�۹���|					
+				String jsonObject = gson.toJson(pat);
+				System.out.println(jsonObject);
+				PrintWriter out = response.getWriter();
+		        out.print(jsonObject);
 			}
 			else {
 //				System.out.println("Select failed");
 				pat.setFlag("Search_fail");
 				pat.setPatno(Patno);
-				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_Pats_search.jsp").forward(request, response); //�۹���|
+				String jsonObject = gson.toJson(pat);
+				PrintWriter out = response.getWriter();
+		        out.print(jsonObject);
 			}
 			stmt.close();
 			}catch (NullPointerException e) {
@@ -64,7 +71,7 @@ public class Search_one extends HttpServlet {
 				pat.setFlag("Search_fail");
 				pat.setPatno(Patno);
 				request.setAttribute("pat", pat);
-				request.getRequestDispatcher("./Edit_Pats_search.jsp").forward(request, response); //�۹���|
+				request.getRequestDispatcher("./Edit_Pats_search.jsp").forward(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();
 				
@@ -77,9 +84,6 @@ public class Search_one extends HttpServlet {
 					}
 				}
 			}
-		}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

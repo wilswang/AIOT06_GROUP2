@@ -1,126 +1,195 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<jsp:include page="web_head.jsp">
-	<jsp:param name="subTitle" value="Edit Members"/>
-</jsp:include>
-<body onbeforeunload="window.location='./logout.jsp'">
-    <div id="pagetop"style="visibility:hidden"></div>
-    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-        <%@ include file="backtotop.jsp"%> 
-		<%@ include file="header.jsp"%> 
-		<div class="app-main">
-			<%@ include file="sidebar.jsp"%> 
-			<div class="app-main__outer">
-                    <div class="app-main__inner">
-                        <div class="app-page-title">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                    <div class="page-title-icon">
-                                        <i class="pe-7s-magic-wand icon-gradient bg-plum-plate">
-                                        </i>
-                                    </div>
-                                    <div>Edit members
-                                        <div class="page-title-subheading">You can add, search or modify Patients' Info
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <jsp:useBean id="pat" scope="request" class="com.patientinfo.HealthcareBean" />
-						<% String add="", search="", a_show="", e_show="", patno=pat.getPatno(); 
-						if(pat.getFlag()!=null){
-							if(pat.getFlag().equals("add")){ //由flag判斷目前狀態，如果為add，表示add分頁為顯示狀態(show)
-								add="active";
-								a_show="show";
-								//如果為edit或Search，表示Search分頁為顯示狀態(show)
-							}else if(pat.getFlag().equals("edit") || pat.getFlag().equals("Search") || pat.getFlag().equals("Search_fail")){
-								search="active";
-								e_show="show";
-								//如果為Search_Fail，表示Search分頁為顯示狀態(show)
-								if(pat.getFlag().equals("Search_fail") && patno!= null){%>
-							  	<script type="text/javascript">alert("Patient no. <%=patno%> is not existed");</script>
-							<%}}
-							else{
-								add=""; search=""; a_show=""; e_show="";
-							}
-						}else{  //如果flag為null，表示add分頁為顯示狀態(show)
-							add="active";
-							a_show="show";
-						}
-						
-						%>	            
-                        <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-                            <li class="nav-item">
-                                <a role="tab" class="nav-link <%=add%>" id="tab-0" data-toggle="tab" href="#tab-content-0">
-                                    <span>Add</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a role="tab" class="nav-link <%=search%>" id="tab-1" data-toggle="tab" href="#tab-content-1">
-                                    <span>Search/Modify</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                           <div class="tab-pane tabs-animation fade <%=a_show%> <%=add%>" id="tab-content-0" role="tabpanel">
-                               <!-- 如果flag為add，代表新增成功，載入add_suc的頁面 -->
-                               <% if(pat.getFlag()!=null){
-                            	  	if(pat.getFlag().equals("add")){%>
-                            	  		<jsp:include page="Add_Pats_Suc.jsp"></jsp:include>
-                                   <% } %>
-                               <% }else{ %>
-                               	<jsp:include page="Add_Pats.jsp"></jsp:include>
-                               <%} %>
-                               
-                            </div>
-                            <div class="tab-pane tabs-animation fade <%=e_show%> <%=search%>" id="tab-content-1" role="tabpanel">
-                           
-                                	<div class="row">
-                                    <div class="col-md-12">                                        
-                                        <div class="main-card mb-3 card add_container1">
-                                            <!-- 查詢成員程式碼 -->
-                                            <form action="./Search_one" method="post" style="margin-top:15px;">                                           
-                                                <div class="container">
-                                                  <label for="patno"><b>Patient No.</b></label>
-                                                  <input type="text" placeholder="Enter patient No." name="patno" required="required" autocomplete="off"><br>
-                                                  <button type="submit">Submit</button>
-                                                  <button type="reset" class="cancelbtn">Clear</button></div>
-                                                  <div class="add_container" style="background-color:#f1f1f1"></div>
-                                            </form>                                              
-                                        </div>                                        
-                                    </div>
-                                </div>
-	                           
-                            </div>
-                        </div>
-                    </div>
+<%@ include file="backtotop.jsp"%> 
+		
+ <div class="app-main__inner">
+     <div class="app-page-title">
+         <div class="page-title-wrapper">
+             <div class="page-title-heading">
+                 <div class="page-title-icon">
+                     <i class="fas fa-user-cog">
+                     </i>
                  </div>
+                 <div>Edit patients info
+                     <div class="page-title-subheading">You can add, search or modify Patients' Info
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     
+    <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+        <li class="nav-item active">
+            <a role="tab" class="nav-link active show" id="tab-0" data-toggle="tab" href="#tab-content-0">
+                <span>Add</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a role="tab" class="nav-link " id="tab-1" data-toggle="tab" href="#tab-content-1">
+                <span>Search/Modify</span>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+       <div class="tab-pane tabs-animation fade active show in" id="tab-content-0" role="tabpanel">
+           	<jsp:include page="Add_Pats.jsp"></jsp:include>
+        </div>
+        <div class="tab-pane tabs-animation fade " id="tab-content-1" role="tabpanel">       
+            <jsp:include page="Search_Pats.jsp"></jsp:include>
         </div>
     </div>
+</div>
 
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script>
-    $(function() {
-    	$("ul.vertical-nav-menu li:nth-child(8)> a").addClass("mm-active");  
-    	//19-jQuery datepicker Methods getDate setDate
-        $(".datepicker").datepicker({
-          //設定日期格式
-          dateFormat : "yy-mm-dd"  	      
-        });
-        
-         $(".datepicker").datepicker({width:"180px"});
-        
-        $(".opt").click(function(){
-            var $theClass= $(this).attr("class").substr(4);
-            var tempClass='.'+$theClass+"_t";  	    	
-            //$(this).css("display","");
-            $(tempClass).css("display","")
-            .siblings().css("display","none");  	    	
-        })
-      });
-</script>
-</body>
-</html>
+<script type="text/javascript">   
+$(function() {
+	
+	$("li.nav-item >a").click(function(){
+	        $(this).addClass("active").parent().addClass("active").siblings().removeClass("active").children().removeClass("active");
+	        if($(this).prop("id")=="tab-0"){
+	        	$("#tab-content-0").addClass("active show in").siblings().removeClass("active show in");
+	        }else{
+	        	$("#tab-content-1").addClass("active show in").siblings().removeClass("active show in");
+	        }
+		});
+	
+	$("#form_add").submit(function(event) {   
+		event.preventDefault();	
+		$.ajax({  
+	            type:"post", 
+	            url:"AddPatient",   
+	            dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
+	            data : $("#form_add").serialize(),
+	            success:
+	                function(data){              			
+		            	$("#add_result").text("Add Successfully!");	
+		            	$("#lab_patno").show().attr("readonly", true);
+		            	$("#a_patno").val(data.Patno).attr("readonly", true);
+		            	$("#a_pname").val(data.pName).attr("readonly", true);
+		            	$("#a_gender2").show();
+		            	$("#a_gender21").val(data.Gender).attr("readonly", true);
+		            	$("#a_gender1").hide();
+		            	$("#a_Height").val(data.Height).attr("readonly", true);
+		            	$("#a_Weight").val(data.Weight).attr("readonly", true);
+		            	$("#a_birthday").val(data.birthday).attr("readonly", true);
+		            	$("#a_M_phone").val(data.m_phone).attr("readonly", true);
+		            	$("#a_E_contact").val(data.e_contact_person).attr("readonly", true);
+		            	$("#a_E_phone_no").val(data.e_contact_no).attr("readonly", true);
+		            	$("#a_E_relationship").val(data.e_contact_relation).attr("readonly", true);
+		            	$("#a_submit").hide();
+		            	console.log(data);
+	            	},  
+	            error:
+	                function(xhr, ajaxOptions, thrownError){
+	            	$("#add_result").text("Add Fail!");    
+	            	alert("Add Fail!"+xhr.status+"\n"+thrownError);
+	                }
+	        });  
+	    }); 
+
+
+	$("#form_search").submit(function(event){     
+		event.preventDefault();
+		event.stopPropagation();
+		$.ajax({
+	        type:"post", 
+	        url:"Search_one",   
+	        dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
+	        data : $("#form_search").serialize(),
+	        success:
+	            function(data){   
+	        		if(data.Gender=="Male"){
+	        			$("#s_gender1 select option:eq(1)").attr("selected",true);
+	            	}else{
+	            		$("#s_gender1 select option:eq(2)").attr("selected",true);
+	            	}
+	        		$("#form_search").attr("id","form_edit");;
+	        		$("#s_patno").nextUntil("#s_submit").show();
+	        		$("#search_result").text("Search Successfully!");
+	            	$("#s_patno").val(data.Patno).attr("readonly","readonly");
+	            	$("#s_pname").val(data.pName);	            	
+	            	$("#s_Height").val(data.Height);
+	            	$("#s_Weight").val(data.Weight);
+	            	$("#s_birthday").val(data.birthday);
+	            	$("#s_M_phone").val(data.m_phone);
+	            	$("#s_E_contact").val(data.e_contact_person);
+	            	$("#s_E_phone_no").val(data.e_contact_no);
+	            	$("#s_E_relationship").val(data.e_contact_relation);		            	
+	            	$("#s_submit").html("Edit");
+	            	$(".cancelbtn").html("Cancel").on('click', function(event){
+	            		event.stopPropagation();
+	            		$("#wrap_content").load('Edit_Pats.jsp');
+	            		$('html,body').animate({
+	        	            scrollTop: 0
+	        	        }, 700);
+	            	});
+	            	$("#form_edit").submit(function(event) {     
+	            		event.preventDefault();
+	            		event.stopPropagation();
+	            		$.ajax({  
+	            	            type:"post", 
+	            	            url:"EditPatient",   
+	            	            dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
+	            	            data : $("#form_edit").serialize(),
+	            	            success:
+	            	                function(data){   
+	            	            		console.log(data);
+	            	            		if(data.Gender=="Male"){
+	            	            			$("#s_gender1 select option:eq(1)").attr("selected",true);
+	            		            	}else{
+	            		            		$("#s_gender1 select option:eq(2)").attr("selected",true);
+	            		            	};	            		
+	            	            		//$("#s_patno").nextUntil("#s_submit").show();
+	            	            		$("#search_result").text("Edit Successfully!");
+	            		            	$("#s_patno").val(data.Patno).attr("readonly","readonly");
+	            		            	$("#s_pname").val(data.pName)		            	
+	            		            	$("#s_Height").val(data.Height)
+	            		            	$("#s_Weight").val(data.Weight);
+	            		            	$("#s_birthday").val(data.birthday);
+	            		            	$("#s_M_phone").val(data.m_phone);
+	            		            	$("#s_E_contact").val(data.e_contact_person);
+	            		            	$("#s_E_phone_no").val(data.e_contact_no);
+	            		            	$("#s_E_relationship").val(data.e_contact_relation);	            	
+	            		            	$("#s_submit").html("Edit");
+	            		            	/*$(".cancelbtn").html("Cancel").on('click', function(event){
+	            		            		event.stopPropagation();
+	            		            		$("#wrap_content").load('Edit_Pats2.jsp');
+	            		            	});*/
+	            		            	//$("#form_search2.cancelbtn").append("<button class=\"form_button\" type=\"button\" onclick=\"navigateToPage('Edit_Pats2.jsp')\">Cancel</button>")
+	            	            	},  
+	            	            error:
+	            	                function(xhr, ajaxOptions, thrownError){
+	            	            	$("#add_result").text("Edit Fail!");
+	            	            	alert("Edit Fail!"+xhr.status+"\n"+thrownError);
+	            	                }
+	            	        });  
+	            	    });
+				},
+	        error:
+	            function(xhr, ajaxOptions, thrownError){
+	            	$("#add_result").text("Search Fail!");
+	            	alert("Search Fail!"+xhr.status+"\n"+thrownError);
+	            },
+	    });  
+	}); 
+	
+	
+
+	
+	//19-jQuery datepicker Methods getDate setDate
+    //$(".datepicker").datepicker({
+      //設定日期格式
+      //dateFormat : "yy-mm-dd",
+      //width:"180px"
+    //});
+    
+     //$(".datepicker").datepicker({width:"180px"});
+    
+
+    
+   
+    
+
+});
+</script> 
+
+
+ 

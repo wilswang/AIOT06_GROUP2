@@ -17,12 +17,14 @@ public class GetPatients extends HttpServlet {
 	Connection conn;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {		
-		 try (Connection conn = DatabaseConnection.getConnection()) {
-		        System.out.println(conn.isClosed());		        
+		request.setCharacterEncoding("UTF-8") ; 
+		try (Connection conn = DatabaseConnection.getConnection()) {
+		    System.out.println("Here is GetPatients");		        
 			PreparedStatement stmt = conn.prepareStatement(SQL);
 			ResultSet rs = stmt.executeQuery();
 			List<HealthcareBean> pms =new ArrayList<>();
 			HealthcareBean pm = null;
+			com.google.gson.Gson gson = new com.google.gson.Gson();
 			while (rs.next()) {
 				pm = new HealthcareBean();
 				pm.setPatno(rs.getString("Patno"));       
@@ -35,12 +37,12 @@ public class GetPatients extends HttpServlet {
 				pm.setPulse_Rate(rs.getString("Pulse_Rate"));
 				pm.setSpO2(rs.getString("SpO2"));
 				pms.add(pm);
+
 			}
-			request.setAttribute("pms", pms);
-			stmt.close();
-//			System.out.println("out");
-			request.getRequestDispatcher("./Patients.jsp")
-				.forward(request, response);
+			String jsonObject = gson.toJson(pms);
+			PrintWriter out = response.getWriter();
+	        out.print(jsonObject);
+			//System.out.println(jsonObject);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -58,4 +60,4 @@ public class GetPatients extends HttpServlet {
 		 throws ServletException, IOException {
 		 doGet(request, response);
 	} // end of doPost()
-} // end of class GetAllMembers
+} // end of class GetPatients

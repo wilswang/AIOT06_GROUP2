@@ -1,20 +1,38 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>User Account</title>
-<link rel="icon" href="./favicon.ico" type="image/x-icon" />
-<Style>
-	/* Bordered form */
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Language" content="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="Shortcut Icon" type="image/x-icon" href="./assets/images/LogoIcon.ico" />
+    <link rel="apple-touch-icon" href="./assets/images/LogoIcon.ico">
+    <link rel="icon" href="./assets/images/LogoIcon.ico">
+	<link href="./css/animate.css" rel="stylesheet">
+	<title>User Account</title>
+
+  <style>
+  	body{
+  		font-family:sans-serif, 'Microsoft JhengHei', 'Helvetica Neue', Helvetica, Arial;
+  		    background: #2e353d;
+  	}
+    /* Bordered form */
     form {
-      border: 3px solid #f1f1f1;
+      padding: 20px;
+      box-shadow: 4px 4px 12px -2px rgba(51, 51, 102, 0.5);
       border-radius: 30px;
       margin: 0 auto;
-      width: 600px;
+      width: 500px;
+      background-color: #1e2a37;
       margin-top: 10%;
+      color: #FFFFFF;
     }
+
 
     /* Full-width inputs */
     input[type=text],
@@ -25,11 +43,15 @@
       display: inline-block;
       border: 1px solid #ccc;
       box-sizing: border-box;
+          border-color: rgba(153, 153, 153, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
     }
 
     /* Set a style for all buttons */
-    button n{
-      background-color: #ADADAD;
+    button {
+      background-color: #4697ce;
+      border-radius: 5px;
       color: white;
       padding: 10px 18px;
       margin: 8px 0;
@@ -42,7 +64,7 @@
     button:hover {
       opacity: 0.8;
     }
-    
+
     /* Extra style for the cancel button (red) */
     .cancelbtn {
       width: auto;
@@ -56,9 +78,9 @@
       margin: 24px 0 12px 0;
     }
 
-    /* Avatar image */
-    img.avatar {
-      width: 40%;
+
+    img {
+      height: 36px;
       /* border-radius: 50%; */
     }
 
@@ -74,10 +96,6 @@
       padding-top: 16px;
     }
 
-    input label {
-      display: inline;
-    }
-
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
       span.psw {
@@ -89,7 +107,7 @@
         width: 100%;
       }
     }
-</Style>
+  </style>
 </head>
 <body onbeforeunload="window.location='./logout.jsp'">
 
@@ -107,7 +125,7 @@
 	<form action="./PwdEdit" method="post">
 
     <div class="imgcontainer">
-      <img src="./assets/images/logo.png" alt="Avatar" class="avatar">
+      <img src="./assets/images/HCLogo2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -131,7 +149,7 @@
 
     </div>
   
-    <div class="container" style="background-color:#f1f1f1"></div>
+    <div class="container"></div>
     
     </form>
 </body>

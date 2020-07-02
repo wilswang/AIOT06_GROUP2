@@ -24,6 +24,7 @@ public class LoginFilter implements Filter {
 
         
         // Ignore the login page
+
         if(path.contains("sidebar") ||path.contains("css") || path.contains("assets") ||path.endsWith("Login") || path.endsWith("Login_page.jsp") || path.contains("crawler")|| path.contains("bpminsert")) {
 
             chain.doFilter(servletRequest, servletResponse);
@@ -34,7 +35,7 @@ public class LoginFilter implements Filter {
         if (LogOk == null) {
             // redirect to login page if user not have auth
             //servletResponse.sendRedirect("/Login_page.jsp");
-        	request.getRequestDispatcher("Login_page.jsp").forward(request, response);
+        	request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
             chain.doFilter(request, response);
         }

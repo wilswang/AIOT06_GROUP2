@@ -37,7 +37,7 @@
 		};
 		
 		function navigateToPage2(patno,timerid) {
-			$(".app-main__inner").load('PatientsDetails2.jsp',{'patno':patno});
+			$(".app-main__inner").load('PatientsDetails.jsp',{'patno':patno});
 			clearInterval(timerid);
 		};
     </script>
@@ -168,10 +168,10 @@
 					<div class="app-sidebar__inner">
 						<ul class="vertical-nav-menu">
 							<li class="app-sidebar__heading">Homepage</li>
-							<li onclick="navigateToPage('Homepage2.jsp')"><a class="mm-active"><i class="fas fa-home"></i> <span>HomePage</span></a></li>
+							<li onclick="navigateToPage('Homepage.jsp')"><a class="mm-active"><i class="fas fa-home"></i> <span>HomePage</span></a></li>
 							<li class="app-sidebar__heading">Information</li>
-							<li onclick="navigateToPage('Patients2.jsp')"><a><i class="fas fa-user-friends"></i> <span>Patients</span></a></li>
-							<li onclick="navigateToPage('StatisticsTest.jsp')"><a><i class="fas fa-chart-bar"></i> <span>Statistics</span></a></li>
+							<li onclick="navigateToPage('Patients.jsp')"><a><i class="fas fa-user-friends"></i> <span>Patients</span></a></li>
+							<li onclick="navigateToPage('Statistics.jsp')"><a><i class="fas fa-chart-bar"></i> <span>Statistics</span></a></li>
 							<li class="app-sidebar__heading">Management</li>
 							<li onclick="navigateToPage('File_management.jsp')"><a><i class="fas fa-paperclip"></i> <span>Upload files</span></a></li>
 							<li onclick="navigateToPage('Edit_Pats.jsp')"><a><i class="fas fa-user-cog"></i> <span>Edit patients</span></a></li>
@@ -181,7 +181,7 @@
 				</div>
 			</div>	
 			<div id="wrap_content" class="app-main__outer">
-				<jsp:include page="Homepage2.jsp"/>
+				<jsp:include page="Homepage.jsp"/>
 				
 			</div>
 		</div>

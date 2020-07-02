@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,com.patientinfo.HealthcareBean"%>
-<%!@SuppressWarnings("unchecked")%>
 <%@ include file="backtotop.jsp"%> 
+
 <div class="app-main__inner">
 	<div class="app-page-title">
 		<div class="page-title-wrapper">
@@ -18,124 +18,152 @@
 	</div>
 
 	<!-- 首頁三個重要指標 -->
-<jsp:useBean id="acB" scope="request"
-	class="com.patientinfo.HealthcareBean" />
-<div class="row">
-	<div class="col-md-6 col-xl-4">
-		<div class="card mb-3 widget-content bg-midnight-bloom">
-			<div class="widget-content-wrapper text-white">
-				<div class="widget-content-left">
-					<div class="widget-heading">Pulse Rate</div>
-					<div class="widget-subheading">Abnormal number</div>
-				</div>
-				<div class="widget-content-right">
-					<!-- 回傳檢測值 -->
-					<div class="widget-numbers text-white">
-						<span><%=acB.getPRc()%></span>
+	<div class="row">
+		<div class="col-md-6 col-xl-4">
+			<div class="card mb-3 widget-content bg-midnight-bloom">
+				<div class="widget-content-wrapper text-white">
+					<div class="widget-content-left">
+						<div class="widget-heading">Pulse Rate</div>
+						<div class="widget-subheading">Abnormal number</div>
+					</div>
+					<div class="widget-content-right">
+						<!-- 回傳檢測值 -->
+						<div class="widget-numbers text-white">
+							<span class="prc"></span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-6 col-xl-4">
-		<div class="card mb-3 widget-content bg-arielle-smile">
-			<div class="widget-content-wrapper text-white">
-				<div class="widget-content-left">
-					<div class="widget-heading">SBP/DBP</div>
-					<div class="widget-subheading">Abnormal number</div>
-				</div>
-				<div class="widget-content-right">
-					<!-- 回傳檢測值 -->
-					<div class="widget-numbers text-white">
-						<span><%=acB.getSBP_DBP_C()%></span>
+		<div class="col-md-6 col-xl-4">
+			<div class="card mb-3 widget-content bg-arielle-smile">
+				<div class="widget-content-wrapper text-white">
+					<div class="widget-content-left">
+						<div class="widget-heading">SBP/DBP</div>
+						<div class="widget-subheading">Abnormal number</div>
+					</div>
+					<div class="widget-content-right">
+						<!-- 回傳檢測值 -->
+						<div class="widget-numbers text-white">
+							<span class="sbp_dbp"></span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-6 col-xl-4">
-		<div class="card mb-3 widget-content bg-grow-early">
-			<div class="widget-content-wrapper text-white">
-				<div class="widget-content-left">
-					<div class="widget-heading">Glucose</div>
-					<div class="widget-subheading">Abnormal number</div>
-				</div>
-				<div class="widget-content-right">
-					<!-- 回傳檢測值 -->
-					<div class="widget-numbers text-white">
-						<span><%=acB.getGlc()%></span>
+		<div class="col-md-6 col-xl-4">
+			<div class="card mb-3 widget-content bg-grow-early">
+				<div class="widget-content-wrapper text-white">
+					<div class="widget-content-left">
+						<div class="widget-heading">Glucose</div>
+						<div class="widget-subheading">Abnormal number</div>
+					</div>
+					<div class="widget-content-right">
+						<!-- 回傳檢測值 -->
+						<div class="widget-numbers text-white">
+							<span class="glc"></span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	
+		<!-- RWD 出現的標籤 -->
+		<%-- <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+	                       <div class="card mb-3 widget-content bg-premium-dark">
+	                           <div class="widget-content-wrapper text-white">
+	                               <div class="widget-content-left">
+	                                   <div class="widget-heading">Products Sold</div>
+	                                   <div class="widget-subheading">Revenue streams</div>
+	                               </div>
+	                               <div class="widget-content-right">
+	                                   <div class="widget-numbers text-warning"><span>$14M</span></div>
+	                               </div>
+	                           </div>
+	                       </div>
+	                   </div>--%>
 	</div>
-
-	<!-- RWD 出現的標籤 -->
-	<%-- <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
-                       <div class="card mb-3 widget-content bg-premium-dark">
-                           <div class="widget-content-wrapper text-white">
-                               <div class="widget-content-left">
-                                   <div class="widget-heading">Products Sold</div>
-                                   <div class="widget-subheading">Revenue streams</div>
-                               </div>
-                               <div class="widget-content-right">
-                                   <div class="widget-numbers text-warning"><span>$14M</span></div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>--%>
-</div>
-<!-- 小方塊置放區 -->
-<div class="allmember">
-	<%
-		List<HealthcareBean> adBs = (ArrayList<HealthcareBean>) request.getAttribute("adBs");
-		for (HealthcareBean adBs_ : adBs) {
-			if (Integer.parseInt(adBs_.getGlucose()) < 100 && Integer.parseInt(adBs_.getPulse_Rate()) < 100 && Integer.parseInt(adBs_.getPulse_Rate()) > 60 && Integer.parseInt(adBs_.getSBP()) <= 140 && Integer.parseInt(adBs_.getDBP()) <= 90) {
-				continue;
-			}else{
-	%>
-
-	<form class="member" id="member01" method="post"	action="./PatientsDetails">
-		<p class="alltext name"><%=adBs_.getpName()%></p>
-		<div class="glucose">
-			<img src="./assets/images/glucose.png" alt="glucose">
-			<%String g = "";
-				if (Integer.parseInt(adBs_.getGlucose()) > 100) {g = "prcss";}
-				else {g = "alltext";}
-			%>
-
-			<p id="Gluid" class=<%=g%>><%=adBs_.getGlucose()%></p>
-		</div>
-		<div class="pic">
-			
-			<bottom type="submit"> <input class="mebimg"
-				type="image" src="./assets/images/NHMan.png" />
-
-			<input type="text" value=<%=adBs_.getPatno()%> name=patno
-				style="display: none;"> </bottom>
-		</div>
-		<div class="hart">
-			<img src="./assets/images/hart.png" alt="hart">
-			<%String p = "";
-				if (Integer.parseInt(adBs_.getPulse_Rate()) > 100 || Integer.parseInt(adBs_.getPulse_Rate()) < 60) {
-					p = "prcss";
-				} else {
-					p = "alltext";}%>
-			<p id="Prid" class=<%=p%>><%=adBs_.getPulse_Rate()%></p>
-		</div>
-		<div class="bdpresseure">
-			<img src="./assets/images/bdpressure.png" alt="bdpresseure">
-			<%String s = "";
-				if (Integer.parseInt(adBs_.getSBP()) >= 140 || Integer.parseInt(adBs_.getDBP()) >= 90) {
-					s = "prcss";
-				} else {
-					s = "alltext";
-				}%>
-			<p id="SDBPid" class=<%=s%>><%=adBs_.getSBP()%>/<%=adBs_.getDBP()%></p>
-		</div>
-	</form>						
-	<%}}%>
+	<!-- 小方塊置放區 -->
+	<div class="allmember">		
 	</div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
-	<script type="text/javascript" src="./assets/scripts/main.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	//第一次讀取
+	DetectAbnormal();
+	
+	// 宣告一變數去接time id的值
+	let timer_id = setInterval(function(){ DetectAbnormal(); }, 15000); //每15秒執行一次DetectAbnormal
+	
+	//自動更新
+	if(timer_id){
+		timer_id;  
+ 	};
+ 	
+ 	// 當切換至別的頁面時，清除time id的值
+	$(".vertical-nav-menu li:not(.app-sidebar__heading)").click(function(){
+		clearInterval(timer_id);
+	});
+	
+	function DetectAbnormal(){
+		$.ajax({  
+	            type:"post", 
+	            url:"DetectAbnormal",   
+	            dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
+	            success:
+	                function(data){
+						$("div.allmember").empty();
+						$(".prc").text(data[data.length-1]["PRc"]);
+						$(".sbp_dbp").text(data[data.length-1]["SBP_DBP_C"]);
+						$(".glc").text(data[data.length-1]["glc"]);
+	            		for(var i=0; i< data.length-1;i++){
+		            		let glucose_ , img_src, bp_status;
+		            		let glucose=parseInt(data[i]['glucose']);
+		            		let pulseRate=parseInt(data[i]['Pulse_Rate']);
+		            		let sbp=parseInt(data[i]['SBP']);
+		            		let dbp=parseInt(data[i]['DBP']);
+		            		if(glucose >100){
+		            			glucose_="prcss";
+		            		}else{
+		            			glucose_="alltext"
+		            		};
+		            		if(pulseRate > 100 | pulseRate < 60){
+		            			pulse_status = "prcss";
+		            		}else{
+		            			pulse_status = "alltext";
+		            		}
+		            		if(sbp>=140 | dbp>=90){
+		            			bp_status = "prcss";
+		            		}else{
+		            			bp_status = "alltext";
+		            		};
+		            		if(glucose < 100 & pulseRate < 100 & pulseRate > 60 & sbp<=140 & dbp <= 90){
+		            			continue;
+		            		}else{
+		            			$("div.allmember").append(
+		            				'<form  class="member" method="post" action="">'
+		            	            +'<p class="alltext name">'+data[i]['pName']+'</p>'
+		            	            +'<div class="glucose">'
+		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
+		            	            +'<p class="Gluid '+glucose_+'">'+data[i]['glucose']+'</p></div>'                                              
+		            	            +'<div class="pic"><img class="mebimg" src="./assets/images/NHMan.png" onclick="navigateToPage2('+data[i]['Patno']+','+timer_id+')"/>'
+		            	            +'</div>'
+		            	            +'<div class="hart"><img src="./assets/images/hart.png" alt="hart">'    
+		            	            +'<p class="Prid" '+pulse_status+'>'+pulseRate+'</p></div>'
+		            	            +'<div class="bdpresseure">'
+		            	            +'<img src="./assets/images/bdpressure.png" alt="bdpresseure">'
+		            	            +'<p class="SDBPid '+bp_status+'">'+sbp+'/'+dbp+'</p></div></form>'  
+		            			);
+		            		}
+	            		}
+	            	},  
+	            error:
+	                function(xhr, ajaxOptions, thrownError){
+		            	alert("Detect abnormal Fail!"+xhr.status+"\n"+thrownError);
+	                }
+        });return true
+	};
+}); 
+
+</script>

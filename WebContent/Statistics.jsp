@@ -1,201 +1,199 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<div class="app-main__inner">
-    <div class="app-page-title">
-        <div class="page-title-wrapper">
-            <div class="page-title-heading">
-                <div class="page-title-icon">
-                    <i class="fas fa-chart-bar">
-                    </i>
-                </div>
-                <div>Statistic
-                    <div class="page-title-subheading">Histogram
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-content">
-        <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
-            <div class="row">
-                <div style="width: 80%;"><!--col-md-6-->
-                    
-                    <div class="main-card mb-3 card">                                            
-                        <!--Statistic 程式碼-->
-                        <div >
-                            <div class="chartjs-size-monitor">
-                                <div class="chartjs-size-monitor-expand">
-                                    
-                                </div>
-                                <div class="chartjs-size-monitor-shrink">
-                                    
+                    <div class="app-main__inner">
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <div class="page-title-icon">
+                                        <i class="fas fa-chart-bar">
+                                        </i>
+                                    </div>
+                                    <div>Statistic
+                                        <div class="page-title-subheading">Histogram
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <canvas id="canvas2" style="display: block; " width="933" height="366" class="chartjs-render-monitor" style="width: 95%;"></canvas>
                         </div>
-                        <br>
-                        <br>
-                        <%--
-                        <button id="randomizeData">Randomize Data</button>
-                        <button id="addDataset">Add Dataset</button>
-                        <button id="removeDataset">Remove Dataset</button>
-                        <button id="addData">Add Data</button>
-                        <button id="removeData">Remove Data</button>--%>
-
-                        <!--Statistic 程式碼-->
-                    </div>                                        
-                </div>                                    
-            </div>            
-        </div>                            
-    </div>            
-</div> 
-
+                        <div class="tab-content">
+                                <div class="row">
+					<div class="col-md-6">
+						<div class="main-card mb-3 card">
+							<div class="card-body" style="width: 100%;">
+								<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
+								<canvas id="pulse_" width="733" height="270"></canvas>
+							</div>
+						</div>
+						<div class="main-card mb-3 card">
+							<div class="card-body">
+								<h5 class="card-title" style="text-align: center">Glucose</h5>
+								<canvas id="glu_" width="733" height="270"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="main-card mb-3 card">
+							<div class="card-body">
+								<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
+								<canvas id="sd_bp" width="733" height="270"></canvas>
+							</div>
+						</div>
+						<div class="main-card mb-3 card">
+							<div class="card-body">
+								<h5 class="card-title" style="text-align: center">SpO2</h5>
+								<canvas id="sp_" width="733" height="270"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>          
+                                                        
+                        </div>            
+                    </div>                    
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>         
 <script>
-    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var config = {
-        type: 'bar',
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: '血糖',
-                backgroundColor: window.chartColors.red,
-                borderColor: window.chartColors.red,
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor()
-                ],
-                fill: false,
-            }, {
-                label: '血壓',
-                fill: false,
-                backgroundColor: window.chartColors.blue,
-                borderColor: window.chartColors.blue,
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor()
-                ],
-            },{
-                label: '心律',
-                backgroundColor: window.chartColors.yellow,
-                borderColor: window.chartColors.yellow,
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor()
-                ],
-                fill: false,
-            }]
-        },
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: 'Histogram of detection',
-                
-            },
-            tooltips: {
-                mode: 'index',
-                intersect: false,
-            },
-            hover: {
-                mode: 'nearest',
-                intersect: true
-            },
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Month'
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Value'
-                    }
+	console.log("Here is Statistic");
+	
+	function config(){
+		let config_ = {
+            type: 'bar',
+            data: {
+                labels: ["7","6","5","4","3","2","1"],
+                datasets: [{
+                    backgroundColor: '#0080FF',
+                    borderColor: window.chartColors.blue,
+                    data: [],
+                    fill: true,
                 }]
-            }
-        }
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: false,
+                    text: 'Histogram of detection',
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                	mode: 'index',
+                    intersect: false,
+                } ,
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Days Before'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: '#'
+    	               		},
+                   		ticks: {
+    	                    suggestedMin: 0,
+    	                    suggestedMax: 10,
+    	                    stepSize:2,
+    	                    padding:0
+    	                    }
+                    }]
+                },
+            }};return config_;
+    }; // config_ end
+    
+    initialChart();
+    function initialChart(){
+	    let ctx1 = document.getElementById('pulse_').getContext('2d');
+		let chart1 = new Chart(ctx1, config());
+		let ctx2 = document.getElementById('glu_').getContext('2d');
+		let chart2 = new Chart(ctx2, config());
+		let ctx3 = document.getElementById('sd_bp').getContext('2d');
+		let chart3 = new Chart(ctx3, config());
+		let ctx4 = document.getElementById('sp_').getContext('2d');
+		let chart4 = new Chart(ctx4, config());
     };
-
-    window.onload = function() {
-        var ctx = document.getElementById('canvas2').getContext('2d');
-        // ctx.fillRect(20,20,800,360);
-        window.myLine = new Chart(ctx, config);
-    };
-	<%--
-    document.getElementById('randomizeData').addEventListener('click', function() {
-        config.data.datasets.forEach(function(dataset) {
-            dataset.data = dataset.data.map(function() {
-                return randomScalingFactor();
-            });
-
-        });
-
-        window.myLine.update();
-    });
-
-    var colorNames = Object.keys(window.chartColors);
-    document.getElementById('addDataset').addEventListener('click', function() {
-        var colorName = colorNames[config.data.datasets.length % colorNames.length];
-        var newColor = window.chartColors[colorName];
-        var newDataset = {
-            label: 'Dataset ' + config.data.datasets.length,
-            backgroundColor: newColor,
-            borderColor: newColor,
-            data: [],
-            fill: false
-        };
-
-        for (var index = 0; index < config.data.labels.length; ++index) {
-            newDataset.data.push(randomScalingFactor());
-        }
-
-        config.data.datasets.push(newDataset);
-        window.myLine.update();
-    });
-
-    document.getElementById('addData').addEventListener('click', function() {
-        if (config.data.datasets.length > 0) {
-            var month = MONTHS[config.data.labels.length % MONTHS.length];
-            config.data.labels.push(month);
-
-            config.data.datasets.forEach(function(dataset) {
-                dataset.data.push(randomScalingFactor());
-            });
-
-            window.myLine.update();
-        }
-    });
-
-    document.getElementById('removeDataset').addEventListener('click', function() {
-        config.data.datasets.splice(0, 1);
-        window.myLine.update();
-    });
-
-    document.getElementById('removeData').addEventListener('click', function() {
-        config.data.labels.splice(-1, 1); // remove the label first
-
-        config.data.datasets.forEach(function(dataset) {
-            dataset.data.pop();
-        });
-
-        window.myLine.update();
-    });--%>
+    
+	GetStatistics();
+	
+	/****call ajax fucntion and set the timer by setInterval****/
+	//let timer_id = setInterval(function(){ GetStatistics(); }, 15000); //每15秒執行一次PatientsDetails
+	
+	//if(timer_id){
+		//timer_id;  
+		//console.log("timer_id: "+timer_id);
+ 	//};
+	 	
+ 	//$(".vertical-nav-menu li:not(.app-sidebar__heading)").click(function(){
+		//clearInterval(timer_id);
+		//console.log('Clear Statistics: '+timer_id);
+	//});
+ 	/****End****/
+ 	
+ 	/****call ajax fucntion and set the timer by setTimeout ****/
+	//setTimeout(function(){GetStatistics()}, 5000);
+ 	
+	function GetStatistics(){
+		$.ajax({  
+            type:"post",
+            async: "false",
+            url:"Statistics",   
+            dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
+            //data : dataNo_,
+            success:
+                function(data){  
+            		
+            		// count of keys in json
+            		let count = Object.keys(data).length;
+           		    
+            		// canvas 的data	
+            		let canvas1_data=[]; //pulse rate
+            		let canvas2_data=[]; //glucose
+            		let canvas3_data=[]; //SBP DBP
+            		let canvas4_data=[]; //SpO2
+           			let j = 0;
+           		    for(let i=count-1; i>=0; i--){
+           		    	canvas1_data[j] = data[i]["Date"][0]["Pulse_Rate"];
+           		    	canvas2_data[j] = data[i]["Date"][0]["glucose"];
+           		    	canvas3_data[j] = data[i]["Date"][0]["sd_bp"];
+           		    	canvas4_data[j] = data[i]["Date"][0]["SpO2"];
+           		    	j++;
+           		    };
+            		
+			        // 更新圖表
+			        let ctx1 = document.getElementById('pulse_').getContext('2d');
+					let chart1 = new Chart(ctx1, config());
+			        chart1.data.datasets[0].data = canvas1_data;
+            		chart1.update();
+            		let ctx2 = document.getElementById('glu_').getContext('2d');
+            		let chart2 = new Chart(ctx2, config());
+            		chart2.data.datasets[0].data = canvas2_data;
+            		chart2.update();
+            		let ctx3 = document.getElementById('sd_bp').getContext('2d');
+            		let chart3 = new Chart(ctx3, config());
+            		chart3.data.datasets[0].data = canvas3_data;
+            		chart3.update();
+            		let ctx4 = document.getElementById('sp_').getContext('2d');
+            		let chart4 = new Chart(ctx4, config());
+            		chart4.data.datasets[0].data = canvas4_data;
+            		chart4.update();
+            },// success end  
+            error:
+                function(xhr, ajaxOptions, thrownError){
+	            	alert("Statistics Get Data Fail!"+xhr.status+"\n"+thrownError);
+                },
+            complete:
+            	function(){
+	            	/****call ajax fucntion and set the timer by setTimeout ****/	
+	            	//setTimeout(function(){GetStatistics()}, 5000);
+            		//console.log("Complete!");
+            	}
+        });return true
+	}
+    
 </script>

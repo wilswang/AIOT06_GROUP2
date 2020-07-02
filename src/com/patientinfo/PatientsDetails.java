@@ -38,7 +38,7 @@ private static final long serialVersionUID = 1L;
 	
 	private static final String SQLPatient =
 			"SELECT * FROM patient WHERE Patno = ?";
-	
+
 	private static final String SQLhe =
 			"SELECT * FROM health_examination_record2 WHERE Patno = ? LIMIT 1";
 	
@@ -48,7 +48,6 @@ private static final long serialVersionUID = 1L;
 			throws ServletException, IOException {		
 
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-		    
 			String Patno = request.getParameter("patno");
 			
 			// execute the SQLDM
@@ -117,18 +116,29 @@ private static final long serialVersionUID = 1L;
 				pat.setWeight(rs.getString("weight"));
 				pat_.add(pat);
 			}
-			
-			/*call python to run machine learning*/
-			String[] cmd = {
-					"python",
-					"C:/Users/user/FinalProject/Predict.py",
-					Patno,
+
+			/*Run Python simulation if Result is null*/
+			stmt = conn.prepareStatement(SQLml);
+			stmt.setString(1, Patno);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				if (rs.getString("result")==null) {
+					System.out.println("Result is null. Run python!");
+					String[] cmd = {
+							"python",
+							"C:/Users/user/FinalProject/PredictAws.py",
+							Patno,
+							};
+					try {
+						 Process pr = Runtime.getRuntime().exec(cmd);
+						 pr.waitFor();
+						 
+					} catch (IOException e) {
+						e.printStackTrace();
+					}finally{
+						System.out.println("Python done");
 					};
-			try {
-				 Process pr = Runtime.getRuntime().exec(cmd);
-				 pr.waitFor();
-			} catch (IOException e) {
-				e.printStackTrace();
+				}
 			}
 			
 			// execute the SQLml
@@ -190,6 +200,7 @@ private static final long serialVersionUID = 1L;
 			PrintWriter out = response.getWriter();
 	        out.print(jsonObject);
 			stmt.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

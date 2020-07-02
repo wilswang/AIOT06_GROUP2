@@ -87,6 +87,7 @@ public class HealthcareBean {
 	public String getResult() {return result;}
 	public void setResult(String result) {this.result = result;}
 	
+
 	/* Statistic*/
 	private String sd_bp;
 	public String getSd_bp() {return sd_bp;}
@@ -111,6 +112,7 @@ public class HealthcareBean {
 	private String 	HDL;
 	private String 	LDL;
 	private String  AC;	
+
 	
 	public String getWasistline() {return wasistline;}
 	public void setWasistline(String wasistline) {this.wasistline = wasistline;}
@@ -149,4 +151,8 @@ public class HealthcareBean {
 	public String getAC() {return AC;}
 	public void setAC(String aC) {AC = aC;}
 	
+
 }
+	
+
+

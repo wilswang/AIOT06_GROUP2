@@ -169,7 +169,7 @@
 					<div class="app-sidebar__inner">
 						<ul class="vertical-nav-menu">
 							<li class="app-sidebar__heading">Homepage</li>
-							<li onclick="navigateToPage('Homepage.jsp')"><a class="mm-active"><i class="fas fa-home"></i> <span>HomePage</span></a></li>
+							<li onclick="navigateToPage('HomePage.jsp')"><a class="mm-active"><i class="fas fa-home"></i> <span>HomePage</span></a></li>
 							<li class="app-sidebar__heading">Information</li>
 							<li onclick="navigateToPage('Patients.jsp')"><a><i class="fas fa-user-friends"></i> <span>Patients</span></a></li>
 							<li onclick="navigateToPage('Statistics.jsp')"><a><i class="fas fa-chart-bar"></i> <span>Statistics</span></a></li>

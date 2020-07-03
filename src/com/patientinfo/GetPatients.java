@@ -29,7 +29,7 @@ public class GetPatients extends HttpServlet {
 				pm = new HealthcareBean();
 				pm.setPatno(rs.getString("Patno"));       
 				pm.setpName(rs.getString("pName"));
-				pm.setGender(rs.getString("Gender"));
+//				pm.setGender(rs.getString("Gender"));
 				pm.setDate(rs.getString("date"));
 				pm.setSBP(rs.getString("SBP"));
 				pm.setDBP(rs.getString("DBP"));

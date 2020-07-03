@@ -337,7 +337,6 @@
 	</div>
 </div>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
-
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 <script >
 $(function(){             
@@ -485,7 +484,7 @@ $(function(){
 // 		});
 		// call ajax fucntion and set the timer
 		PatientsDetails();
-		let PD_timer = setInterval(function(){ PatientsDetails(); }, 15000); //每15秒執行一次PatientsDetails
+		//let PD_timer = setInterval(function(){ PatientsDetails(); }, 15000); //每15秒執行一次PatientsDetails
 		
 		if(PD_timer){
 			PD_timer;  

@@ -28,11 +28,11 @@ var CommonLib = {
     
     destroyAllBlock: function () {
     	setTimeout(function(){
-            $("#div_patient_dashboard").each(function(index,entry){
+            $("div.loading-overlay").each(function(index,entry){
                 $(entry).remove();
             });
 
-            $("#div_patient_dashboard").each(function(index,entry){
+            $("div.modal-backdrop").each(function(index,entry){
                 $(entry).remove();
             });
         },300);

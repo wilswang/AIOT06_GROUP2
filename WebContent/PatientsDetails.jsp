@@ -220,7 +220,7 @@
 			</li>
 		</ul>
 		<div class="tab-content">
-			<div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+			<div class="tab-pane tabs-animation fade show active in" id="tab-content-0" role="tabpanel">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="main-card mb-3 card">

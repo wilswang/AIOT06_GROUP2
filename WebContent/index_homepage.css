@@ -9,16 +9,26 @@
 			padding:0.60%;
 		}
 		
+		form.member{
+			padding-top:0px;
+			border: 0px;
+		}
 		.member {
-			background: linear-gradient(to bottom, #CCFF99, #F5FFFA);			
+			cursor:pointer;
+/* 			background: linear-gradient(to bottom, #CCFF99, #F5FFFA);			 */
+			background: #d9d9d9;
 			border-radius: 8px;
 			width: 172px;
-			height: 172px;
+			height: 190px;
 			float: left;
 			margin: 0.63%;
 			position: relative;
+			box-shadow: 2px 1px 1px rgba(51, 51, 102, 0.5);
 		}
-		
+		.member-head{
+			    background: #b2b2b2;
+    			height: 36px;
+		}
 		.name {
 			margin: 0px;
 			width: 70px;
@@ -29,25 +39,26 @@
 			left: 10px;
 		}
 		
-		.my_a { -
+		.my_a { 
 			margin: 0px;
 		}
 		
 		.mebimg {
-			margin: 0px;
+			margin: 0px auto;
 			border-radius: 10px;
-			width: 140px;
-			height: 95px;
-			position: absolute;
+			width: 110px;
+			height: 110px;
+			position: initial;
 			left: 9px;
 			bottom: 31px;
 		}
 		
 		.pic {
-			margin: 0px;
+			padding-top: 5px;
+			margin: 0px auto;
 			clear: both;
-			width: 120px;
-			height: 90px;
+			width: 110px;
+			height:110px;
 		}
 		
 		.hart {
@@ -122,11 +133,11 @@
 		
 		p.alltext {
 			font-size: 2ex;
-			color: #4169E1;
+			color: #184c79;
 		}
 		
 		.prcss {
-			color: red;
+			color: #dd4b39;
 		}
 		
 		.myform {

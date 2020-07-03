@@ -18,7 +18,7 @@
 		<div id="load" style="position: relative;">
 			<img src="./assets/images/loading.gif" style="left:50% ; position: absolute; top: 50%; transform: translateX(-50%)"/>
 		</div>
-		<div class="row">
+		<div id="div_patient_dashboard" class="row">
 			<div class="col-md-4" >
 				<div class=" main-card mb-3 card">
 				<div class="card-body">
@@ -337,7 +337,8 @@
 	</div>
 </div>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 <script >
 $(function(){             
 	$(".row .col-md-4 .card-body:eq(0)").height($(".row .col-md-4 .card-body:eq(1)").height());
@@ -473,15 +474,15 @@ $(function(){
 		let chart4 = new Chart(ctx4, config(labels,data,'percentage',60,120));
 	    
 		// ajax loading animation
-		$(document).on({
-		  ajaxStart: function() {
-			  $("#load1 #load").show().siblings().hide();
+// 		$(document).on({
+// 		  ajaxStart: function() {
+// 			  $("#load1 #load").show().siblings().hide();
 			 
-		  },
-		  ajaxStop: function() {
-			  $("#load1 #load").hide().siblings().show();
-		  }
-		});
+// 		  },
+// 		  ajaxStop: function() {
+// 			  $("#load1 #load").hide().siblings().show();
+// 		  }
+// 		});
 		// call ajax fucntion and set the timer
 		PatientsDetails();
 		let PD_timer = setInterval(function(){ PatientsDetails(); }, 15000); //每15秒執行一次PatientsDetails
@@ -495,6 +496,7 @@ $(function(){
 		});
 	
 			function PatientsDetails(){
+				CommonLib.block("div_patient_dashboard",load);
 				$.ajax({  
 			            type:"post",
 			            async: "false",
@@ -623,7 +625,7 @@ $(function(){
             						$("div.app-main__inner span.widget-numbers:eq(1)").addClass('text-success')
            						}else if(cardio == "Danger"){
             						$("#cardio").addClass('text-danger')
-            						$("div.app-main__inner span.widget-numbers:eq(1)").addClass('text-danger')
+            						$("div.app-main__inner span.widget-numbers:eq(1)").addClass('text-danger blink_me')
            						};
             					
            						// 建立history data的table
@@ -713,13 +715,24 @@ $(function(){
 			            		chart3.update();
 			            		chart4.data.datasets[0].data = canvas4_data;
 			            		chart4.update();
+			            		
+			            		setTimeout(function(){
+						        	CommonLib.unblock("div_patient_dashboard");
+						        },200);
 			            },// success end  
 			            error:
 			                function(xhr, ajaxOptions, thrownError){
 				            	alert("PatientsDetails Fail!"+xhr.status+"\n"+thrownError);
-			                },
+				            	setTimeout(function(){
+						        	CommonLib.unblock("div_patient_dashboard");
+						        },200);
+			                }
+			            
 			        });return true
+			        
+			       
+	
 			}; // PatientsDetails end
  		});
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->

@@ -23,14 +23,15 @@
 	<link href="index_homepage.css" rel="stylesheet">	
 	<link href="Edit_upload.css" rel="stylesheet">
 	<link href="./assets/vendor/chartjs/Chart.css" rel="stylesheet">
-	
 </head>
 
-<body>
+<body> 
 	<script type="text/javascript" src="./assets/vendor/jquery/jquery-3.5.1.min.js"></script>
-
+	<script type="text/javascript" src="./assets/vendor/jquery-loading/jquery.loading.js"></script>
 	<script type="text/javascript" src="./assets/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./assets/vendor/chartjs/Chart.bundle.js"></script>
+	
+	<script type="text/javascript" src="./assets/scripts/CommonLib.js"></script>
 	<script>
 		function navigateToPage(pageName) {
 		  $("#wrap_content").load(pageName); 		  
@@ -168,7 +169,7 @@
 					<div class="app-sidebar__inner">
 						<ul class="vertical-nav-menu">
 							<li class="app-sidebar__heading">Homepage</li>
-							<li onclick="navigateToPage('Homepage.jsp')"><a class="mm-active"><i class="fas fa-home"></i> <span>HomePage</span></a></li>
+							<li onclick="navigateToPage('HomePage.jsp')"><a class="mm-active"><i class="fas fa-home"></i> <span>HomePage</span></a></li>
 							<li class="app-sidebar__heading">Information</li>
 							<li onclick="navigateToPage('Patients.jsp')"><a><i class="fas fa-user-friends"></i> <span>Patients</span></a></li>
 							<li onclick="navigateToPage('Statistics.jsp')"><a><i class="fas fa-chart-bar"></i> <span>Statistics</span></a></li>
@@ -181,7 +182,7 @@
 				</div>
 			</div>	
 			<div id="wrap_content" class="app-main__outer">
-				<jsp:include page="Homepage.jsp"/>
+				<jsp:include page="HomePage.jsp"/>
 				
 			</div>
 		</div>
@@ -199,5 +200,7 @@
 	    });
 	})
 </script>	
+
+	<link href="./assets/vendor/jquery-loading/jquery.loading.min.css" rel="stylesheet" type="text/css"/>
 </body>
 </html>

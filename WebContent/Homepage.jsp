@@ -94,7 +94,7 @@ $(function(){
 	DetectAbnormal();
 	
 	// 宣告一變數去接time id的值
-	let timer_id = setInterval(function(){ DetectAbnormal(); }, 15000); //每15秒執行一次DetectAbnormal
+	let timer_id = setInterval(function(){ DetectAbnormal(); }, 150000); //每15秒執行一次DetectAbnormal
 	
 	//自動更新
 	if(timer_id){
@@ -141,13 +141,15 @@ $(function(){
 		            		if(glucose < 100 & pulseRate < 100 & pulseRate > 60 & sbp<=140 & dbp <= 90){
 		            			continue;
 		            		}else{
+		            			var index = Math.floor(Math.random()*24)+1;
 		            			$("div.allmember").append(
 		            				'<form  class="member" method="post" action="">'
-		            	            +'<p class="alltext name">'+data[i]['pName']+'</p>'
+		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
-		            	            +'<p class="Gluid '+glucose_+'">'+data[i]['glucose']+'</p></div>'                                              
-		            	            +'<div class="pic"><img class="mebimg" src="./assets/images/NHMan.png" onclick="navigateToPage2('+data[i]['Patno']+','+timer_id+')"/>'
+		            	            +'<p class="Gluid '+glucose_+'">'+data[i]['glucose']+'</p></div>'
+		            	            +'</div>'
+		            	            +'<div class="pic"><img class="mebimg rounded-circle" src="./assets/images/person/'+ index +'.png" onclick="navigateToPage2('+data[i]['Patno']+','+timer_id+')"/>'
 		            	            +'</div>'
 		            	            +'<div class="hart"><img src="./assets/images/hart.png" alt="hart">'    
 		            	            +'<p class="Prid" '+pulse_status+'>'+pulseRate+'</p></div>'

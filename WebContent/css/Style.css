@@ -27,3 +27,13 @@ html{
                                   supported by Chrome and Opera */
 }
 
+.blink_me { animation: blinker .8s linear 3; }
+
+@keyframes blinker { 50% { opacity: 0; } }
+
+.loading-overlay-content { 
+	font-size: 1.2em !important; 
+	color:#fff !important;
+	background-color: #2b2b2b !important; 
+}
+

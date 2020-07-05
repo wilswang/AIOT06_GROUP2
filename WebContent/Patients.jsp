@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*,com.patientinfo.HealthcareBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,com.patientinfo.HealthcareBean"%>
     
 <script type="text/javascript">
 $(function(){
+	CommonLib.destroyAllBlock(); // 清除loading頁面
 	//第一次讀取
 	GetPatients();
 	
@@ -12,13 +12,13 @@ $(function(){
 	//自動更新
 	if(timer_id){
 		timer_id;  
-		console.log("timer_id: "+timer_id);
+		//console.log("timer_id: "+timer_id);
  	};
 
  	// 當切換至別的頁面時，清除time id的值
 	$(".vertical-nav-menu li:not(.app-sidebar__heading)").click(function(){
 		clearInterval(timer_id);
-		console.log('Clear: '+timer_id);
+		//console.log('Clear: '+timer_id);
 	})
 	
 	function GetPatients(){
@@ -29,7 +29,7 @@ $(function(){
 	            //data : $("#form_add").serialize(),
 	            success:
 	                function(data){              			
-	            		console.log("timer_id: "+timer_id);
+	            		//console.log("timer_id: "+timer_id);
 	            		$("div.allmember").empty();
 	            		for(var i=0; i< data.length;i++){
 		            		let glucose_ , img_src, bp_status, pulse_status;
@@ -57,15 +57,14 @@ $(function(){
 		            		}else{
 		            			bp_status = "alltext";
 		            		};
-		            		//console.log("Here is Get Patients");
-		            		//console.log(data[i]['pName']);
 		            		$("div.allmember").append(
 		            				'<form  class="member" method="post" action="">'
-		            	            +'<p class="alltext name">'+data[i]['pName']+'</p>'
+		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
-		            	            +'<p class="Gluid '+glucose_+'">'+data[i]['glucose']+'</p></div>'                                              
-		            	            +'<div class="pic"><img class="mebimg" src="'+img_src+'" onclick="navigateToPage2('+data[i]['Patno']+')"/>'
+		            	            +'<p class="Gluid '+glucose_+'">'+data[i]['glucose']+'</p></div>'
+		            	            +'</div>'                                          
+		            	            +'<div class="pic"><img class="mebimg rounded-circle" src="./assets/images/oldperson/'+ data[i]['Patno'] +'.png" onclick="navigateToPage2('+data[i]['Patno']+')"/>'
 		            	            +'</div>'
 		            	            +'<div class="hart"><img src="./assets/images/hart.png" alt="hart">'    
 		            	            +'<p class="Prid '+pulse_status+'">'+data[i]['Pulse_Rate']+'</p></div>'

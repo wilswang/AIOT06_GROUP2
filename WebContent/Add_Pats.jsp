@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card add_container1">
@@ -58,8 +57,6 @@
             </div>
         </div>                                    
     </div>
-
-	 
 <script >
         $(function(){             
 	        $("#lab_patno").hide();

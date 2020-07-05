@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="java.util.*,com.patientinfo.HealthcareBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*,com.patientinfo.HealthcareBean"%>
 <%@ include file="backtotop.jsp"%> 
 
 <div class="app-main__inner">
@@ -68,20 +67,20 @@
 			</div>
 		</div>
 	
-		<!-- RWD 出現的標籤 -->
-		<%-- <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
-	                       <div class="card mb-3 widget-content bg-premium-dark">
-	                           <div class="widget-content-wrapper text-white">
-	                               <div class="widget-content-left">
-	                                   <div class="widget-heading">Products Sold</div>
-	                                   <div class="widget-subheading">Revenue streams</div>
-	                               </div>
-	                               <div class="widget-content-right">
-	                                   <div class="widget-numbers text-warning"><span>$14M</span></div>
-	                               </div>
-	                           </div>
-	                       </div>
-	                   </div>--%>
+		<!-- RWD 出現的標籤 : 目前使用SpO2-->
+		<div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+          <div class="card mb-3 widget-content bg-secondary">
+              <div class="widget-content-wrapper text-white">
+                  <div class="widget-content-left">
+                      <div class="widget-heading">SpO2</div>
+                      <div class="widget-subheading">Abnormal number</div>
+                  </div>
+                  <div class="widget-content-right">
+                      <div class="widget-numbers text-white"><span class="spo2_c"></span></div>
+                  </div>
+              </div>
+          </div>
+		</div>
 	</div>
 	<!-- 小方塊置放區 -->
 	<div class="allmember">		
@@ -90,6 +89,7 @@
 
 <script type="text/javascript">
 $(function(){
+	CommonLib.destroyAllBlock(); // 清除loading頁面
 	//第一次讀取
 	DetectAbnormal();
 	
@@ -117,6 +117,7 @@ $(function(){
 						$(".prc").text(data[data.length-1]["PRc"]);
 						$(".sbp_dbp").text(data[data.length-1]["SBP_DBP_C"]);
 						$(".glc").text(data[data.length-1]["glc"]);
+						$(".spo2_c").text(data[data.length-1]["spo2_count"]);
 	            		for(var i=0; i< data.length-1;i++){
 		            		let glucose_ , img_src, bp_status;
 		            		let glucose=parseInt(data[i]['glucose']);
@@ -141,7 +142,6 @@ $(function(){
 		            		if(glucose < 100 & pulseRate < 100 & pulseRate > 60 & sbp<=140 & dbp <= 90){
 		            			continue;
 		            		}else{
-		            			var index = Math.floor(Math.random()*24)+1;
 		            			$("div.allmember").append(
 		            				'<form  class="member" method="post" action="">'
 		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
@@ -149,7 +149,7 @@ $(function(){
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
 		            	            +'<p class="Gluid '+glucose_+'">'+data[i]['glucose']+'</p></div>'
 		            	            +'</div>'
-		            	            +'<div class="pic"><img class="mebimg rounded-circle" src="./assets/images/person/'+ index +'.png" onclick="navigateToPage2('+data[i]['Patno']+','+timer_id+')"/>'
+		            	            +'<div class="pic"><img class="mebimg rounded-circle" src="./assets/images/oldperson/'+ data[i]['Patno'] +'.png" onclick="navigateToPage2('+data[i]['Patno']+','+timer_id+')"/>'
 		            	            +'</div>'
 		            	            +'<div class="hart"><img src="./assets/images/hart.png" alt="hart">'    
 		            	            +'<p class="Prid" '+pulse_status+'>'+pulseRate+'</p></div>'

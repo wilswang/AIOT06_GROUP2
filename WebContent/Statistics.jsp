@@ -48,11 +48,10 @@
                                                         
                         </div>            
                     </div>                    
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>         
-<script>
+       
+<script type="text/javascript"> 
 	console.log("Here is Statistic");
-	
+	CommonLib.destroyAllBlock(); // 清除loading頁面
 	function config(){
 		let config_ = {
             type: 'bar',
@@ -60,7 +59,7 @@
                 labels: ["7","6","5","4","3","2","1"],
                 datasets: [{
                     backgroundColor: '#0080FF',
-                    borderColor: window.chartColors.blue,
+                    borderColor: 	'#0080FF',
                     data: [],
                     fill: true,
                 }]

@@ -114,6 +114,7 @@ private static final long serialVersionUID = 1L;
 				pat.setGender(rs.getString("gender"));
 				pat.setHeight(rs.getString("height"));
 				pat.setWeight(rs.getString("weight"));
+				pat.setBlood_Type(rs.getString("blood_Type"));
 				pat_.add(pat);
 			}
 

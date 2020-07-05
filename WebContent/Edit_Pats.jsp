@@ -41,7 +41,7 @@
 
 <script type="text/javascript">   
 $(function() {
-	
+	CommonLib.destroyAllBlock(); // 清除loading頁面
 	$("li.nav-item >a").click(function(){
 	        $(this).addClass("active").parent().addClass("active").siblings().removeClass("active").children().removeClass("active");
 	        if($(this).prop("id")=="tab-0"){
@@ -175,7 +175,7 @@ $(function() {
 
 	
 	//19-jQuery datepicker Methods getDate setDate
-    //$(".datepicker").datepicker({
+    //$("#a_birthday").datepicker({
       //設定日期格式
       //dateFormat : "yy-mm-dd",
       //width:"180px"

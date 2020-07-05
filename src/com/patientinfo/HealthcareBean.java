@@ -90,8 +90,11 @@ public class HealthcareBean {
 
 	/* Statistic*/
 	private String sd_bp;
+	private String spo2_count;
 	public String getSd_bp() {return sd_bp;}
 	public void setSd_bp(String sd_bp) {this.sd_bp = sd_bp;}
+	public String getSpo2_count() {return spo2_count;}
+	public void setSpo2_count(String spo2_count) {this.spo2_count = spo2_count;}
 	
 	/* Health Exam */
 	private String wasistline;
@@ -150,6 +153,10 @@ public class HealthcareBean {
 	public void setLDL(String lDL) {LDL = lDL;}
 	public String getAC() {return AC;}
 	public void setAC(String aC) {AC = aC;}
+		
+	public String getBlood_Type() {return Blood_Type;}
+	public void setBlood_Type(String blood_Type) {Blood_Type = blood_Type;}
+	private String Blood_Type;
 	
 
 }

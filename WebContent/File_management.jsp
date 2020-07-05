@@ -44,7 +44,8 @@
 
 
 	<script type="text/javascript">
-	    function checkfile(sender) {
+		CommonLib.destroyAllBlock(); // 清除loading頁面    
+		function checkfile(sender) {
 	    
 	      // 可接受的附檔名
 	      var validExts = new Array(".csv");

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	import="java.util.*,com.patientinfo.HealthcareBean"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" import="java.util.*,com.patientinfo.HealthcareBean"%>
 <%@ include file="backtotop.jsp"%> 
 <div class="app-main__inner">
 	<div class="app-page-title">
@@ -337,7 +336,6 @@
 	</div>
 </div>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 <script >
 $(function(){             
 	$(".row .col-md-4 .card-body:eq(0)").height($(".row .col-md-4 .card-body:eq(1)").height());
@@ -355,7 +353,7 @@ $(function(){
                 labels: labels,
                 datasets: [{
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: window.chartColors.red,
+                    borderColor: '#CE0000',
                     data: datas,
                     fill: true,
                 }]
@@ -409,15 +407,15 @@ $(function(){
                     labels: labels,
                     datasets: [{
                         label:'SBP',
-                    	backgroundColor: window.chartColors.red,
-                        borderColor: window.chartColors.red,
+                    	backgroundColor: '#CE0000',
+                        borderColor: '#CE0000',
                         data: data1,
                         fill: false,
                     }, {
                         fill: false,
                         label:'DBP',
-                        backgroundColor: window.chartColors.blue,
-                        borderColor: window.chartColors.blue,
+                        backgroundColor: '#0080FF',
+                        borderColor: '#0080FF',
                         data: data2,
                     }]
                 },
@@ -484,7 +482,7 @@ $(function(){
 // 		});
 		// call ajax fucntion and set the timer
 		PatientsDetails();
-		//let PD_timer = setInterval(function(){ PatientsDetails(); }, 15000); //每15秒執行一次PatientsDetails
+		let PD_timer = setInterval(function(){ PatientsDetails(); }, 15000); //每15秒執行一次PatientsDetails
 		
 		if(PD_timer){
 			PD_timer;  
@@ -523,17 +521,9 @@ $(function(){
 			            		$("div.app-main__inner span.widget-numbers:eq(4)").html(BMI);
 			            		
 			            		// Blood type
-			            		let type = Math.floor(Math.random()*4)+1;
-			            		console.log(type);
-			            		if(type == 4){
-			            			$("div.app-main__inner span.widget-numbers:eq(5)").html("A");
-			            		}else if(type == 3){
-			            			$("div.app-main__inner span.widget-numbers:eq(5)").html("B");
-			            		}else if(type == 2){
-			            			$("div.app-main__inner span.widget-numbers:eq(5)").html("C");
-			            		}else{
-			            			$("div.app-main__inner span.widget-numbers:eq(5)").html("O");
-			            		}
+			            		let blood_type = data["Pat"][0]["Blood_Type"];
+			            		$("div.app-main__inner span.widget-numbers:eq(5)").html(blood_type);
+			            		
 			            		// bar樣式設定
 			            		function barwidth(data){return data*100/200};
 			            		let pr = data["DMLatest"][0]["Pulse_Rate"];

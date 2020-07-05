@@ -15,7 +15,10 @@ import java.util.*;
 public class DetectAbnormal extends HttpServlet {
 	private static final long serialVersionUID = 1L;	
 	private static final String SQL =
-			"SELECT * FROM dailymeasure where date=(SELECT date FROM dailymeasure ORDER BY date DESC LIMIT 1)";
+//			"SELECT * FROM dailymeasure where date=(SELECT date FROM dailymeasure ORDER BY date DESC LIMIT 1)";
+			"SELECT d.*, p.Gender FROM patient p JOIN dailymeasure d ON p.Patno = d.Patno where date=(SELECT date FROM dailymeasure ORDER BY date DESC LIMIT 1)";
+	private static final String SQL_count =
+			"SELECT * FROM statistics where date=(SELECT date FROM dailymeasure ORDER BY date DESC LIMIT 1)";
 	
 	Connection conn;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -36,7 +39,8 @@ public class DetectAbnormal extends HttpServlet {
 			int PRc = 0;			
 			while (rs.next()) {
 				adB = new HealthcareBean();
-				adB.setPatno(rs.getString("Patno"));       
+				adB.setPatno(rs.getString("Patno"));
+				adB.setGender(rs.getString("Gender"));
 				adB.setpName(rs.getString("pName"));				
 				adB.setDate(rs.getString("date"));
 				adB.setSBP(rs.getString("SBP"));
@@ -53,16 +57,22 @@ public class DetectAbnormal extends HttpServlet {
 				
 				adB.setSpO2(rs.getString("SpO2"));	
 				adBs.add(adB);
-			}
+			};
 			
 			acB.setGlc(glc);
 			acB.setSBP_DBP_C(SBP_DBP_C);
 			acB.setPRc(PRc);
+			
+			stmt = conn.prepareStatement(SQL_count);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				acB.setSpo2_count(rs.getString("SpO2"));
+			}
 			adBs.add(acB);
 			String jsonObject = gson.toJson(adBs);
 			PrintWriter out = response.getWriter();
 	        out.print(jsonObject);
-			//System.out.println(jsonObject);
+			System.out.println(jsonObject);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

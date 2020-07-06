@@ -13,50 +13,50 @@
 			</div>
 		</div>
 	</div>
-	<div id="load1">
+	
 		<div id="load" style="position: relative;">
 			<img src="./assets/images/loading.gif" style="left:50% ; position: absolute; top: 50%; transform: translateX(-50%)"/>
 		</div>
 		<div id="div_patient_dashboard" class="row">
-			<div class="col-md-4" >
+			<div class="col-xl-4 col-md-12 col-xs-12" >
 				<div class=" main-card mb-3 card">
 				<div class="card-body">
 					<div class="widget-content pb-0">
 						<div class="widget-content-outer">
 							<div class="widget-content-wrapper" >
-								<div class="widget-content-left pr-2 fsize-1">
+								<div class="widget-content-left  col-md-6">
 									<div class="widget-heading">Patient No. </div>
 									<span class="widget-numbers mt-0 fsize-3 text-secondary"style="display: inline" id="patno"></span>
 								</div>
-								<div class="widget-content-right pr-2 fsize-1">
-									<div class="widget-heading " style="text-align: right">Cardiovascular<br>Disease Status</div>
+								<div class="widget-content-right col-md-6">
+									<div class="widget-heading " >Cardiovascular Disease Status</div>
 									<span class="widget-numbers mt-0 fsize-3 text-secondary "style="text-align: right;display: inline"></span>
 								</div>
 							</div>
 							<div class="widget-content-wrapper">
-								<div class="widget-content-left  ">
+								<div class="widget-content-left col-md-6">
 									<img id="sex" class="PatientPic" >
 								</div>
-								<div class="widget-content-right">
-									<div class="widget-progress-wrapper ml-3 mb-4">
+								<div class="widget-content-right col-md-6">
+									<div class="widget-progress-wrapper">
 										<div class="widget-heading">Height</div>
 										<span class="widget-numbers text-success" style="display: inline;" id="height"></span>
 										<span class="widget-subheading text-success" style="display: inline;">cm</span>
 									</div>
-									<div class="widget-progress-wrapper ml-3 mb-4">
+									<div class="widget-progress-wrapper ">
 										<div class="widget-heading">Weight</div>
 										<span class="widget-numbers text-success" style="display: inline;" id="weight"></span>
 										<span class="widget-subheading text-success" style="display: inline;">kg</span>
 									</div>
-									<div class="widget-progress-wrapper ml-3">
+									<div class="widget-progress-wrapper">
 										<div class="widget-heading">BMI</div>
 										<span id="BMI" class="widget-numbers text-success" style="display: inline;"></span>
 									</div>
-									<div class="widget-progress-wrapper ml-3">
+									<div class="widget-progress-wrapper">
 										<div class="widget-heading">Blood Type</div>
 										<span id="BMI" class="widget-numbers text-success" style="display: inline; text-align:right"></span>
 									</div>
-									</div>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -64,143 +64,148 @@
 				</div>
 			</div>
 			<!-- 詳細健康數據2 -->
-			<div class="col-md-4">
+			<div class="col-xl-4 col-md-6 col-xs-12">
 				<div class=" main-card mb-3 card">
-				<!--  --><div class="card-body">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							<div class="widget-content pb-0">
-								<div class="widget-content-wrapper">
-									<div class="widget-content-left pr-2 fsize-1">
-										<div class="widget-heading">Pulse Rate</div>
-										<span id="Pulse_Rate_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
-										<span class="widget-subheading" style="line-height: 20px; display: inline">bpm</span>
+				<div class="card-body">
+					<div class="widget-content pb-0">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<div class="widget-content pb-0">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-left pr-2 fsize-1">
+											<div class="widget-heading">Pulse Rate</div>
+											<span id="Pulse_Rate_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
+											<span class="widget-subheading" style="line-height: 20px; display: inline">bpm</span>
+										</div>
+									</div>
+									<div class="widget-progress-wrapper">
+										<div class="progress-bar-xs progress" style="margin-top: -10px;">
+										<div id="Pulse_Rate" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+										</div>
+										<div class="progress-sub-label">
+											<div class="sub-label-left">0</div>
+											<div class="sub-label-right">200</div>
+										</div>
 									</div>
 								</div>
-								<div class="widget-progress-wrapper">
-									<div class="progress-bar-xs progress" style="margin-top: -10px;">
-									<div id="Pulse_Rate" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
-									</div>
-									<div class="progress-sub-label">
-										<div class="sub-label-left">0</div>
-										<div class="sub-label-right">200</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div class="widget-content pb-0">
-								<div class="widget-content-wrapper">
-									<div class="widget-content-left pr-2 fsize-1">
-										<div class="widget-heading">SBP</div>
-										<span id="SBP_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
-										<span class="widget-subheading" style="line-height: 20px; display: inline">mmHg</span>
-									</div>
-								</div>
-								<div class="widget-progress-wrapper">
-									<div class="progress-bar-xs progress" style="margin-top: -10px;">
-										<div id="SBP" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
-									</div>
-									<div class="progress-sub-label">
-										<div class="sub-label-left">0</div>
-										<div class="sub-label-right">200</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div class="widget-content pb-0">
-								<div class="widget-content-wrapper">
-									<div class="widget-content-left pr-2 fsize-1">
-										<div class="widget-heading">DBP</div>
-										<span id="DBP_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
+							</li>
+							<li class="list-group-item">
+								<div class="widget-content pb-0">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-left pr-2 fsize-1">
+											<div class="widget-heading">SBP</div>
+											<span id="SBP_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
 											<span class="widget-subheading" style="line-height: 20px; display: inline">mmHg</span>
+										</div>
+									</div>
+									<div class="widget-progress-wrapper">
+										<div class="progress-bar-xs progress" style="margin-top: -10px;">
+											<div id="SBP" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+										</div>
+										<div class="progress-sub-label">
+											<div class="sub-label-left">0</div>
+											<div class="sub-label-right">200</div>
+										</div>
 									</div>
 								</div>
-								<div class="widget-progress-wrapper">
-									<div class="progress-bar-xs progress" style="margin-top: -10px;">
-										<div id="DBP" class="progress-bar" role="progressbar"aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+							</li>
+							<li class="list-group-item">
+								<div class="widget-content pb-0">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-left pr-2 fsize-1">
+											<div class="widget-heading">DBP</div>
+											<span id="DBP_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
+												<span class="widget-subheading" style="line-height: 20px; display: inline">mmHg</span>
+										</div>
 									</div>
-									<div class="progress-sub-label">
-										<div class="sub-label-left">0</div>
-										<div class="sub-label-right">200</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			<!--  --></div></div>
-			<!-- 詳細健康數據3 -->
-			<!--  --><div class="col-md-4">
-				<div class=" main-card mb-3 card ">
-					<div class="card-body">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							<div class="widget-content pb-0">
-								<div class="widget-content-wrapper">
-									<div class="widget-content-left pr-2 fsize-1">
-										<div class="widget-heading">Blood Glucose</div>
-										<span id="glucose_num" class="widget-numbers mt-0 fsize-3 " style="display: inline"></span>
-											<span class="widget-subheading" style="line-height: 20px; display: inline">mg/dL</span>
+									<div class="widget-progress-wrapper">
+										<div class="progress-bar-xs progress" style="margin-top: -10px;">
+											<div id="DBP" class="progress-bar" role="progressbar"aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+										</div>
+										<div class="progress-sub-label">
+											<div class="sub-label-left">0</div>
+											<div class="sub-label-right">200</div>
+										</div>
 									</div>
 								</div>
-								<div class="widget-progress-wrapper">
-									<div class="progress-bar-xs progress" style="margin-top: -10px;">
-										<div id="glucose" class="progress-bar " role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
-									</div>
-									<div class="progress-sub-label">
-										<div class="sub-label-left">0</div>
-										<div class="sub-label-right">200</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div class="widget-content pb-0">
-								<div class="widget-content-wrapper">
-									<div class="widget-content-left pr-2 fsize-1">
-										<div class="widget-heading">SpO2</div>
-										<span id="SpO2_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
-										<span class="widget-subheading" style="line-height: 20px; display: inline">%</span>
-									</div>
-								</div>
-								<div class="widget-progress-wrapper">
-									<div class="progress-bar-xs progress" style="margin-top: -10px;">
-										<div id="SpO2" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<div class="progress-sub-label">
-										<div class="sub-label-left">0%</div>
-										<div class="sub-label-right">100%</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div class="widget-content pb-0">
-								<div class="widget-content-wrapper">
-									<div class="widget-content-left pr-2 fsize-1">
-										<div class="widget-heading">To be continued</div>
-										<span id="cardio" class="widget-numbers mt-0 fsize-3" style="display: inline">TBD</span>
-										<span class="widget-subheading" style="line-height: 20px; display: inline"></span>
-									</div>
-								</div>
-								<div class="widget-progress-wrapper">
-									<div class="progress-bar-xs progress" style="margin-top: -10px">
-									<div id="cardio_test" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
-									</div>
-									<div class="progress-sub-label">
-										<div class="sub-label-left">0%</div>
-										<div class="sub-label-right">100%</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
+			<!-- 詳細健康數據3 -->
+			<div class="col-xl-4 col-md-6 col-xs-12">
+				<div class=" main-card mb-3 card ">
+					<div class="card-body">
+						<div class="widget-content pb-0">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<div class="widget-content pb-0">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-left pr-2 fsize-1">
+											<div class="widget-heading">Blood Glucose</div>
+											<span id="glucose_num" class="widget-numbers mt-0 fsize-3 " style="display: inline"></span>
+												<span class="widget-subheading" style="line-height: 20px; display: inline">mg/dL</span>
+										</div>
+									</div>
+									<div class="widget-progress-wrapper">
+										<div class="progress-bar-xs progress" style="margin-top: -10px;">
+											<div id="glucose" class="progress-bar " role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="200"></div>
+										</div>
+										<div class="progress-sub-label">
+											<div class="sub-label-left">0</div>
+											<div class="sub-label-right">200</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="widget-content pb-0">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-left pr-2 fsize-1">
+											<div class="widget-heading">SpO2</div>
+											<span id="SpO2_num" class="widget-numbers mt-0 fsize-3" style="display: inline"></span>
+											<span class="widget-subheading" style="line-height: 20px; display: inline">%</span>
+										</div>
+									</div>
+									<div class="widget-progress-wrapper">
+										<div class="progress-bar-xs progress" style="margin-top: -10px;">
+											<div id="SpO2" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+										<div class="progress-sub-label">
+											<div class="sub-label-left">0%</div>
+											<div class="sub-label-right">100%</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="widget-content pb-0">
+									<div class="widget-content-wrapper">
+										<div class="widget-content-left pr-2 fsize-1">
+											<div class="widget-heading">TBD</div>
+											<span id="cardio" class="widget-numbers mt-0 fsize-3" style="display: inline">TBD</span>
+											<span class="widget-subheading" style="line-height: 20px; display: inline"></span>
+										</div>
+									</div>
+									<div class="widget-progress-wrapper">
+										<div class="progress-bar-xs progress" style="margin-top: -10px">
+										<div id="cardio_test" class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
+										</div>
+										<div class="progress-sub-label">
+											<div class="sub-label-left">0%</div>
+											<div class="sub-label-right">100%</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
 		<ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
 			<li class="nav-item">
 				<a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0" aria-selected="true">
@@ -247,7 +252,7 @@
 			</div>
 			<div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-xl-6 col-md-12">
 						<div class="main-card mb-3 card">
 							<div class="card-body" style="width: 100%;">
 								<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
@@ -261,7 +266,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-xl-6 col-md-12">
 						<div class="main-card mb-3 card">
 							<div class="card-body">
 								<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
@@ -333,13 +338,26 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 </div>
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<!-- <script type="text/javascript" src="./assets/scripts/main.js"></script> -->
 <script >
 $(function(){             
-	$(".row .col-md-4 .card-body:eq(0)").height($(".row .col-md-4 .card-body:eq(1)").height());
-	$("div.widget-content-outer").height($(".row .col-md-4 .card-body:eq(1)").height());
+	$(".row .col-md-4 .card-body:eq(0)").height($(".row .col-md-4 .card-body:eq(2)").height());
+	//$(".row .col-md-4 .card-body:eq(1)").height($(".row .col-md-4 .card-body:eq(2)").height());
+	//$("div.widget-content-outer").height($(".row .col-md-4 .card-body:eq(1)").height());
+	
+	$("li.nav-item >a").click(function(){
+        $(this).addClass("active").parent().addClass("active").siblings().removeClass("active").children().removeClass("active");
+        if($(this).prop("id")=="tab-0"){
+        	$("#tab-content-0").addClass("active show in").siblings().removeClass("active show in");
+        }else if($(this).prop("id")=="tab-1"){
+        	$("#tab-content-1").addClass("active show in").siblings().removeClass("active show in");
+        }else{
+        	$("#tab-content-2").addClass("active show in").siblings().removeClass("active show in");
+        }
+	});
+	
 	console.log('Here is PD2.jsp');
 	let dataNo = <%=request.getParameter("patno")%>;
 	let dataNo_ = "patno="+dataNo;
@@ -481,6 +499,7 @@ $(function(){
 // 		  }
 // 		});
 		// call ajax fucntion and set the timer
+		let flag = false;
 		PatientsDetails();
 		let PD_timer = setInterval(function(){ PatientsDetails(); }, 15000); //每15秒執行一次PatientsDetails
 		
@@ -491,9 +510,14 @@ $(function(){
 	 	$(".vertical-nav-menu li:not(.app-sidebar__heading)").click(function(){
 			clearInterval(PD_timer);
 		});
-	
-			function PatientsDetails(){
+	 	
+		function PatientsDetails(){
+			if(flag){
+				flag = true;
+			}else{
+				flag = true;
 				CommonLib.block("div_patient_dashboard",load);
+			}
 				$.ajax({  
 			            type:"post",
 			            async: "false",

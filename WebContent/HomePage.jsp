@@ -83,7 +83,7 @@
 		</div>
 	</div>
 	<!-- 小方塊置放區 -->
-	<div class="allmember">		
+	<div class="allmember1 row">		
 	</div>
 </div>
 
@@ -113,7 +113,7 @@ $(function(){
 	            dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
 	            success:
 	                function(data){
-						$("div.allmember").empty();
+						$("div.allmember1").empty();
 						$(".prc").text(data[data.length-1]["PRc"]);
 						$(".sbp_dbp").text(data[data.length-1]["SBP_DBP_C"]);
 						$(".glc").text(data[data.length-1]["glc"]);
@@ -142,8 +142,8 @@ $(function(){
 		            		if(glucose < 100 & pulseRate < 100 & pulseRate > 60 & sbp<=140 & dbp <= 90){
 		            			continue;
 		            		}else{
-		            			$("div.allmember").append(
-		            				'<form  class="member" method="post" action="">'
+		            			$("div.allmember1").append(
+		            				'<div class="col-xl-2 col-lg-3 col-md-3 col-6"><form class="member " method="post" action="">'
 		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
@@ -155,7 +155,7 @@ $(function(){
 		            	            +'<p class="Prid" '+pulse_status+'>'+pulseRate+'</p></div>'
 		            	            +'<div class="bdpresseure">'
 		            	            +'<img src="./assets/images/bdpressure.png" alt="bdpresseure">'
-		            	            +'<p class="SDBPid '+bp_status+'">'+sbp+'/'+dbp+'</p></div></form>'  
+		            	            +'<p class="SDBPid '+bp_status+'">'+sbp+'/'+dbp+'</p></div></form></div>'  
 		            			);
 		            		}
 	            		}

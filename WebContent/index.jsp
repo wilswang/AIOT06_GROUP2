@@ -23,6 +23,7 @@
 	<link href="index_homepage.css" rel="stylesheet">	
 	<link href="Edit_upload.css" rel="stylesheet">
 	<link href="./assets/vendor/chartjs/Chart.css" rel="stylesheet">
+	
 </head>
 
 <body> 
@@ -45,16 +46,13 @@
     
 	
 	<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-	
 		<div class="app-header header-shadow">
 			<div class="app-header__logo">
-			<img id="logo_text" src="./assets/images/HCLogo.png" style="width:auto; height:56px;">
-			<img id="logo_icon" src="./assets/images/LogoIcon.png" style="width:auto; height:56px;">
+				<img id="logo_text" src="./assets/images/HCLogo.png" style="width:auto; height:56px;">
+				<img id="logo_icon" src="./assets/images/LogoIcon.png" style="width:auto; height:56px;">
 				<div class="header__pane ml-auto">
 					<div>
-						<button type="button" 
-							class="hamburger close-sidebar-btn hamburger--elastic"
-							data-class="closed-sidebar">
+						<button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
 							<span class="hamburger-box"> 
 								<span class="hamburger-inner"></span>
 							</span>
@@ -64,8 +62,7 @@
 			</div>
 			<div class="app-header__mobile-menu">
 				<div>
-					<button type="button"
-						class="hamburger hamburger--elastic mobile-toggle-nav">
+					<button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
 						<span class="hamburger-box"> 
 							<span class="hamburger-inner"></span>
 						</span>
@@ -74,8 +71,7 @@
 			</div>
 			<div class="app-header__menu">
 				<span>
-					<button type="button"
-						class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+					<button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
 						<span class="btn-icon-wrapper"> 
 							<i class="fa fa-ellipsis-v fa-w-6"></i>
 						</span>
@@ -83,29 +79,19 @@
 				</span>
 			</div>
 			<div class="app-header__content">
-				
 				<div class="app-header-right">
 					<div class="header-btn-lg pr-0">
 						<div class="widget-content p-0">
 							<div class="widget-content-wrapper">
 								<div class="widget-content-left">
-								
 									<div class="btn-group">
 										<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn"> 
-									<i class="fa fa-angle-down ml-2 opacity-8"></i></a>
-											
-										<div tabindex="-1" role="menu" aria-hidden="true"
-											class="dropdown-menu dropdown-menu-right">
-		
-											<button type="button" tabindex="0" class="dropdown-item"
-												onclick="location.href='./user_account.jsp'">User
-												Account</button>
-		
-											<div tabindex="-1" class="dropdown-divider"></div>
-		
-											<button type="button" tabindex="0" class="dropdown-item"
-												onclick="location.href='./Logout.jsp'">
-												Logout</button>
+											<i class="fa fa-angle-down ml-2 opacity-8"></i>
+										</a>
+										<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./user_account.jsp'">User Account</button>
+												<div tabindex="-1" class="dropdown-divider"></div>
+											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./Logout.jsp'">Logout</button>
 										</div>
 									</div>
 								</div>
@@ -121,8 +107,6 @@
 										<%=title%>
 									</div>
 								</div>
-								
-									
 							</div>
 						</div>
 					</div>
@@ -132,15 +116,12 @@
 		<div class="app-main">
 			<div class="app-sidebar sidebar-shadow">
 				<div class="app-header__logo">
-<!-- 					<div class="logo-src"></div> -->
 					<img src="./assets/images/HCLogo.png" style="width:auto; height:56px;">
 					<div class="header__pane ml-auto">
 						<div>
-							<button type="button"
-								class="hamburger close-sidebar-btn hamburger--elastic"
-								data-class="closed-sidebar">
-								<span class="hamburger-box"> <span
-									class="hamburger-inner"></span>
+							<button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+								<span class="hamburger-box">
+									<span class="hamburger-inner"></span>
 								</span>
 							</button>
 						</div>
@@ -148,19 +129,18 @@
 				</div>
 				<div class="app-header__mobile-menu">
 					<div>
-						<button type="button"
-							class="hamburger hamburger--elastic mobile-toggle-nav">
-							<span class="hamburger-box"> <span class="hamburger-inner"></span>
+						<button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
 							</span>
 						</button>
 					</div>
 				</div>
 				<div class="app-header__menu">
 					<span>
-						<button type="button"
-							class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+						<button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
 							<span class="btn-icon-wrapper">
-							<i class="fa fa-ellipsis-v fa-w-6"></i>
+								<i class="fa fa-ellipsis-v fa-w-6"></i>
 							</span>
 						</button>
 					</span>
@@ -176,7 +156,6 @@
 							<li class="app-sidebar__heading">Management</li>
 							<li onclick="navigateToPage('File_management.jsp')"><a><i class="fas fa-paperclip"></i> <span>Upload files</span></a></li>
 							<li onclick="navigateToPage('Edit_Pats.jsp')"><a><i class="fas fa-user-cog"></i> <span>Edit patients</span></a></li>
-							
 						</ul>
 					</div>
 				</div>
@@ -187,6 +166,7 @@
 			</div>
 		</div>
 	</div>
+	
 <script>
 	$(function(){
 		$("ul.vertical-nav-menu li a").click(function(){
@@ -194,7 +174,6 @@
         });
         
         $("button.close-sidebar-btn").click(function(){
-        	//alert("click");
 	        $('.app-container').toggleClass("closed-sidebar");   
 	        $(this).toggleClass("is-active");   
 	    });

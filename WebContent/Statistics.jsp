@@ -1,53 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-                    <div class="app-main__inner">
-                        <div class="app-page-title">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                    <div class="page-title-icon">
-                                        <i class="fas fa-chart-bar">
-                                        </i>
-                                    </div>
-                                    <div>Statistic
-                                        <div class="page-title-subheading">Histogram
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-content">
-                                <div class="row">
-					<div class="col-md-6">
-						<div class="main-card mb-3 card">
-							<div class="card-body" style="width: 100%;">
-								<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
-								<canvas id="pulse_" width="733" height="270"></canvas>
-							</div>
-						</div>
-						<div class="main-card mb-3 card">
-							<div class="card-body">
-								<h5 class="card-title" style="text-align: center">Glucose</h5>
-								<canvas id="glu_" width="733" height="270"></canvas>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="main-card mb-3 card">
-							<div class="card-body">
-								<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
-								<canvas id="sd_bp" width="733" height="270"></canvas>
-							</div>
-						</div>
-						<div class="main-card mb-3 card">
-							<div class="card-body">
-								<h5 class="card-title" style="text-align: center">SpO2</h5>
-								<canvas id="sp_" width="733" height="270"></canvas>
-							</div>
-						</div>
-					</div>
-				</div>          
-                                                        
-                        </div>            
-                    </div>                    
+<div class="app-main__inner">
+	<div class="app-page-title">
+	    <div class="page-title-wrapper">
+	        <div class="page-title-heading">
+	            <div class="page-title-icon">
+	                <i class="fas fa-chart-bar"></i>
+	            </div>
+	            <div>Statistic
+	                <div class="page-title-subheading">Histogram</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+   	<div class="row">
+		<div class="col-xl-6 col-md-12">
+			<div class="main-card mb-3 card">
+				<div class="card-body" style="width: 100%;">
+					<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
+					<canvas id="pulse_" width="733" height="270"></canvas>
+				</div>
+			</div>
+			<div class="main-card mb-3 card">
+				<div class="card-body">
+					<h5 class="card-title" style="text-align: center">Glucose</h5>
+					<canvas id="glu_" width="733" height="270"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-6 col-md-12">
+			<div class="main-card mb-3 card">
+				<div class="card-body">
+					<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
+					<canvas id="sd_bp" width="733" height="270"></canvas>
+				</div>
+			</div>
+			<div class="main-card mb-3 card">
+				<div class="card-body">
+					<h5 class="card-title" style="text-align: center">SpO2</h5>
+					<canvas id="sp_" width="733" height="270"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>                    
        
 <script type="text/javascript"> 
 	console.log("Here is Statistic");

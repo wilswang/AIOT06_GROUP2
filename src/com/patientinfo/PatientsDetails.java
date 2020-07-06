@@ -59,7 +59,7 @@ private static final long serialVersionUID = 1L;
 			while (rs.next()) {
 				DM = new HealthcareBean();
 				DM.setPatno(rs.getString("patno"));
-				DM.setDate(rs.getString("date"));
+				DM.setDate(rs.getString("date").substring(0, 11));
 				DM.setSBP(rs.getString("sBP"));
 				DM.setDBP(rs.getString("dBP"));
 				DM.setGlucose(rs.getString("glucose"));
@@ -123,11 +123,12 @@ private static final long serialVersionUID = 1L;
 			stmt.setString(1, Patno);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
+				System.out.println("Here");
 				if (rs.getString("result")==null) {
 					System.out.println("Result is null. Run python!");
 					String[] cmd = {
 							"python",
-							"C:/Users/user/FinalProject/PredictAws.py",
+							"D:\\iii_local\\my_vs_code\\Project_workspace\\FinalProject\\WebContent\\Prediction\\PredictAws.py",
 							Patno,
 							};
 					try {

@@ -30,7 +30,7 @@ $(function(){
 	            success:
 	                function(data){              			
 	            		//console.log("timer_id: "+timer_id);
-	            		$("div.allmember").empty();
+	            		$("div.allmember1").empty();
 	            		for(var i=0; i< data.length;i++){
 		            		let glucose_ , img_src, bp_status, pulse_status;
 		            		let glucose=parseInt(data[i]['glucose']);
@@ -57,8 +57,8 @@ $(function(){
 		            		}else{
 		            			bp_status = "alltext";
 		            		};
-		            		$("div.allmember").append(
-		            				'<form  class="member" method="post" action="">'
+		            		$("div.allmember1").append(
+		            				'<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-6"><form  class="member" method="post" action="">'
 		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
@@ -70,7 +70,7 @@ $(function(){
 		            	            +'<p class="Prid '+pulse_status+'">'+data[i]['Pulse_Rate']+'</p></div>'
 		            	            +'<div class="bdpresseure">'
 		            	            +'<img src="./assets/images/bdpressure.png" alt="bdpresseure">'
-		            	            +'<p class="SDBPid '+bp_status+'">'+sbp+'/'+dbp+'</p></div></form>'  
+		            	            +'<p class="SDBPid '+bp_status+'">'+sbp+'/'+dbp+'</p></div></form></div>'  
 	            			);
 	            		}
 	            	},  
@@ -90,20 +90,13 @@ $(function(){
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="fas fa-user-friends">
-                    </i>
+                    <i class="fas fa-user-friends"></i>
                 </div>
                 <div>Members
-                    <div class="page-title-subheading">All members info can be checked here.
-                    </div>
+                    <div class="page-title-subheading">All members info can be checked here.</div>
                 </div>
             </div>                            
         </div>
-    </div>                    
-    
-     <div class="allmember">                
-          
-     	                                    
-    
-    </div>                    
+    </div>  
+     <div class="allmember1 row"></div>                    
 </div>

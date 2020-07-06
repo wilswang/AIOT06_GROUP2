@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-   <div class="row">
-<div class="col-md-12">                                        
-    <div class="main-card mb-3 card add_container1" style="margin-top:15px;">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="row">
+	<div class="col-md-12">                                        
+    	<div class="main-card mb-3 card add_container1" style="margin-top:15px;">
         <!-- 查詢成員程式碼 -->
         <form class="form_pattern" action="" id="form_search" method="post" style="margin-top:15px;">
             <h2 style="text-align:center" id="search_result"></h2>

@@ -175,11 +175,11 @@ $(function() {
 
 	
 	//19-jQuery datepicker Methods getDate setDate
-    //$("#a_birthday").datepicker({
+    $(".birthday").datepicker({
       //設定日期格式
-      //dateFormat : "yy-mm-dd",
-      //width:"180px"
-    //});
+      dateFormat : "yy-mm-dd",
+      width:"180px"
+    });
     
      //$(".datepicker").datepicker({width:"180px"});
     

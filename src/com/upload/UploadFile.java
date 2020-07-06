@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -23,8 +24,8 @@ public class UploadFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String SQLUF =
-			"INSERT INTO health_examination_record VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
+//			"INSERT INTO health_examination_record2 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			"INSERT INTO health_examination_record2 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	Connection conn;
 	public static final String CONTENT_TYPE = "Content-type";
@@ -40,11 +41,9 @@ public class UploadFile extends HttpServlet {
 		Part filePart = request.getPart("healthcheck"); // Retrieves <input type="file" name="file">
 		
 		String header = filePart.getHeader("Content-Disposition");
-//		System.out.println(header);
 		InputStream fileContent = filePart.getInputStream();
 		InputStreamReader inputCSV = new InputStreamReader(fileContent);
 		BufferedReader br = new BufferedReader(inputCSV);
-//		System.out.println(inputCSV);
 		HealthcareBean pat = new HealthcareBean();
 		String row;
 		String[] cols;
@@ -55,17 +54,18 @@ public class UploadFile extends HttpServlet {
 				for (int i = 0; i < cols.length; i++) {
 					pstmt.setString(i+1, cols[i]);
 					System.out.println(i+" , "+cols[i]);
-					
 				}pstmt.execute();
 			}
 			count++;
 		}
 		pat.setFlag("Upload");
-		request.setAttribute("pat", pat);
-		request.getRequestDispatcher("./File_management.jsp").forward(request, response); //�۹���|
+		com.google.gson.Gson gson = new com.google.gson.Gson();
+		String jsonObject = gson.toJson(pat);
+		PrintWriter out = response.getWriter();
+		System.out.println(jsonObject);
+		out.print(jsonObject);
 		br.close();
 		pstmt.close();
-//		System.out.println("123");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -79,7 +79,6 @@ public class UploadFile extends HttpServlet {
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

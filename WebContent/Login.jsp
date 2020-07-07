@@ -96,6 +96,11 @@
     }
 
     /* Change styles for span and cancel button on extra small screens */
+     @media screen and (max-width: 767px) {
+      form {
+        width:80vw;
+      }
+    }
     @media screen and (max-width: 300px) {
       span.psw {
         display: block;
@@ -123,7 +128,7 @@
   
   <form action="./Login" method="post" class="animated fadeInUpSmall">
     <div class="imgcontainer">
-      <img src="./assets/images/HCLogo2.png">
+      <img src="./assets/images/HCLogoIcon2.png">
     </div>
 
     <div class="container">

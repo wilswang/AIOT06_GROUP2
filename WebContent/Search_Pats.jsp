@@ -7,7 +7,7 @@
             <h2 style="text-align:center" id="search_result"></h2>
             <div class="container" id="form_search2">              
               <label for="patno"><b>Patient No.</b></label>
-              <input type="text"  id="s_patno" name="patno"><br>
+              <input type="text"  id="s_patno" name="patno" ><br>
               
               <label for="pname"><b>Name</b></label>
               <input type="text" id="s_pname" name="pname" autocomplete="off"><br>

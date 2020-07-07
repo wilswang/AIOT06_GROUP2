@@ -15,7 +15,7 @@
    	<div class="row">
 		<div class="col-xl-6 col-md-12">
 			<div class="main-card mb-3 card">
-				<div class="card-body" style="width: 100%;">
+				<div class="card-body " style="width: 100%;">
 					<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
 					<canvas id="pulse_" width="733" height="270"></canvas>
 				</div>
@@ -101,20 +101,17 @@
             }};return config_;
     }; // config_ end
     
-    initialChart();
-    function initialChart(){
-	    let ctx1 = document.getElementById('pulse_').getContext('2d');
-		let chart1 = new Chart(ctx1, config());
-		let ctx2 = document.getElementById('glu_').getContext('2d');
-		let chart2 = new Chart(ctx2, config());
-		let ctx3 = document.getElementById('sd_bp').getContext('2d');
-		let chart3 = new Chart(ctx3, config());
-		let ctx4 = document.getElementById('sp_').getContext('2d');
-		let chart4 = new Chart(ctx4, config());
-    };
+	    var ctx1 = document.getElementById('pulse_').getContext('2d');
+	    var chart1 = new Chart(ctx1, config());
+	    var ctx2 = document.getElementById('glu_').getContext('2d');
+	    var chart2 = new Chart(ctx2, config());
+	    var ctx3 = document.getElementById('sd_bp').getContext('2d');
+	    var chart3 = new Chart(ctx3, config());
+	    var ctx4 = document.getElementById('sp_').getContext('2d');
+	    var chart4 = new Chart(ctx4, config());
+  	
     
 	GetStatistics();
-	
 	/****call ajax fucntion and set the timer by setInterval****/
 	//let timer_id = setInterval(function(){ GetStatistics(); }, 15000); //每15秒執行一次PatientsDetails
 	
@@ -160,20 +157,20 @@
            		    };
             		
 			        // 更新圖表
-			        let ctx1 = document.getElementById('pulse_').getContext('2d');
-					let chart1 = new Chart(ctx1, config());
+			        //let ctx1 = document.getElementById('pulse_').getContext('2d');
+					//let chart1 = new Chart(ctx1, config());
 			        chart1.data.datasets[0].data = canvas1_data;
             		chart1.update();
-            		let ctx2 = document.getElementById('glu_').getContext('2d');
-            		let chart2 = new Chart(ctx2, config());
+            		//let ctx2 = document.getElementById('glu_').getContext('2d');
+            		//let chart2 = new Chart(ctx2, config());
             		chart2.data.datasets[0].data = canvas2_data;
             		chart2.update();
-            		let ctx3 = document.getElementById('sd_bp').getContext('2d');
-            		let chart3 = new Chart(ctx3, config());
+            		//let ctx3 = document.getElementById('sd_bp').getContext('2d');
+            		//let chart3 = new Chart(ctx3, config());
             		chart3.data.datasets[0].data = canvas3_data;
             		chart3.update();
-            		let ctx4 = document.getElementById('sp_').getContext('2d');
-            		let chart4 = new Chart(ctx4, config());
+            		//let ctx4 = document.getElementById('sp_').getContext('2d');
+            		//let chart4 = new Chart(ctx4, config());
             		chart4.data.datasets[0].data = canvas4_data;
             		chart4.update();
             },// success end  

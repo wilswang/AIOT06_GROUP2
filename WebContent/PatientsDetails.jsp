@@ -226,7 +226,7 @@
 		<div class="tab-content">
 			<div class="tab-pane tabs-animation fade show active in" id="tab-content-0" role="tabpanel">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12 ">
 						<div class="main-card mb-3 card">
 							<div class="card-body">
 								<h5 class="card-title">History Data</h5>
@@ -344,8 +344,8 @@
 <script >
 $(function(){             
 	$(".row .col-md-4 .card-body:eq(0)").height($(".row .col-md-4 .card-body:eq(2)").height());
-	//$(".row .col-md-4 .card-body:eq(1)").height($(".row .col-md-4 .card-body:eq(2)").height());
-	//$("div.widget-content-outer").height($(".row .col-md-4 .card-body:eq(1)").height());
+	$(".row .col-md-4 .card-body:eq(1)").height($(".row .col-md-4 .card-body:eq(2)").height());
+	$("div.widget-content-outer").height($(".row .col-md-4 .card-body:eq(1)").height());
 	
 	$("li.nav-item >a").click(function(){
         $(this).addClass("active").parent().addClass("active").siblings().removeClass("active").children().removeClass("active");
@@ -642,15 +642,17 @@ $(function(){
            						};
             					
            						// 建立history data的table
-								let table_="";
+								let table_ = "";
+           						let j = data["DMs"].length-1
 								for(let i=0; i<data["DMs"].length;i++){
-									let table = '<tr><th>'+data["DMs"][i]["date"]+'</th>'+
-									'<td>'+data["DMs"][i]["Pulse_Rate"]+'</td><td>'+
-									data["DMs"][i]["SBP"]+'</td><td>'+
-									data["DMs"][i]["DBP"]+'</td><td>'+
-									data["DMs"][i]["glucose"]+'</td><td>'+
-									data["DMs"][i]["SpO2"]+'</td></tr>';
+									let table = '<tr><th>'+data["DMs"][j]["date"]+'</th>'+
+									'<td>'+data["DMs"][j]["Pulse_Rate"]+'</td><td>'+
+									data["DMs"][j]["SBP"]+'</td><td>'+
+									data["DMs"][j]["DBP"]+'</td><td>'+
+									data["DMs"][j]["glucose"]+'</td><td>'+
+									data["DMs"][j]["SpO2"]+'</td></tr>';
 									table_=table_+table;
+									j--
 								};
 								$("#history").html(table_);
 			            					            		

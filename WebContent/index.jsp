@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:useBean id="emp" scope="session" class="com.userinfo.Empbean" />
+<% String name = emp.getEname(), title = emp.getTitle(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,8 +49,8 @@
 	<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
 		<div class="app-header header-shadow">
 			<div class="app-header__logo">
-				<img id="logo_text" src="./assets/images/HCLogo.png" style="width:auto; height:56px;">
-				<img id="logo_icon" src="./assets/images/LogoIcon.png" style="width:auto; height:56px;">
+				<img id="logo_text" src="./assets/images/HCLogoIcon.png" style="width:auto; height:56px;">
+				<img id="logo_icon" src="./assets/images/LogoIcon.png" style="width:auto; height:56px; padding-left: 10px;">
 				<div class="header__pane ml-auto">
 					<div>
 						<button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -85,7 +86,8 @@
 							<div class="widget-content-wrapper">
 								<div class="widget-content-left">
 									<div class="btn-group">
-										<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn"> 
+										<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+											<i class="fa fa-user fa-lg"></i>
 											<i class="fa fa-angle-down ml-2 opacity-8"></i>
 										</a>
 										<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -96,16 +98,8 @@
 									</div>
 								</div>
 								<div class="widget-content-left  ml-3 header-user-info noselect">
-									<jsp:useBean id="emp" scope="session" class="com.userinfo.Empbean" />
-									<%
-										String name = emp.getEname(), title = emp.getTitle();
-									%>
-									<div class="widget-heading">
-										<%=name%>
-									</div>
-									<div class="widget-subheading">
-										<%=title%>
-									</div>
+									<div class="widget-heading"><%=name%></div>
+									<div class="widget-subheading"><%=title%></div>
 								</div>
 							</div>
 						</div>
@@ -176,6 +170,17 @@
         $("button.close-sidebar-btn").click(function(){
 	        $('.app-container').toggleClass("closed-sidebar");   
 	        $(this).toggleClass("is-active");   
+	    });
+        
+        $("div.app-header__mobile-menu").click(function(){
+	        $('.mobile-toggle-nav').toggleClass("is-active");   
+	        $('.app-container').toggleClass("sidebar-mobile-open");  
+	    });
+        
+        $("div.app-header__menu").click(function(){
+	        $('.btn-sm').toggleClass("active");   
+	        $('div.app-header__content').toggleClass("header-mobile-open"); 
+	        $('div.app-header__content div:eq(0)').toggleClass("app-header-left app-header-right"); 
 	    });
 	})
 </script>	

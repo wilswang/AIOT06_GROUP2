@@ -58,7 +58,7 @@ $(function(){
 		            			bp_status = "alltext";
 		            		};
 		            		$("div.allmember1").append(
-		            				'<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-6"><form  class="member" method="post" action="">'
+		            				'<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-6" style="margin-top:5px;padding: 0px 5px"><form  class="member" method="post" action="">'
 		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'
@@ -92,8 +92,8 @@ $(function(){
                 <div class="page-title-icon">
                     <i class="fas fa-user-friends"></i>
                 </div>
-                <div>Members
-                    <div class="page-title-subheading">All members info can be checked here.</div>
+                <div>Patients
+                    <div class="page-title-subheading">All patients info can be checked here.</div>
                 </div>
             </div>                            
         </div>

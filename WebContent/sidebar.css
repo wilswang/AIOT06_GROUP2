@@ -3,6 +3,7 @@
     background: #2e353d;
     color: #fff;
 }
+
 .app-sidebar__heading {
     text-transform: uppercase;
     font-size: 1.2rem;
@@ -106,4 +107,23 @@
     -ms-transition: all .5s ease;
     transition: all .5s ease;
     box-shadow: 0 0px 5px 0px black;
+}
+
+
+
+.app-sidebar {
+    width: 236px;
+    display: flex;
+    z-index: 11;
+    overflow: hidden;
+    min-width: 236px;
+    position: relative;
+    flex: 0 0 236px;
+    margin-top: -60px;
+    padding-top: 60px;
+    transition: all .2s;
+}
+
+.app-sidebar .app-sidebar__inner {
+    padding: 2px 1rem 1rem !important;
 }

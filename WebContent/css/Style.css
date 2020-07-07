@@ -1,9 +1,22 @@
 html{
 	font-size:16px !important;
 }
+.fixed-header .app-main {
+    padding-top: 60px;
+}
+#wrap_content{overflow-x: hidden;}
+
+.fixed-sidebar .app-main .app-main__outer {
+    padding-left: 236px;
+    width: 100vw;
+}
+.closed-sidebar.fixed-sidebar .app-main__outer {
+    padding-left: 80px;
+}
 
 .app-header__logo {
     background-color: #031528 !important;
+    padding: 0 1rem !important;
 }
 
 .app-header .app-header__content {
@@ -16,6 +29,12 @@ html{
     color: #fff;
   
 }
+
+.app-main .app-main__inner {
+    padding: 20px 20px 0 !important;
+}
+
+
 
 .noselect{
 	-webkit-touch-callout: none; /* iOS Safari */

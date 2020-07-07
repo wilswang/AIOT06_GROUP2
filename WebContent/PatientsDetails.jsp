@@ -620,10 +620,10 @@ $(function(){
             					// SpO2
             					$("div.app-main__inner span.widget-numbers:eq(10)").html(SpO2);
             					$("#SpO2").attr("style","width:"+SpO2_bar);
-            					if (SpO2<85){
+            					if (SpO2<90){
             						$("#SpO2").addClass('bg-danger')
             						$("#SpO2_num").addClass('text-danger')
-           						}else if(SpO2>=85 & SpO2<95){
+           						}else if(SpO2>=90 & SpO2<95){
             						$("#SpO2").addClass('bg-warning')
             						$("#SpO2_num").addClass('text-warning')
            						}else if(SpO2>=95){

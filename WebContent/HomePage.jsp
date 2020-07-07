@@ -139,7 +139,7 @@ $(function(){
 		            		}else{
 		            			bp_status = "alltext";
 		            		};
-		            		if(glucose < 100 & pulseRate < 100 & pulseRate > 60 & sbp<=140 & dbp <= 90){
+		            		if(glucose <= 100 & pulseRate <= 100 & pulseRate >= 60 & sbp<140 & dbp < 90){
 		            			continue;
 		            		}else{
 		            			$("div.allmember1").append(

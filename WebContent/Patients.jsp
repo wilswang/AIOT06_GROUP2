@@ -42,11 +42,6 @@ $(function(){
 		            		}else{
 		            			glucose_="alltext"
 		            		};
-		            		if(glucose>100 | pulseRate>100 | pulseRate<60 | sbp>=140 | dbp>=90){
-		            			img_src = ".\/assets\/images\/NHMan.png";
-		            		}else{
-		            			img_src = ".\/assets\/images\/HMan.png";
-		            		};
 		            		if(pulseRate>100 | pulseRate<60){
 		            			pulse_status = "prcss"
 		            		}else{

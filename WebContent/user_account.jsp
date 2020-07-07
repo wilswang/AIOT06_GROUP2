@@ -139,10 +139,10 @@
       <input type="text" name="title" readonly value=<%=title%>>
 
       <label for="psw"><b>Enter Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw">
+      <input type="password" placeholder="Enter Password" name="psw" required="required">
 
       <label for="pswck"><b>Enter Password again</b></label>
-      <input type="password" placeholder="Enter Password" name="pswck"><br>      
+      <input type="password" placeholder="Enter Password" name="pswck" required="required"><br>      
       
       <button type="submit">Reset Password</button>      
       <button type="button" onclick="history.back()">Cancel</button>            

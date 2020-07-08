@@ -71,23 +71,48 @@
 				</div>
 			</div>
 			<div class="app-header__menu">
-				<span>
-					<button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-						<span class="btn-icon-wrapper"> 
-							<i class="fa fa-ellipsis-v fa-w-6"></i>
-						</span>
-					</button>
-				</span>
+				<div class="header-btn-lg pr-0">
+						<div class="widget-content p-0">
+							<div class="widget-content-wrapper">
+							
+								<div class="widget-content-left">
+									<div class="btn-group" style="color: #888888;margin-left: 10px;">
+										<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+											<i class="fa fa-user fa-2x"></i>
+											<i class="fa fa-angle-down ml-2 opacity-8"></i>
+										</a>
+										<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./user_account.jsp'">User Account: <%=name%> (<%=title%>)</button>
+												<div tabindex="-1" class="dropdown-divider"></div>
+											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./Logout.jsp'">Logout</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+<!-- 				<span> -->
+<!-- 					<button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav"> -->
+<!-- 						<span class="btn-icon-wrapper">  -->
+<!-- 							<i class="fa fa-ellipsis-v fa-w-6"></i> -->
+<!-- 						</span> -->
+<!-- 					</button> -->
+<!-- 				</span> -->
 			</div>
 			<div class="app-header__content">
 				<div class="app-header-right">
 					<div class="header-btn-lg pr-0">
 						<div class="widget-content p-0">
 							<div class="widget-content-wrapper">
+								
+								<div class="widget-content-left  ml-3 header-user-info noselect">
+									<div class="widget-heading"><%=name%></div>
+									<div class="widget-subheading"><%=title%></div>
+								</div>
 								<div class="widget-content-left">
-									<div class="btn-group">
+									<div class="btn-group" style="color: #888888;margin-left: 10px;">
 										<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-											<i class="fa fa-user fa-lg"></i>
+											<i class="fa fa-user fa-2x"></i>
 											<i class="fa fa-angle-down ml-2 opacity-8"></i>
 										</a>
 										<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -96,10 +121,6 @@
 											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./Logout.jsp'">Logout</button>
 										</div>
 									</div>
-								</div>
-								<div class="widget-content-left  ml-3 header-user-info noselect">
-									<div class="widget-heading"><%=name%></div>
-									<div class="widget-subheading"><%=title%></div>
 								</div>
 							</div>
 						</div>
@@ -177,11 +198,11 @@
 	        $('.app-container').toggleClass("sidebar-mobile-open");  
 	    });
         
-        $("div.app-header__menu").click(function(){
-	        $('.btn-sm').toggleClass("active");   
-	        $('div.app-header__content').toggleClass("header-mobile-open"); 
-	        $('div.app-header__content div:eq(0)').toggleClass("app-header-left app-header-right"); 
-	    });
+//         $("div.app-header__menu").click(function(){
+// 	        $('.btn-sm').toggleClass("active");   
+// 	        $('div.app-header__content').toggleClass("header-mobile-open"); 
+// 	        $('div.app-header__content div:eq(0)').toggleClass("app-header-left app-header-right"); 
+// 	    });
 	})
 </script>	
 

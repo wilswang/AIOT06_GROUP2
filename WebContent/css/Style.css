@@ -1,9 +1,21 @@
 html{
 	font-size:16px !important;
 }
+
+.app-page-title {
+    padding: 30px;
+    margin: -20px -20px 0px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
 .fixed-header .app-main {
     padding-top: 60px;
 }
+
 #wrap_content{overflow-x: hidden;}
 
 .fixed-sidebar .app-main .app-main__outer {
@@ -11,12 +23,31 @@ html{
     width: 100vw;
 }
 .closed-sidebar.fixed-sidebar .app-main__outer {
-    padding-left: 80px;
+    padding-left: 60px;
+}
+
+.app-theme-white .app-footer .app-footer__inner, .app-theme-white .app-header {
+    background: #031528;
 }
 
 .app-header__logo {
     background-color: #031528 !important;
     padding: 0 1rem !important;
+}
+.app-header .app-header__logo {
+    display: inherit;
+}
+
+@media (max-width: 991.98px){
+	.app-header .app-header__logo {
+	    display: block;
+	    position: fixed;
+	    left: calc(50% - 130px);
+	}
+	.app-header .app-header__logo  button.hamburger{
+	    display: none;
+	}
+
 }
 
 .app-header .app-header__content {
@@ -56,3 +87,94 @@ html{
 	background-color: #2b2b2b !important; 
 }
 
+
+
+.allmember1{
+    padding: 0px 20px;
+}
+
+.no-margin { margin: 0px !important; }
+
+.no-padding { padding: 0px !important; }
+
+.m0 { margin: 0 !important; }
+
+.mt0 { margin-top: 0 !important; }
+
+.mt5 { margin-top: 5px !important; }
+
+.mt10 { margin-top: 10px !important; }
+
+.mt15 { margin-top: 15px !important; }
+
+.mt20 { margin-top: 20px !important; }
+
+.mb0 { margin-bottom: 0 !important; }
+
+.mb5 { margin-bottom: 5px !important; }
+
+.mb10 { margin-bottom: 10px !important; }
+
+.mb15 { margin-bottom: 15px !important; }
+
+.mb20 { margin-bottom: 20px !important; }
+
+
+#div_patient_dashboard .widget-content{
+	    padding: 0.5rem;
+}
+
+
+#div_patient_dashboard .card-body {
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+
+#div_patient_dashboard .list-group-item {
+    position: relative;
+    display: block;
+    padding: .5rem 1.25rem;
+
+}
+
+#div_patient_dashboard .main-card{
+	margin-bottom: 15px !important;
+    height: 95%;
+}
+#div_patient_dashboard .body-tabs-shadow .body-tabs-animated {
+    padding: 0.55rem 0;
+}
+
+
+#div_patient_dashboard .progress{
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+
+.dropdown-item {
+    padding: 0rem 1.5rem;
+}
+
+
+.dropdown-menu {
+    top: 36px !important;
+}
+
+@media (max-width: 767.98px){
+.popover, .dropdown-menu {
+    width: 80%;
+    top: 53px !important;
+    transform: none !important;
+}
+}
+
+.dropdown-menu:before {
+    position: absolute;
+    top: -8px;
+    right: 11px;
+    display: inline-block;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    content: '';
+}

@@ -127,3 +127,9 @@
 .app-sidebar .app-sidebar__inner {
     padding: 2px 1rem 1rem !important;
 }
+
+.closed-sidebar .app-sidebar {
+    width: 60px;
+    min-width: 60px;
+    flex: 0 0 60px;
+}

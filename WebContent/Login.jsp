@@ -79,7 +79,7 @@
 
 
     img {
-      height: 36px;
+      height: 30px;
       /* border-radius: 50%; */
     }
 

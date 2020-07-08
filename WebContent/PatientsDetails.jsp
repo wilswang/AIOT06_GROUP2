@@ -19,7 +19,7 @@
 		</div>
 		<div id="div_patient_dashboard" class="row">
 			<div class="col-xl-4 col-md-12 col-xs-12" >
-				<div class=" main-card mb-3 card">
+				<div id="div_patient_card1" class=" main-card mb-3 card">
 				<div class="card-body">
 					<div class="widget-content pb-0">
 						<div class="widget-content-outer">
@@ -35,7 +35,7 @@
 							</div>
 							<div class="widget-content-wrapper">
 								<div class="widget-content-left col-md-6">
-									<img id="sex" class="PatientPic" >
+									<img id="sex" class="PatientPic" style="height: 320px;">
 								</div>
 								<div class="widget-content-right col-md-6">
 									<div class="widget-progress-wrapper">
@@ -65,7 +65,7 @@
 			</div>
 			<!-- 詳細健康數據2 -->
 			<div class="col-xl-4 col-md-6 col-xs-12">
-				<div class=" main-card mb-3 card">
+				<div id="div_patient_card2" class=" main-card mb-3 card">
 				<div class="card-body">
 					<div class="widget-content pb-0">
 						<ul class="list-group list-group-flush">
@@ -136,7 +136,7 @@
 		</div>
 			<!-- 詳細健康數據3 -->
 			<div class="col-xl-4 col-md-6 col-xs-12">
-				<div class=" main-card mb-3 card ">
+				<div id="div_patient_card3" class=" main-card mb-3 card ">
 					<div class="card-body">
 						<div class="widget-content pb-0">
 						<ul class="list-group list-group-flush">
@@ -347,6 +347,7 @@ $(function(){
 	$(".row .col-md-4 .card-body:eq(1)").height($(".row .col-md-4 .card-body:eq(2)").height());
 	$("div.widget-content-outer").height($(".row .col-md-4 .card-body:eq(1)").height());
 	
+	
 	$("li.nav-item >a").click(function(){
         $(this).addClass("active").parent().addClass("active").siblings().removeClass("active").children().removeClass("active");
         if($(this).prop("id")=="tab-0"){
@@ -534,7 +535,8 @@ $(function(){
 			            		
 			            		// 性別判斷
 			            		$("#sex").attr("src","./assets/images/"+data["Pat"][0]["Gender"]+".png");
-			            		
+			            
+			       
 			            		//BMI
 			            		let height = data["Pat"][0]["Height"];
 			            		let h = height/100;

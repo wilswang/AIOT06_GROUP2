@@ -32,7 +32,7 @@ public class PwdEdit extends HttpServlet {
 		String Psw = request.getParameter("psw") ;
 		
 		 try (Connection conn = DatabaseConnection.getConnection()) {
-		   System.out.println(conn.isClosed());
+		   //System.out.println(conn.isClosed());
 		        
 //			update the new password
 			PreparedStatement stmt = conn.prepareStatement(SQL);
@@ -51,15 +51,15 @@ public class PwdEdit extends HttpServlet {
 				System.out.println("Select finished");
 				if(rs.getString("Psw").equals(Psw)) {
 //					if succeed
-//					request.setAttribute("psw_edit", "T");
+					request.setAttribute("psw_edit", "T");
 //					System.out.println("Success");
 					
-					request.getRequestDispatcher("/Getabnormal_detect").forward(request, response); //�۹���|
-//					response.sendRedirect("/FinalProject/HTML/index_homepage.jsp");
+					request.getRequestDispatcher("/Getabnormal_detect").forward(request, response);
+
 				}
 			}else {
 //				System.out.println("Fail");
-				session.setAttribute("psw_edit", "F");				
+				request.setAttribute("psw_edit", "F");				
 				response.sendRedirect("/FinalProject/HTML/user_account.jsp");
 			}
 			

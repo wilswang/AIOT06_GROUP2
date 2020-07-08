@@ -80,10 +80,14 @@
 
 
     img {
-      height: 36px;
+      height: 30px;
       /* border-radius: 50%; */
     }
-
+	 @media screen and (max-width: 767px) {
+      form {
+        width:80vw;
+      }
+    }
     /* Add padding to containers */
     .container {
       padding: 16px;
@@ -122,35 +126,111 @@
 	
 	<jsp:useBean id="emp" scope="session" class="com.userinfo.Empbean" />
 	<% String name=emp.getEname(), title=emp.getTitle(), empno=emp.getEmpno();%>
-	<form action="./PwdEdit" method="post">
-
+	<form action="" method="post" id="form_psw">
     <div class="imgcontainer">
-      <img src="./assets/images/HCLogo2.png" alt="Avatar" class="avatar">
+      <img src="./assets/images/HCLogoIcon2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
+      <h2 id = "psw_result"></h2>
       <label for="Empno"><b>Username</b></label>
-      <input type="text" name="Empno" readonly value=<%=empno%>>
+      <input type="text" name="Empno" readonly value=<%=empno%> style="cursor:not-allowed">
 
       <label for="ename"><b>Name</b></label>
-      <input type="text" name="name" readonly value=<%=name%>>
+      <input type="text" name="name" readonly value=<%=name%> style="cursor:not-allowed">
 
       <label for="title"><b>title</b></label>
-      <input type="text" name="title" readonly value=<%=title%>>
+      <input type="text" name="title" readonly value=<%=title%> style="cursor:not-allowed">
 
-      <label for="psw"><b>Enter Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required="required">
+      <label for="psw"><b>New Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required="required" autocomplete="off"/>
 
-      <label for="pswck"><b>Enter Password again</b></label>
-      <input type="password" placeholder="Enter Password" name="pswck" required="required"><br>      
-      
-      <button type="submit">Reset Password</button>      
-      <button type="button" onclick="history.back()">Cancel</button>            
+      <button type="submit" >Reset Password</button>      
+      <button type="button" onclick="location.href='index.jsp'">Cancel</button>            
 
     </div>
   
-    <div class="container"></div>
+    <div class="container" id="hint"></div>
     
     </form>
+    <script type="text/javascript" src="./assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script>
+    $(function(){ 
+    	
+    	
+    	var flagck = false;
+    	$("#psw").blur(function(){
+	            let flag1 = false;
+	            let flag2 = false;
+	            let flag3 = false;
+	            let pwdvalue=$("#psw").val();
+	            let upval=pwdvalue.toUpperCase();
+	            let Special = new RegExp("^(?=.*[!@#$%^&*])");
+	            if(pwdvalue==""){
+	                $("#hint").html("Cannot be blank!");
+	            }else{
+	               if(pwdvalue.length>=6){
+	                    for(i=0;i<pwdvalue.length;i++){
+	                        if(upval.charAt(i)>="A" && upval.charAt(i)<="Z"){
+	                            flag1=true;
+	                        }else{
+	                            $("#hint").html("Minimum <b>1 charactor</b>")
+	                        }if(upval.charAt(i)>="0" && upval.charAt(i)<="9"){
+	                            flag2=true;
+	                        }else{
+	                            $("#hint").html("Minimum <b>1 number</b>")
+	                        }
+	                    }
+	                    if(flag1 && flag2){
+	                        if(Special.test(pwdvalue)){
+	                            $("#hint").html("Format correct!");
+	                            flagck = true;
+	                        }else{
+	                            $("#hint").html("Minimum <b>1 special letter</b>");
+	                        }
+	                    }
+	               }else{
+	                    $("#hint").html("Minimum <b>6 characters</b>");
+	               }
+	        }
+            
+    	}); // password validation end
+    	
+    	$("#form_psw").submit(function(event) {  
+    		if(flagck){
+	    		$.ajax({
+		            type:"post",
+		            async: "false",
+		            url:"PwdEdit",   
+		            dataType:"json",//宣告回傳數據的資料格式，請求成功後servlet回傳json的格式 
+		            data : $("#form_psw").serialize(),
+		            beforesend:
+		            	console.log(flagck),
+		            success:
+		                function(data){  
+		            		$("#hint").html("Password Reset Successfully!");
+		            		var result = <%=request.getParameter("psw_edit")%>;
+		                	if(result){
+		                		$("#psw_result").html("Password changed successfully!")
+		                	}
+		            },// success end  
+		            error:
+		                function(xhr, ajaxOptions, thrownError){
+			            	alert("Password Reset Fail!"+xhr.status+"\n"+thrownError);
+			            	setTimeout(function(){
+					        	CommonLib.unblock("div_patient_dashboard");
+					        },200);
+		                }
+		            
+		        });return true
+    		}else{
+    			$("#hint").html("PLease check your password format!");
+    			alert("PLease check your password format!");
+    		}
+		}); //pswReset end
+		
+    });
+    </script>
+    
 </body>
 </html>

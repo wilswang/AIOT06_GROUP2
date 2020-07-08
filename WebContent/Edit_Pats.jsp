@@ -101,10 +101,10 @@ $(function() {
 	            	}else{
 	            		$("#s_gender1 select option:eq(2)").attr("selected",true);
 	            	}
-	        		$("#form_search").attr("id","form_edit");;
+	        		$("#form_search").attr("id","form_edit");
 	        		$("#s_patno").nextUntil("#s_submit").show();
 	        		$("#search_result").text("Search Successfully!");
-	            	$("#s_patno").val(data.Patno).attr("readonly","readonly");
+	            	$("#s_patno").val(data.Patno).attr("readonly","readonly").attr("style","cursor:not-allowed");
 	            	$("#s_pname").val(data.pName);	            	
 	            	$("#s_Height").val(data.Height);
 	            	$("#s_Weight").val(data.Weight);

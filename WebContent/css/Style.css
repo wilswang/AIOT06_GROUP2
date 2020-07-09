@@ -166,6 +166,7 @@ html{
     top: 53px !important;
     transform: none !important;
 }
+
 }
 
 .dropdown-menu:before {
@@ -177,4 +178,7 @@ html{
     border-bottom: 10px solid #fff;
     border-left: 10px solid transparent;
     content: '';
+}
+.dropdown-backdrop {
+	display:none;
 }

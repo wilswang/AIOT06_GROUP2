@@ -53,7 +53,7 @@ $(function(){
 		            			bp_status = "alltext";
 		            		};
 		            		$("div.allmember1").append(
-		            				'<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-6" style="margin-top:5px;padding: 0px 5px"><form  class="member" method="post" action="">'
+		            				'<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-top:5px;padding: 0px 5px"><form  class="member" method="post" action="">'
 		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'

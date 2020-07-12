@@ -18,7 +18,7 @@
 
 	<!-- 首頁三個重要指標 -->
 	<div class="row no-margin mb20">
-		<div class="col-md-6 col-xl-4">
+		<div class="col-md-4 col-sm-6 col-xs-12">
 			<div class="card mb-3 widget-content bg-midnight-bloom">
 				<div class="widget-content-wrapper text-white">
 					<div class="widget-content-left">
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 col-xl-4">
+		<div class="col-md-4 col-sm-6 col-xs-12">
 			<div class="card mb-3 widget-content bg-arielle-smile">
 				<div class="widget-content-wrapper text-white">
 					<div class="widget-content-left">
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 col-xl-4">
+		<div class="col-md-4 col-sm-6 col-xs-12">
 			<div class="card mb-3 widget-content bg-grow-early">
 				<div class="widget-content-wrapper text-white">
 					<div class="widget-content-left">
@@ -68,7 +68,7 @@
 		</div>
 	
 		<!-- RWD 出現的標籤 : 目前使用SpO2-->
-		<div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+		<div class="hidden-lg-up col-md-4 col-sm-6 col-xs-12">
           <div class="card mb-3 widget-content bg-secondary">
               <div class="widget-content-wrapper text-white">
                   <div class="widget-content-left">
@@ -143,7 +143,7 @@ $(function(){
 		            			continue;
 		            		}else{
 		            			$("div.allmember1").append(
-		            				'<div class="col-xl-2 col-lg-3 col-md-3 col-6" style="margin-top:5px;padding: 0px 5px;"><form class="member " method="post" action="">'
+		            				'<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" style="margin-top:5px;padding: 0px 5px;"><form class="member " method="post" action="">'
 		            	            +'<div class="member-head"><p class="alltext name">'+data[i]['pName']+'</p>'
 		            	            +'<div class="glucose">'
 		            	            +'<img src="./assets/images/glucose.png" alt="glucose">'

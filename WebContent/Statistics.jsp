@@ -13,7 +13,7 @@
 	    </div>
 	</div>
    	<div class="row">
-		<div class="col-xl-6 col-md-12">
+		<div class="col-md-6 col-sm-6 col-xs-12">
 			<div class="main-card mb-3 card">
 				<div class="card-body " style="width: 100%;">
 					<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xl-6 col-md-12">
+		<div class="col-md-6 col-sm-6 col-xs-12">
 			<div class="main-card mb-3 card">
 				<div class="card-body">
 					<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
@@ -91,8 +91,7 @@
                             labelString: '#'
     	               		},
                    		ticks: {
-    	                    suggestedMin: 0,
-    	                    suggestedMax: 10,
+    	                    
     	                    stepSize:2,
     	                    padding:0
     	                    }

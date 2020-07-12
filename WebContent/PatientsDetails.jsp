@@ -15,56 +15,51 @@
 	</div>
 	
 		<div id="load" style="position: relative;">
-			<img src="./assets/images/loading.gif" style="left:50% ; position: absolute; top: 50%; transform: translateX(-50%)"/>
+			
 		</div>
 		<div id="div_patient_dashboard" class="row">
-			<div class="col-xl-4 col-md-12 col-xs-12" >
+			<div class="col-md-4 col-sm-4 col-xs-12" >
 				<div id="div_patient_card1" class=" main-card mb-3 card">
 				<div class="card-body">
 					<div class="widget-content pb-0">
 						<div class="widget-content-outer">
 							<div class="widget-content-wrapper" >
 								<div class="widget-content-left  col-md-6">
-									<div class="widget-heading">Patient No. </div>
-									<span class="widget-numbers mt-0 fsize-3 text-secondary"style="display: inline" id="patno"></span>
+									<div class="widget-heading" id="patno">Patient No. </div>
+									<span class="widget-numbers mt-0 fsize-3 text-secondary " id="pname"></span>
+									<img id="sex" class="PatientPic">
 								</div>
 								<div class="widget-content-right col-md-6">
-									<div class="widget-heading " >Cardiovascular Disease Status</div>
-									<span class="widget-numbers mt-0 fsize-3 text-secondary "style="text-align: right;display: inline"></span>
-								</div>
-							</div>
-							<div class="widget-content-wrapper">
-								<div class="widget-content-left col-md-6">
-									<img id="sex" class="PatientPic" style="height: 320px;">
-								</div>
-								<div class="widget-content-right col-md-6">
+									<div class="widget-heading " >Cardio-Risk</div>
+									<span class="widget-numbers mt-0 fsize-3 text-secondary" id="cardio" style="text-align: right;display: inline"></span>
 									<div class="widget-progress-wrapper">
 										<div class="widget-heading">Height</div>
-										<span class="widget-numbers text-success" style="display: inline;" id="height"></span>
-										<span class="widget-subheading text-success" style="display: inline;">cm</span>
+										<span class="widget-numbers text-success fsize-3" style="display: inline;" id="height"></span>
+										<span class="widget-subheading" style="display: inline;">cm</span>
 									</div>
 									<div class="widget-progress-wrapper ">
 										<div class="widget-heading">Weight</div>
-										<span class="widget-numbers text-success" style="display: inline;" id="weight"></span>
-										<span class="widget-subheading text-success" style="display: inline;">kg</span>
+										<span class="widget-numbers text-success fsize-3" style="display: inline;" id="weight"></span>
+										<span class="widget-subheading" style="display: inline;">kg</span>
 									</div>
 									<div class="widget-progress-wrapper">
 										<div class="widget-heading">BMI</div>
-										<span id="BMI" class="widget-numbers text-success" style="display: inline;"></span>
+										<span id="BMI" class="widget-numbers text-success fsize-3" style="display: inline;"></span>
 									</div>
 									<div class="widget-progress-wrapper">
 										<div class="widget-heading">Blood Type</div>
-										<span id="BMI" class="widget-numbers text-success" style="display: inline; text-align:right"></span>
+										<span id="blood" class="widget-numbers text-success fsize-3" style="display: inline; text-align:right"></span>
 									</div>
 								</div>
-								</div>
+							</div>
+							
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- 詳細健康數據2 -->
-			<div class="col-xl-4 col-md-6 col-xs-12">
+			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div id="div_patient_card2" class=" main-card mb-3 card">
 				<div class="card-body">
 					<div class="widget-content pb-0">
@@ -135,7 +130,7 @@
 			</div>
 		</div>
 			<!-- 詳細健康數據3 -->
-			<div class="col-xl-4 col-md-6 col-xs-12">
+			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div id="div_patient_card3" class=" main-card mb-3 card ">
 					<div class="card-body">
 						<div class="widget-content pb-0">
@@ -252,7 +247,7 @@
 			</div>
 			<div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
 				<div class="row">
-					<div class="col-xl-6 col-md-12">
+					<div class="col-md-6 col-xs-12">
 						<div class="main-card mb-3 card">
 							<div class="card-body" style="width: 100%;">
 								<h5 class="card-title" style="text-align: center">Pulse Rate</h5>
@@ -266,7 +261,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-6 col-md-12">
+					<div class="col-md-6 col-xs-12">
 						<div class="main-card mb-3 card">
 							<div class="card-body">
 								<h5 class="card-title" style="text-align: center">SBP/DBP</h5>
@@ -343,10 +338,11 @@
 <!-- <script type="text/javascript" src="./assets/scripts/main.js"></script> -->
 <script >
 $(function(){             
-	$(".row .col-md-4 .card-body:eq(0)").height($(".row .col-md-4 .card-body:eq(2)").height());
-	$(".row .col-md-4 .card-body:eq(1)").height($(".row .col-md-4 .card-body:eq(2)").height());
-	$("div.widget-content-outer").height($(".row .col-md-4 .card-body:eq(1)").height());
-	
+	var div1 = $("#div_patient_dashboard > div:eq(0)").height();
+	var div2 = $("#div_patient_dashboard > div:eq(1)").height();
+	var div3 = $("#div_patient_dashboard > div:eq(2)").height();
+	var max_height = Math.max(div1, div2, div3);
+	$("#div_patient_dashboard > div").height(max_height);
 	
 	$("li.nav-item >a").click(function(){
         $(this).addClass("active").parent().addClass("active").siblings().removeClass("active").children().removeClass("active");
@@ -365,7 +361,7 @@ $(function(){
 	let labels = ["10","9","8","7","6","5","4","3","2","1"];
 	let data = [];
 	
-	function config(labels,datas,ylabelString,suggestedMin_,suggestedMax_){
+	function config(labels,datas,ylabelString){
 		let config_ = {
             type: 'line',
             data: {
@@ -409,9 +405,7 @@ $(function(){
                             labelString: ylabelString
     	               		},
                    		ticks: {
-    	                    suggestedMin: suggestedMin_,
-    	                    suggestedMax: suggestedMax_,
-    	                    stepSize:20,
+    	                    
     	                    padding:0
     	                    }
                     }]
@@ -419,7 +413,7 @@ $(function(){
             }};return config_;
     }; // config_ end
     
-    function config2(labels,data1,data2,ylabelString,suggestedMin_,suggestedMax_){
+    function config2(labels,data1,data2,ylabelString){
     	let config2_ = {
                 type: 'line',
                 data: {
@@ -445,6 +439,7 @@ $(function(){
                         text: 'Histogram of detection',
                         
                     },
+                    
                     tooltips: {
 	                	mode: 'index',
 	                    intersect: false,
@@ -468,9 +463,8 @@ $(function(){
                                 labelString: ylabelString
         	               		},
                        		ticks: {
-        	                    suggestedMin: suggestedMin_,
-        	                    suggestedMax: suggestedMax_,
-        	                    stepSize:20,
+        	                    
+        	                    
         	                    padding:0
         	                    }
                         }]
@@ -481,13 +475,13 @@ $(function(){
         
 		// plot the charts
 		let ctx1 = document.getElementById('PR').getContext('2d');
-		let chart1 = new Chart(ctx1, config(labels,data,'bpm',50,200));
+		let chart1 = new Chart(ctx1, config(labels,data,'bpm'));
 		let ctx2 = document.getElementById('Glu').getContext('2d');
-		let chart2 = new Chart(ctx2, config(labels,data,'mmHg',50,200));
+		let chart2 = new Chart(ctx2, config(labels,data,'mmHg'));
 		let ctx3 = document.getElementById('BP').getContext('2d');
-		let chart3 = new Chart(ctx3, config2(labels,data,data,'mg/dL',50,150));
+		let chart3 = new Chart(ctx3, config2(labels,data,data,'mg/dL'));
 		let ctx4 = document.getElementById('Sp').getContext('2d');
-		let chart4 = new Chart(ctx4, config(labels,data,'percentage',60,120));
+		let chart4 = new Chart(ctx4, config(labels,data,'percentage'));
 	    
 		// ajax loading animation
 // 		$(document).on({
@@ -530,8 +524,8 @@ $(function(){
 			            		// Patient info 
 			            		let patno = data["DMs"][0]["Patno"];
 			            		let pname = data["Pat"][0]["pName"];
-			            		$("div.app-main__inner .widget-heading:eq(0)").html('Patient No. '+patno);
-			            		$("div.app-main__inner span.widget-numbers:eq(0)").html(pname);
+			            		$("#patno").html('Patient No. '+patno);
+			            		$("#pname").html(pname);
 			            		
 			            		// 性別判斷
 			            		$("#sex").attr("src","./assets/images/"+data["Pat"][0]["Gender"]+".png");
@@ -542,13 +536,13 @@ $(function(){
 			            		let h = height/100;
 			            		let weight = data["Pat"][0]["Weight"]
 			            		let BMI = Math.round(10*weight/Math.pow(h,2))/10;
-			            		$("div.app-main__inner span.widget-numbers:eq(2)").html(height);
-			            		$("div.app-main__inner span.widget-numbers:eq(3)").html(weight);
-			            		$("div.app-main__inner span.widget-numbers:eq(4)").html(BMI);
+			            		$("#height").html(height);
+			            		$("#weight").html(weight);
+			            		$("#BMI").html(BMI);
 			            		
 			            		// Blood type
 			            		let blood_type = data["Pat"][0]["Blood_Type"];
-			            		$("div.app-main__inner span.widget-numbers:eq(5)").html(blood_type);
+			            		$("#blood").html(blood_type);
 			            		
 			            		// bar樣式設定
 			            		function barwidth(data){return data*100/200};
@@ -564,10 +558,10 @@ $(function(){
 			            		let SpO2_bar = SpO2+"%";
 			            		let cardio = data["ml"][0]["result"];
 			            		let pulse_class, pulse_num, SBP_class, SBP_num, DBP_class, DBP_num, glucose_class, glucose_num, SpO2_class, SpO2_num, cardio_class;
-			            		$("div.app-main__inner span.widget-numbers:eq(1)").html(cardio);
+			            		$("#cardio").html(cardio);
 			            		
 			            		// pulse_rate
-			            		$("div.app-main__inner span.widget-numbers:eq(6)").html(pr);
+			            		$("#Pulse_Rate_num").html(pr);
 			            		$("#Pulse_Rate").attr("style","width:"+pulse_bar);		            		
 			            		if (pr<60){
 			            			$("#Pulse_Rate").addClass('bg-danger')
@@ -581,7 +575,7 @@ $(function(){
 		            			};
             					
             					// SBP
-            					$("div.app-main__inner span.widget-numbers:eq(7)").html(SBP);
+            					$("#SBP_num").html(SBP);
             					$("#SBP").attr("style","width:"+SBP_bar);
             					if (SBP<140){
             						$("#SBP").addClass('bg-success')
@@ -595,7 +589,7 @@ $(function(){
            						};
             					
             					// DBP
-            					$("div.app-main__inner span.widget-numbers:eq(8)").html(DBP);
+            					$("#DBP_num").html(DBP);
             					$("#DBP").attr("style","width:"+DBP_bar);
             					if (DBP<90){
             						$("#DBP").addClass('bg-success')
@@ -609,7 +603,7 @@ $(function(){
            						};
             					
             					// glucose
-            					$("div.app-main__inner span.widget-numbers:eq(9)").html(glucose);
+            					$("#glucose_num").html(glucose);
             					$("#glucose").attr("style","width:"+glucose_bar);
             					if (glucose<100){
             						$("#glucose").addClass('bg-success')
@@ -620,7 +614,7 @@ $(function(){
            						};
             					
             					// SpO2
-            					$("div.app-main__inner span.widget-numbers:eq(10)").html(SpO2);
+            					$("#SpO2_num").html(SpO2);
             					$("#SpO2").attr("style","width:"+SpO2_bar);
             					if (SpO2<90){
             						$("#SpO2").addClass('bg-danger')

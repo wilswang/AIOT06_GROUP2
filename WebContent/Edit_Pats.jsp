@@ -175,10 +175,10 @@ $(function() {
 
 	
 	//19-jQuery datepicker Methods getDate setDate
-    $(".birthday").datepicker({
+    $(".datepicker").datepicker({
       //設定日期格式
-      dateFormat : "yy-mm-dd",
-      width:"180px"
+      dateFormat : "yy-mm-dd"
+//       width:"180px"
     });
     
      //$(".datepicker").datepicker({width:"180px"});

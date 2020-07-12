@@ -16,19 +16,20 @@
     <link rel="apple-touch-icon" href="./assets/images/LogoIcon.ico">
     <link rel="icon" href="./assets/images/LogoIcon.ico">
 	<link href="assets/fonts/font-awesome5/css/all.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="./assets/vendor/jquery/jquery-ui.css">
+<!-- 	<link href="main.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="./assets/vendor/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="main.css" rel="stylesheet">
 	<link href="sidebar.css" rel="stylesheet">
 	<link href="css/Style.css" rel="stylesheet">
 	<link href="index_homepage.css" rel="stylesheet">	
 	<link href="Edit_upload.css" rel="stylesheet">
 	<link href="./assets/vendor/chartjs/Chart.css" rel="stylesheet">
-	
+
 </head>
 
 <body> 
 	<script type="text/javascript" src="./assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="./assets/vendor/jquery/jquery-ui.js"></script>
 	<script type="text/javascript" src="./assets/vendor/jquery-loading/jquery.loading.js"></script>
 	<script type="text/javascript" src="./assets/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./assets/vendor/chartjs/Chart.bundle.js"></script>
@@ -81,7 +82,7 @@
 											<i class="fa fa-user fa-2x"></i>
 											<i class="fa fa-angle-down ml-2 opacity-8"></i>
 										</a>
-										<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+										<div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right" style="z-index:999;">
 											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./user_account.jsp'">User Account: <%=name%> (<%=title%>)</button>
 												<div tabindex="-1" class="dropdown-divider"></div>
 											<button type="button" tabindex="0" class="dropdown-item" onclick="location.href='./Logout.jsp'">Logout</button>

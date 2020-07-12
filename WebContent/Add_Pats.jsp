@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 ">
             <div class="main-card mb-3 card add_container1">
                 <!-- 新增成員程式碼 -->
                 <form class="form_pattern" id="form_add" action="" method="post" style="margin-top:15px;" accept-charset=utf-8>                                               

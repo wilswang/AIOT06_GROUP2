@@ -40,9 +40,7 @@ public class Login extends HttpServlet {
 			stmt.setString(1, empno);
 			ResultSet rs = stmt.executeQuery();
 			HttpSession session =  request.getSession() ;
-
-			session.setMaxInactiveInterval(15*60); // 
-//			String sesid=session.getId();
+//			session.setMaxInactiveInterval(15*60);
 			Empbean emp = new Empbean();
 			int count=0;
 			if(session.getAttribute("count")!=null && empno.equals(session.getAttribute("lastuser"))) {
@@ -61,13 +59,13 @@ public class Login extends HttpServlet {
 							emp.setEname(rs.getString("eName"));
 							emp.setTitle(rs.getString("title"));
 						}
+						session.setAttribute("session", session.getId());
 						session.setAttribute("emp", emp);
 						session.setAttribute("LogOk","yes");
 						request.setAttribute("LogOk","yes");
 //						request.getRequestDispatcher("/Getabnormal_detect").include(request, response);
 //						request.getRequestDispatcher("./index.jsp").forward(request, response);
 						response.sendRedirect("./index.jsp");
-												
 					}
 					else {
 						count+=1;						

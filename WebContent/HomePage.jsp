@@ -152,7 +152,7 @@ $(function(){
 		            	            +'<div class="pic"><img class="mebimg rounded-circle" src="./assets/images/oldperson/'+ data[i]['Patno'] +'.png" onclick="navigateToPage2('+data[i]['Patno']+','+timer_id+')"/>'
 		            	            +'</div>'
 		            	            +'<div class="hart"><img src="./assets/images/hart.png" alt="hart">'    
-		            	            +'<p class="Prid" '+pulse_status+'>'+pulseRate+'</p></div>'
+		            	            +'<p class="Prid '+pulse_status+'">'+pulseRate+'</p></div>'
 		            	            +'<div class="bdpresseure">'
 		            	            +'<img src="./assets/images/bdpressure.png" alt="bdpresseure">'
 		            	            +'<p class="SDBPid '+bp_status+'">'+sbp+'/'+dbp+'</p></div></form></div>'  

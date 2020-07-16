@@ -44,6 +44,47 @@
 			$("#wrap_content").load('PatientsDetails.jsp',{'patno':patno});
 			clearInterval(timerid);
 		};
+		
+		//Idle detection
+		var oTimeId;
+		var mTimeId;
+		var NowDate = new Date();
+		var h = NowDate.getHours();
+		var m = NowDate.getMinutes();
+		if(m+29 > 60){
+			var m_ = (m+29)%59;
+			var h_ = h+1;
+		}else{
+			var m_ = m+29;
+			var h_ = h;
+		}
+		var s = NowDate.getSeconds();
+		if(s/10 < 1){
+			var s_ = "0"+s;
+		}else{
+			var s_ = s;
+		}
+		var startTime = h+':'+m+':'+s_;
+		var endTime = h_+':'+m_+':'+s_;
+		function Timeout(){
+			location.href='./Logout.jsp';
+		}
+		function Msg(){
+			alert('Idle is detected at '+startTime+'\n'+'You will be logout at '+endTime+", if you re not in use.");
+		}
+		function ReCalculate(){
+			clearTimeout(oTimeId);
+			clearTimeout(mTimeId);
+			mTimeId = setTimeout('Msg()',30000)
+			oTimeId = setTimeout('Timeout()',60000)
+			//mTimeId = setTimeout('Msg()',7.5*60*1000)
+			//oTimeId = setTimeout('Timeout()',15*60*1000)
+			console.log('recalculate');
+		}
+		document.onmousedown = ReCalculate;
+		document.onkeydown = ReCalculate;
+		document.onmousewheel = ReCalculate;
+		ReCalculate();
     </script>
     
 	

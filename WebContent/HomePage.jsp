@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*,com.patientinfo.HealthcareBean"%>
-<%@ include file="backtotop.jsp"%> 
+<%@ include file="backtotop.jsp"%>
 
 <div class="app-main__inner">
 	<div class="app-page-title">

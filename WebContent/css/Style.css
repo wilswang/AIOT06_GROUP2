@@ -47,6 +47,16 @@ body{
     box-sizing: border-box;
 }
 
+#msg{
+	font-size:1.2rem;
+	font-weight:bold;
+}
+#countdown{
+	font-size:1.5rem;
+	color:#dc3545;
+	font-weight:bold;
+}
+
 .container {
     width: 100%;
 }
@@ -63,6 +73,81 @@ img {
     vertical-align: middle;
     border-style: none;
 }
+
+.backtotop {
+				position: fixed;
+				z-index: 155;
+				right: -30px;
+				top: 0;
+				height: 100vh;
+				transform: translate(500px);
+				transition: all .2s;
+				box-shadow: -0.46875rem 0 2.1875rem rgba(4, 9, 20, 0.03), -0.9375rem 0 1.40625rem rgba(4, 9, 20, 0.03), -0.25rem 0 0.53125rem rgba(4, 9, 20, 0.05), -0.125rem 0 0.1875rem rgba(4, 9, 20, 0.03)
+			}
+			.backtotop .btn-open-options {
+				border-radius: 50px;
+				position: absolute;
+				left: -114px;
+				bottom: 80px;
+				padding: 0;
+				height: 54px;
+				line-height: 54px;
+				width: 54px;
+				text-align: center;
+				display: block;
+				box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+				margin-top: -27px
+			}
+			.backtotop .btn-open-options svg {
+				top: 50%;
+				left: 50%;
+				position: absolute;
+				margin: -0.5em 0 0 -0.5em
+			}
+			.backtotop .theme-settings__inner {
+				background: #fff;
+				width: 500px;
+				height: 100vh;
+				padding: 0
+			}
+			.backtotop.settings-open {
+				transform: translate(0);
+				right: 0
+			}
+			.backtotop .theme-settings-swatches {
+				text-align: center
+			}
+			.backtotop .theme-settings-swatches .swatch-holder-img {
+				width: 72px;
+				height: auto;
+				border-radius: 3px
+			}
+			.backtotop .theme-settings-swatches .swatch-holder-img img {
+				width: 100%
+			}
+			.backtotop .themeoptions-heading {
+				font-size: 1.1rem;
+				color: #495057;
+				margin: 0;
+				background: #f8f9fa;
+				padding: .75rem 1.5rem;
+				border-bottom: #dee2e6 solid 1px;
+				border-top: #dee2e6 solid 1px;
+				display: flex;
+				align-items: center;
+				align-content: center
+			}
+			.backtotop .themeoptions-heading:first-child {
+				border-top: 0
+			}
+			.backtotop .list-group-item h5 {
+				color: #3f6ad8;
+				font-size: .968rem;
+				text-transform: uppercase;
+				margin: 0;
+				text-align: center
+			}
+			
 .rounded-circle {
     border-radius: 50% !important;
 }
@@ -1508,9 +1593,9 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
     }
 }
 
-.fade:not(.show) {
-    opacity: 0
-}
+/* .fade:not(.show) { */
+/*     opacity: 0 */
+/* } */
 
 .collapse:not(.show) {
     display: none

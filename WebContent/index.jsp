@@ -16,9 +16,8 @@
     <link rel="apple-touch-icon" href="./assets/images/LogoIcon.ico">
     <link rel="icon" href="./assets/images/LogoIcon.ico">
 	<link href="assets/fonts/font-awesome5/css/all.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="./assets/vendor/jquery/jquery-ui.css">
-<!-- 	<link href="main.css" rel="stylesheet"> -->
-	<link rel="stylesheet" href="./assets/vendor/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="./assets/vendor/jquery/jquery-ui.css" rel="stylesheet" >
+	<link href="./assets/vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 	<link href="sidebar.css" rel="stylesheet">
 	<link href="css/Style.css" rel="stylesheet">
 	<link href="index_homepage.css" rel="stylesheet">	
@@ -33,8 +32,8 @@
 	<script type="text/javascript" src="./assets/vendor/jquery-loading/jquery.loading.js"></script>
 	<script type="text/javascript" src="./assets/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./assets/vendor/chartjs/Chart.bundle.js"></script>
-	
 	<script type="text/javascript" src="./assets/scripts/CommonLib.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 	<script>
 		function navigateToPage(pageName) {
 		  $("#wrap_content").load(pageName); 		  
@@ -48,45 +47,37 @@
 		//Idle detection
 		var oTimeId;
 		var mTimeId;
-		var NowDate = new Date();
-		var h = NowDate.getHours();
-		var m = NowDate.getMinutes();
-		if(m+29 > 60){
-			var m_ = (m+29)%59;
-			var h_ = h+1;
-		}else{
-			var m_ = m+29;
-			var h_ = h;
+		var cTimeId;
+		async function countDown(time){
+			for(time;time>=0;time--){
+				$("#countdown").html(time+'s');
+				await new Promise(r => cTimeId=setTimeout(r, 1000));
+			}
 		}
-		var s = NowDate.getSeconds();
-		if(s/10 < 1){
-			var s_ = "0"+s;
-		}else{
-			var s_ = s;
-		}
-		var startTime = h+':'+m+':'+s_;
-		var endTime = h_+':'+m_+':'+s_;
 		function Timeout(){
 			location.href='./Logout.jsp';
 		}
 		function Msg(){
-			alert('Idle is detected at '+startTime+'\n'+'You will be logout at '+endTime+", if you re not in use.");
+			
+			const startTime = moment().format('hh:mm:ss');
+			$("#msg").html('Idle is detected at '+startTime+'.<br/>If you are not in use, you will be logout after ')
+			countDown(10);
+			$("#myModal").modal('show');
 		}
 		function ReCalculate(){
 			clearTimeout(oTimeId);
 			clearTimeout(mTimeId);
-			mTimeId = setTimeout('Msg()',30000)
-			oTimeId = setTimeout('Timeout()',60000)
-			//mTimeId = setTimeout('Msg()',7.5*60*1000)
-			//oTimeId = setTimeout('Timeout()',15*60*1000)
+			clearTimeout(cTimeId);
+			mTimeId = setTimeout('Msg()',15000);
+			oTimeId = setTimeout('Timeout()',25000);
 			console.log('recalculate');
 		}
 		document.onmousedown = ReCalculate;
 		document.onkeydown = ReCalculate;
 		document.onmousewheel = ReCalculate;
 		ReCalculate();
+		
     </script>
-    
 	
 	<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
 		<div class="app-header header-shadow">
@@ -116,7 +107,6 @@
 				<div class="header-btn-lg pr-0">
 						<div class="widget-content p-0">
 							<div class="widget-content-wrapper">
-							
 								<div class="widget-content-left">
 									<div class="btn-group" style="color: #888888;margin-left: 10px;">
 										<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
@@ -216,10 +206,10 @@
 						</ul>
 					</div>
 				</div>
-			</div>	
+			</div>
 			<div id="wrap_content" class="app-main__outer">
-				<jsp:include page="HomePage.jsp"/>
 				
+				<jsp:include page="HomePage.jsp"/>
 			</div>
 		</div>
 	</div>
@@ -240,6 +230,7 @@
 	        $('.app-container').toggleClass("sidebar-mobile-open");  
 	    });
         
+         
 //         $("div.app-header__menu").click(function(){
 // 	        $('.btn-sm').toggleClass("active");   
 // 	        $('div.app-header__content').toggleClass("header-mobile-open"); 
@@ -247,7 +238,7 @@
 // 	    });
 	})
 </script>	
-
+	<%@ include file="Dialog.jsp"%>
 	<link href="./assets/vendor/jquery-loading/jquery.loading.min.css" rel="stylesheet" type="text/css"/>
 </body>
 </html>

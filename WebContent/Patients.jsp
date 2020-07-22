@@ -88,7 +88,7 @@ $(function(){
                     <i class="fas fa-user-friends"></i>
                 </div>
                 <div>Patients
-                    <div class="page-title-subheading">All patients info can be checked here.</div>
+                    <div class="page-title-subheading">All patients info can be checked here.</div>                    
                 </div>
             </div>                            
         </div>

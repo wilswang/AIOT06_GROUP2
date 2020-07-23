@@ -217,7 +217,9 @@
 <script>
 	$(function(){
 		$("ul.vertical-nav-menu li a").click(function(){
-            $(this).addClass("mm-active").parent().siblings().children().removeClass("mm-active");  
+            $(this).addClass("mm-active").parent().siblings().children().removeClass("mm-active");
+            $(".mobile-toggle-nav").removeClass("is-active");
+            $(".sidebar-mobile-open").removeClass("sidebar-mobile-open");
         });
         
         $("button.close-sidebar-btn").click(function(){
@@ -229,13 +231,6 @@
 	        $('.mobile-toggle-nav').toggleClass("is-active");   
 	        $('.app-container').toggleClass("sidebar-mobile-open");  
 	    });
-        
-         
-//         $("div.app-header__menu").click(function(){
-// 	        $('.btn-sm').toggleClass("active");   
-// 	        $('div.app-header__content').toggleClass("header-mobile-open"); 
-// 	        $('div.app-header__content div:eq(0)').toggleClass("app-header-left app-header-right"); 
-// 	    });
 	})
 </script>	
 	<%@ include file="Dialog.jsp"%>
